@@ -12,6 +12,7 @@
   },
   "license": "MPL-2.0",
   "exports": {
+    "./commitlint": "./src/commitlint/index.js",
     "./eslint/base": "./src/eslint/eslint.base.js",
     "./eslint/browser": "./src/eslint/eslint.browser.js",
     "./eslint/jest": "./src/eslint/eslint.jest.js",
@@ -28,6 +29,7 @@
   "main": "index.js",
   "files": ["src/eslint", "src/prettier", "src/tsconfig"],
   "scripts": {
+    "commitlint": "pnpm exec commitlint --edit",
     "eslint-check": "eslint --max-warnings=0 .",
     "prepare": "husky install",
     "prettier-check": "prettier --check .",
@@ -36,15 +38,21 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "lint-staged": {
-    "*": "prettier -w --ignore-unknown"
+    "*": "prettier -w --ignore-unknown",
+    "src/**/*.{ts,tsx}": ["npm run prettier-fix", "npm run eslint-check"]
   },
   "dependencies": {
     "@babel/core": "^7.24.0",
     "@babel/eslint-parser": "^7.23.10",
+    "@commitlint/cli": "^19.0.3",
+    "@commitlint/config-conventional": "^19.0.3",
     "@rushstack/eslint-patch": "^1.7.2",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "@typescript-eslint/eslint-plugin": "^7.1.1",
     "@typescript-eslint/parser": "^7.1.1",
+    "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-import-resolver-alias": "^1.1.2",
     "eslint-import-resolver-typescript": "^3.6.1",
@@ -60,17 +68,11 @@
     "eslint-plugin-tsdoc": "^0.2.17",
     "eslint-plugin-unicorn": "^51.0.1",
     "eslint-plugin-vitest": "^0.3.22",
-    "prettier-plugin-packagejson": "^2.4.12",
-    "prettier-plugin-sort-imports": "^1.8.6"
-  },
-  "devDependencies": {
-    "@commitlint/cli": "^19.0.3",
-    "@commitlint/config-conventional": "^19.0.3",
-    "@semantic-release/git": "^10.0.1",
-    "eslint": "^8.57.0",
     "husky": "^9.0.11",
-    "lint-staged": "^15.2.2",
+    "lint-staged": "^15.2.10",
     "prettier": "^3.3.3",
+    "prettier-plugin-packagejson": "^2.4.12",
+    "prettier-plugin-sort-imports": "^1.8.6",
     "semantic-release": "^23.0.2",
     "typescript": "^5.3.3"
   },
