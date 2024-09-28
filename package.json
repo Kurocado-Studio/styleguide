@@ -13,6 +13,7 @@
   "license": "MPL-2.0",
   "exports": {
     "./commitlint": "./src/commitlint/index.js",
+    "./semantic-release": "./src/semantic-release/index.js",
     "./eslint/base": "./src/eslint/eslint.base.js",
     "./eslint/browser": "./src/eslint/eslint.browser.js",
     "./eslint/jest": "./src/eslint/eslint.jest.js",
