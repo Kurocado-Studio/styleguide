@@ -1,72 +1,36 @@
-name: Build and Deploy Writerside Documentation
+name: Build documentation
 
 on:
   push:
-    branches: ['main'] # Trigger the workflow on push to the main branch
-  workflow_dispatch: # Allow manual triggering of the workflow
-
-permissions:
-  id-token: write
-  pages: write
+    branches: ['main']
+  workflow_dispatch:
 
 env:
-  INSTANCE: Writerside/docs # Adjust instance to reflect Writerside module and product
-  ARTIFACT: webHelpDocs-all.zip # Adjust artifact name if needed
-  DOCKER_VERSION: 242.21870 # Correct Docker version as per Writerside setup
+  INSTANCE: 'Writerside/docs'
+  ARTIFACT: 'webHelpDocs2-all.zip'
+  DOCKER_VERSION: '242.21870'
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GH_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
 
-      - name: Pull Writerside Docker image
-        run: docker pull registry.jetbrains.team/p/writerside/builder/writerside-builder:${{ env.DOCKER_VERSION }}
-
-      - name: Build Writerside Documentation
+      - name: Build docs using Writerside Docker builder
         uses: JetBrains/writerside-github-action@v4
         with:
           instance: ${{ env.INSTANCE }}
           artifact: ${{ env.ARTIFACT }}
           docker-version: ${{ env.DOCKER_VERSION }}
 
-      - name: Upload artifact for deployment
+      - name: Save artifact with build results
         uses: actions/upload-artifact@v4
         with:
           name: docs
           path: |
             artifacts/${{ env.ARTIFACT }}
           retention-days: 7
-
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-
-    permissions:
-      pages: write # Permissions to publish to GitHub Pages
-      id-token: write
-
-    steps:
-      - name: Download artifact for deployment
-        uses: actions/download-artifact@v4
-        with:
-          name: docs
-
-      - name: Unzip artifact
-        run: unzip -O UTF-8 -qq ${{ env.ARTIFACT }} -d dir
-
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v4
-
-      - name: Upload artifact to GitHub Pages
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: dir
-
-      - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v4
