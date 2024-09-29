@@ -1,0 +1,5 @@
+<project>
+    <modules>
+        <module name="Kurocado Studio's engineering style guide" path="docs" />
+    </modules>
+</project>
