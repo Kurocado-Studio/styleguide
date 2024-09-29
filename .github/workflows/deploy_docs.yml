@@ -56,10 +56,10 @@ jobs:
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
-          name: artifacts/${{ env.ARTIFACT }} # Download the artifact uploaded in the build step
+          name: ${{ env.ARTIFACT }} # Download the artifact uploaded in the build step
 
       - name: Unzip artifact
-        run: unzip -O UTF-8 -qq artifacts/${{ env.ARTIFACT }} -d dir
+        run: unzip -O UTF-8 -qq ${{ env.ARTIFACT }} -d dir
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v4
