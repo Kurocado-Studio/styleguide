@@ -7,7 +7,7 @@ on:
 
 env:
   INSTANCE: 'Writerside/dcs' # Name of the module (adjust for your project)
-  ARTIFACT: 'algolia-indexes-DCS.zip' # Name of the artifact to be generated
+  ARTIFACT: 'webHelpDCS2-all.zip' # Name of the artifact to be generated
   DOCKER_VERSION: '242.21870' # Specific Docker version
 
 jobs:
