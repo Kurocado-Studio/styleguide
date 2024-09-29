@@ -12,7 +12,7 @@ permissions:
 env:
   INSTANCE: Writerside/Kurocado Studio Styleguide
   ARTIFACT: webHelpkssS2-all.zip
-  DOCKER_VERSION: 242.2187
+  DOCKER_VERSION: 242.21870
 
 jobs:
   build:
