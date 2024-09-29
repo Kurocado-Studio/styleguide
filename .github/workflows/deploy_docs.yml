@@ -2,13 +2,13 @@ name: Build, Test, and Deploy Documentation
 
 on:
   push:
-    branches: ['main'] # Trigger workflow on push to the 'main' branch
-  workflow_dispatch: # Allow manual triggering of the workflow
+    branches: ['main']
+  workflow_dispatch:
 
 env:
-  INSTANCE: 'Writerside/dcs' # Name of the module (adjust for your project)
-  ARTIFACT: 'webHelpDCS2-all.zip' # Name of the artifact to be generated
-  DOCKER_VERSION: '242.21870' # Specific Docker version
+  INSTANCE: 'Writerside/dcs'
+  ARTIFACT: 'webHelpDCS2-all.zip'
+  DOCKER_VERSION: '242.21870'
 
 jobs:
   build-and-deploy:
@@ -18,7 +18,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }} # Ensure access to private repo
+          token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
 
       - name: Build docs using Writerside Docker builder
@@ -28,11 +28,9 @@ jobs:
           artifact: ${{ env.ARTIFACT }}
           docker-version: ${{ env.DOCKER_VERSION }}
 
-      # List files after the build step to verify the artifact location
       - name: List files after build
         run: ls -R
 
-      # Save the artifact generated after the build
       - name: Save artifact with build results
         uses: actions/upload-artifact@v4
         with:
@@ -40,9 +38,8 @@ jobs:
           path: |
             artifacts/${{ env.ARTIFACT }}  # Artifact inside the artifacts folder
             artifacts/report.json
-          retention-days: 7 # Keep artifacts for 7 days
+          retention-days: 7
 
-      # Unzip artifact and prepare for deployment
       - name: Unzip and list artifact
         run: |
           unzip -O UTF-8 -qq artifacts/${{ env.ARTIFACT }} -d dir  # Unzipping from artifacts folder
@@ -50,6 +47,8 @@ jobs:
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v4
+        with:
+          enablement: true
 
       - name: Upload artifact to GitHub Pages
         uses: actions/upload-pages-artifact@v3
