@@ -2,16 +2,16 @@ name: Build and Deploy Writerside Documentation
 
 on:
   push:
-    branches: ['main'] # Trigger the workflow when changes are pushed to the 'main' branch
-  workflow_dispatch: # Allow manual triggering of the workflow
+    branches: ["main"] # Trigger the workflow when changes are pushed to the 'main' branch
+  workflow_dispatch:    # Allow manual triggering of the workflow
 
 permissions:
   id-token: write
   pages: write
 
 env:
-  INSTANCE: Writerside/Kurocado Studio Styleguide # Adjust the instance based on your configuration
-  ARTIFACT: webHelpKSS2-all.zip # Adjust if needed
+  INSTANCE: Writerside/Kurocado Studio Styleguide
+  ARTIFACT: webHelpKSS2-all.zip
   DOCKER_VERSION: 242.21870
 
 jobs:
@@ -22,7 +22,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GH_TOKEN }}
+          token: ${{ secrets.GH_TOKEN }} # Use Personal Access Token (PAT)
           fetch-depth: 0
 
       - name: Build Writerside docs using Docker
@@ -31,7 +31,7 @@ jobs:
           instance: ${{ env.INSTANCE }}
           artifact: ${{ env.ARTIFACT }}
           docker-version: ${{ env.DOCKER_VERSION }}
-          path: Writerside # Specify the directory for Writerside docs
+          path: Writerside   # Specify the directory for Writerside docs
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
