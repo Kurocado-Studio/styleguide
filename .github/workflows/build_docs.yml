@@ -17,12 +17,12 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GH_TOKEN }}
+          token: ${{ secrets.GH_TOKEN }} # Use the GH_TOKEN for private repo access
           fetch-depth: 0
 
       - name: Build Writerside docs using Docker
@@ -31,7 +31,7 @@ jobs:
           instance: ${{ env.INSTANCE }}
           artifact: ${{ env.ARTIFACT }}
           docker-version: ${{ env.DOCKER_VERSION }}
-          path: Writerside # Specify the directory for Writerside docs
+          path: Writerside   # Specify the directory for Writerside docs
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
