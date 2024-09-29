@@ -38,7 +38,7 @@ jobs:
           docker-version: ${{ env.DOCKER_VERSION }}
 
       - name: List files after build
-        run: ls -R # List all the files to ensure artifact is generated
+        run: ls -R
 
       - name: Save Writerside artifact with build results
         uses: actions/upload-artifact@v4
@@ -47,7 +47,7 @@ jobs:
           path: |
             artifacts/${{ env.ARTIFACT }}  # Artifact saved inside artifacts folder
             artifacts/report.json  # Optional: any reports generated
-          retention-days: 7 # Keep artifacts for 7 days
+          retention-days: 7
 
       - name: Unzip and list Writerside artifact
         run: |
@@ -57,12 +57,12 @@ jobs:
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v4
         with:
-          enablement: true # Enable GitHub Pages if not already enabled
+          enablement: true
 
       - name: Upload Writerside content to GitHub Pages
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dir # Upload the unzipped directory content
+          path: dir
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
