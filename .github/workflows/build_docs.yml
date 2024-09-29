@@ -2,8 +2,8 @@ name: Build and Deploy Writerside Documentation
 
 on:
   push:
-    branches: ['main']
-  workflow_dispatch:
+    branches: ['main'] # Trigger the workflow when changes are pushed to the 'main' branch
+  workflow_dispatch: # Allow manual triggering of the workflow
 
 permissions:
   id-token: write
@@ -22,6 +22,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
+          token: ${{ secrets.GH_TOKEN }}
           fetch-depth: 0
 
       - name: Build Writerside docs using Docker
@@ -30,8 +31,7 @@ jobs:
           instance: ${{ env.INSTANCE }}
           artifact: ${{ env.ARTIFACT }}
           docker-version: ${{ env.DOCKER_VERSION }}
-          # Update to reflect the path of your Writerside directory inside the app
-          path: Writerside
+          path: Writerside # Specify the directory for Writerside docs
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
@@ -44,7 +44,6 @@ jobs:
   deploy:
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     needs: build
     runs-on: ubuntu-latest
 
@@ -68,3 +67,6 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4.0.4
+
+      - name: Print GitHub Pages URL
+        run: echo "Your site is deployed at ${{ steps.deployment.outputs.page_url }}"
