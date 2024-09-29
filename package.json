@@ -12,7 +12,7 @@
   },
   "license": "MPL-2.0",
   "exports": {
-    "./gh-docs-actions": "./.github/workflows/deploy_docs.yml",
+    "./gh-actions/gh-docs-actions": "./.github/workflows/deploy_docs.yml",
     "./commitlint": "./src/commitlint/index.js",
     "./semantic-release": "./src/semantic-release/index.js",
     "./eslint/base": "./src/eslint/eslint.base.js",
