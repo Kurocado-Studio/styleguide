@@ -25,6 +25,9 @@ jobs:
           token: ${{ secrets.GH_TOKEN }} # Use Personal Access Token (PAT)
           fetch-depth: 0
 
+      - name: Pull Writerside Docker image  # Add this step to explicitly pull the Docker image
+        run: docker pull registry.jetbrains.team/p/writerside/builder/writerside-builder:${{ env.DOCKER_VERSION }}
+
       - name: Build Writerside docs using Docker
         uses: JetBrains/writerside-github-action@v4
         with:
