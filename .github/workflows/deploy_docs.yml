@@ -5,6 +5,15 @@ on:
     branches: ['main']
   workflow_dispatch:
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: 'pages'
+  cancel-in-progress: false
+
 env:
   INSTANCE: 'Writerside/dcs'
   ARTIFACT: 'webHelpDCS2-all.zip'
@@ -21,7 +30,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
 
-      - name: Build docs using Writerside Docker builder
+      - name: Build documentation using Writerside Docker builder
         uses: JetBrains/writerside-github-action@v4
         with:
           instance: ${{ env.INSTANCE }}
@@ -29,31 +38,31 @@ jobs:
           docker-version: ${{ env.DOCKER_VERSION }}
 
       - name: List files after build
-        run: ls -R
+        run: ls -R # List all the files to ensure artifact is generated
 
-      - name: Save artifact with build results
+      - name: Save Writerside artifact with build results
         uses: actions/upload-artifact@v4
         with:
           name: docs
           path: |
-            artifacts/${{ env.ARTIFACT }}  # Artifact inside the artifacts folder
-            artifacts/report.json
-          retention-days: 7
+            artifacts/${{ env.ARTIFACT }}  # Artifact saved inside artifacts folder
+            artifacts/report.json  # Optional: any reports generated
+          retention-days: 7 # Keep artifacts for 7 days
 
-      - name: Unzip and list artifact
+      - name: Unzip and list Writerside artifact
         run: |
-          unzip -O UTF-8 -qq artifacts/${{ env.ARTIFACT }} -d dir  # Unzipping from artifacts folder
-          ls -R dir  # List the contents of the unzipped directory
+          unzip -O UTF-8 -qq artifacts/${{ env.ARTIFACT }} -d dir  # Unzip from artifacts folder
+          ls -R dir  # List contents of unzipped directory
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v4
         with:
-          enablement: true
+          enablement: true # Enable GitHub Pages if not already enabled
 
-      - name: Upload artifact to GitHub Pages
+      - name: Upload Writerside content to GitHub Pages
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dir
+          path: dir # Upload the unzipped directory content
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
