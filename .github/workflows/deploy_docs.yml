@@ -11,7 +11,7 @@ permissions:
 
 env:
   INSTANCE: Writerside/docs # This references the module name
-  ARTIFACT: webHelpDocs-all.zip # Adjust artifact name if necessary
+  ARTIFACT: webHelpDocs2-all.zip # Adjust artifact name if necessary
   DOCKER_VERSION: 242.21870
 
 jobs:
@@ -25,14 +25,14 @@ jobs:
           token: ${{ secrets.GH_TOKEN }} # Use Personal Access Token (PAT) or GITHUB_TOKEN for authentication
           fetch-depth: 0
 
-      - name: Build docs using Writerside Docker builder
-        uses: JetBrains/writerside-github-action@v4
-        with:
-          instance: ${{ env.INSTANCE }}
-          artifact: ${{ env.ARTIFACT }}
-          docker-version: ${{ env.DOCKER_VERSION }}
+      - name: Pull Writerside Docker image
+        run: docker pull registry.jetbrains.team/p/writerside/builder/writerside-builder:${{ env.DOCKER_VERSION }}
 
-      - name: Upload artifact for deployment
+      - name: Build Writerside docs using Docker
+        run: |
+          /opt/builder/bin/idea.sh helpbuilderinspect -source-dir /github/workspace/Writerside -product docs
+
+      - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: docs
