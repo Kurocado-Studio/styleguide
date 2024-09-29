@@ -1,5 +1,5 @@
 <project>
     <modules>
-        <module name="kurocado-studio-styleguide" path="Writerside" />
+        <module name="kurocado-studio-styleguide" path="Writerside/kss.tree" />
     </modules>
 </project>
