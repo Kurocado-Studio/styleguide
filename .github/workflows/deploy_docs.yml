@@ -2,7 +2,7 @@ name: Build and Deploy Writerside Documentation
 
 on:
   push:
-    branches: ['main'] # Trigger the workflow on push to the main branch
+    branches: ['main'] # Trigger the workflow when changes are pushed to the 'main' branch
   workflow_dispatch: # Allow manual triggering of the workflow
 
 permissions:
@@ -10,9 +10,9 @@ permissions:
   pages: write
 
 env:
-  INSTANCE: Writerside/docs # Adjust instance to reflect Writerside module and product
-  ARTIFACT: webHelpDocs-all.zip # Adjust artifact name if needed
-  DOCKER_VERSION: 242.21870 # Correct Docker version as per Writerside setup
+  INSTANCE: Writerside/docs # This references the module name
+  ARTIFACT: webHelpDocs-all.zip # Adjust artifact name if necessary
+  DOCKER_VERSION: 242.21870
 
 jobs:
   build:
@@ -22,20 +22,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}  # Use GITHUB_TOKEN to access private repo
+          token: ${{ secrets.GH_TOKEN }} # Use Personal Access Token (PAT) or GITHUB_TOKEN for authentication
           fetch-depth: 0
 
       - name: Pull Writerside Docker image
         run: docker pull registry.jetbrains.team/p/writerside/builder/writerside-builder:${{ env.DOCKER_VERSION }}
 
-      - name: Build Writerside Documentation
-        uses: JetBrains/writerside-github-action@v4
-        with:
-          instance: ${{ env.INSTANCE }}
-          artifact: ${{ env.ARTIFACT }}
-          docker-version: ${{ env.DOCKER_VERSION }}
+      - name: Build Writerside docs using Docker
+        run: |
+          /opt/builder/bin/idea.sh helpbuilderinspect -source-dir /github/workspace/Writerside -product kuro-cado-studio-styleguide
 
-      - name: Upload artifact for deployment
+      - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: docs
@@ -44,15 +41,13 @@ jobs:
           retention-days: 7
 
   deploy:
-    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
     needs: build
-
-    permissions:
-      pages: write # Permissions to publish to GitHub Pages
-      id-token: write
+    runs-on: ubuntu-latest
 
     steps:
-      - name: Download artifact for deployment
+      - name: Download artifact
         uses: actions/download-artifact@v4
         with:
           name: docs
@@ -60,13 +55,17 @@ jobs:
       - name: Unzip artifact
         run: unzip -O UTF-8 -qq ${{ env.ARTIFACT }} -d dir
 
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v4.0.0
 
-      - name: Upload artifact to GitHub Pages
-        uses: actions/upload-pages-artifact@v3
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3.0.1
         with:
           path: dir
 
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v4
+        id: deployment
+        uses: actions/deploy-pages@v4.0.4
+
+      - name: Print GitHub Pages URL
+        run: echo "Your site is deployed at ${{ steps.deployment.outputs.page_url }}"
