@@ -69,17 +69,6 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-  test:
-    runs-on: ubuntu-latest
-    needs: build-and-deploy # Ensure build completes before running tests
-
-    steps:
-      - name: Download artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: ${{ env.ARTIFACT }}
-          path: artifacts
-
       - name: Test documentation using Writerside Checker
         uses: JetBrains/writerside-checker-action@v1
         with:
