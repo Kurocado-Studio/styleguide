@@ -1,0 +1,5 @@
+<project>
+    <modules>
+        <module name="Kurocado Studio Styleguide" path="Writerside" />
+    </modules>
+</project>
