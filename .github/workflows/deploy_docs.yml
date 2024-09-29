@@ -10,8 +10,8 @@ permissions:
   pages: write
 
 env:
-  INSTANCE: Writerside/docs # Set the instance to 'docs' for easier reuse
-  ARTIFACT: webHelpDocs-all.zip # Adjust artifact name to reflect 'docs'
+  INSTANCE: Writerside/docs # Adjust instance to reflect Writerside module and product
+  ARTIFACT: webHelpDocs-all.zip # Adjust artifact name if needed
   DOCKER_VERSION: 242.21870 # Correct Docker version as per Writerside setup
 
 jobs:
@@ -22,6 +22,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
+          token: ${{ secrets.GITHUB_TOKEN }}  # Use GITHUB_TOKEN for authentication
           fetch-depth: 0
 
       - name: Pull Writerside Docker image
