@@ -51,7 +51,7 @@ jobs:
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
-          name: docs
+          name: ${{ env.ARTIFACT }}
 
       - name: List downloaded files
         run: ls -R
