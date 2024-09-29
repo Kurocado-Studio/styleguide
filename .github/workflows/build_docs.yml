@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 env:
-  INSTANCE: 'Writerside/Kurocado Studio Styleguide'
+  INSTANCE: 'Writerside/kurocado-studio-styleguide'
   ARTIFACT: 'webHelpKSS2-all.zip'
   DOCKER_VERSION: '242.21870'
 
