@@ -38,14 +38,14 @@ jobs:
         with:
           name: docs
           path: |
-            ${{ env.ARTIFACT }}
-            report.json
+            artifacts/${{ env.ARTIFACT }}  # Artifact inside the artifacts folder
+            artifacts/report.json
           retention-days: 7 # Keep artifacts for 7 days
 
       # Unzip artifact and prepare for deployment
       - name: Unzip and list artifact
         run: |
-          unzip -O UTF-8 -qq ${{ env.ARTIFACT }} -d dir
+          unzip -O UTF-8 -qq artifacts/${{ env.ARTIFACT }} -d dir  # Unzipping from artifacts folder
           ls -R dir  # List the contents of the unzipped directory
 
       - name: Configure GitHub Pages
