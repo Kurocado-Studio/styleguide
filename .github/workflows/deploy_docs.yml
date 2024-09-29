@@ -51,7 +51,7 @@ jobs:
           name: docs
 
       - name: List downloaded files
-        run: ls -R artifacts
+        run: ls -R
 
       - name: Download artifact
         uses: actions/download-artifact@v4
