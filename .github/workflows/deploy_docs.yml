@@ -63,7 +63,7 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
-    needs: build # Ensure build completes before running tests
+    needs: build-and-deploy # Ensure build completes before running tests
 
     steps:
       - name: Download artifact
