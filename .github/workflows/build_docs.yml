@@ -31,7 +31,7 @@ jobs:
           instance: ${{ env.INSTANCE }}
           artifact: ${{ env.ARTIFACT }}
           docker-version: ${{ env.DOCKER_VERSION }}
-          path: Writerside   # Specify the directory for Writerside docs
+          location: Writerside   # Specify the directory for Writerside docs
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
