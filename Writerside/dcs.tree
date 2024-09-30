@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE instance-profile
+        SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
+
+<instance-profile id="dcs"
+                 name="docs"
+                 start-page="starter-topic.md">
+
+    <toc-element topic="starter-topic.md"/>
+    <toc-element topic="How-to-build-test-deploy-Writerside-documentation.md"/>
+    <toc-element topic="How-to-Set-Up-and-Use-Reusable-GitHub-Actions-Across-Repositories.md"/>
+</instance-profile>
