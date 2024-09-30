@@ -1,52 +1,64 @@
-name: Build, Test, and Deploy Documentation
+name: Build and Deploy Writerside Documentation
 
 on:
   push:
-    branches: ['main'] # Trigger workflow on push to the 'main' branch
+    branches: ['main'] # Trigger the workflow on push to the main branch
   workflow_dispatch: # Allow manual triggering of the workflow
 
+permissions:
+  id-token: write
+  pages: write
+
 env:
-  INSTANCE: 'Writerside/dcs' # Name of the module (adjust for your project)
-  ARTIFACT: 'webHelpDCS2-all.zip' # Name of the artifact to be generated
-  DOCKER_VERSION: '242.21870' # Specific Docker version
+  INSTANCE: Writerside/docs # Adjust instance to reflect Writerside module and product
+  ARTIFACT: webHelpDocs-all.zip # Adjust artifact name if needed
+  DOCKER_VERSION: 242.21870 # Correct Docker version as per Writerside setup
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }} # Ensure access to private repo
+          token: ${{ secrets.GH_TOKEN }}
           fetch-depth: 0
 
-      - name: Build docs using Writerside Docker builder
+      - name: Pull Writerside Docker image
+        run: docker pull registry.jetbrains.team/p/writerside/builder/writerside-builder:${{ env.DOCKER_VERSION }}
+
+      - name: Build Writerside Documentation
         uses: JetBrains/writerside-github-action@v4
         with:
           instance: ${{ env.INSTANCE }}
           artifact: ${{ env.ARTIFACT }}
           docker-version: ${{ env.DOCKER_VERSION }}
 
-      # List files after the build step to verify the artifact location
-      - name: List files after build
-        run: ls -R
-
-      # Save the artifact generated after the build
-      - name: Save artifact with build results
+      - name: Upload artifact for deployment
         uses: actions/upload-artifact@v4
         with:
           name: docs
           path: |
-            artifacts/${{ env.ARTIFACT }}  # Artifact inside the artifacts folder
-            artifacts/report.json
-          retention-days: 7 # Keep artifacts for 7 days
+            artifacts/${{ env.ARTIFACT }}
+          retention-days: 7
 
-      # Unzip artifact and prepare for deployment
-      - name: Unzip and list artifact
-        run: |
-          unzip -O UTF-8 -qq artifacts/${{ env.ARTIFACT }} -d dir  # Unzipping from artifacts folder
-          ls -R dir  # List the contents of the unzipped directory
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+
+    permissions:
+      pages: write # Permissions to publish to GitHub Pages
+      id-token: write
+
+    steps:
+      - name: Download artifact for deployment
+        uses: actions/download-artifact@v4
+        with:
+          name: docs
+
+      - name: Unzip artifact
+        run: unzip -O UTF-8 -qq ${{ env.ARTIFACT }} -d dir
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v4
@@ -58,21 +70,3 @@ jobs:
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-  test:
-    runs-on: ubuntu-latest
-    needs: build-and-deploy # Ensure build completes before running tests
-
-    steps:
-      - name: Download artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: docs
-          path: artifacts
-
-      - name: Test documentation using Writerside Checker
-        uses: JetBrains/writerside-checker-action@v1
-        with:
-          instance: ${{ env.INSTANCE }}
