@@ -1,6 +1,7 @@
 name: CI/CD Workflow
 
 permissions:
+  pull-requests: write
   contents: write
   pages: write
   id-token: write
