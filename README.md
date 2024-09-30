@@ -1,5 +1,7 @@
 # Kurocado Studio Style Guide
 
+https://kurocado-studio.github.io/styleguide/starter-topic.html
+
 This repository contains the style guide for our project, specifically tailored for TypeScript. We
 have used the Vercel Style Guide as a base for our TypeScript configurations, and aspire to maintain
 the same high standards in our code quality.
