@@ -34,11 +34,7 @@
     "./tsconfig/web": "./src/tsconfig/tsconfig.web.json"
   },
   "main": "index.js",
-  "files": [
-    "src/eslint",
-    "src/prettier",
-    "src/tsconfig"
-  ],
+  "files": ["src/eslint", "src/prettier", "src/tsconfig"],
   "scripts": {
     "commitlint": "pnpm exec commitlint --edit",
     "eslint-check": "eslint --max-warnings=0 .",
@@ -50,10 +46,7 @@
   },
   "lint-staged": {
     "*": "prettier -w --ignore-unknown",
-    "src/**/*.{ts,tsx}": [
-      "npm run prettier-fix",
-      "npm run eslint-check"
-    ]
+    "src/**/*.{ts,tsx}": ["npm run prettier-fix", "npm run eslint-check"]
   },
   "dependencies": {
     "@babel/core": "^7.24.0",
