@@ -19,6 +19,7 @@ module.exports = {
     'plugin:eslint-comments/recommended',
     'plugin:import/recommended',
     'prettier',
+    '@commitlint/config-conventional',
     require.resolve('./rules/base'),
   ],
   ignorePatterns: ['!.*.js'],
