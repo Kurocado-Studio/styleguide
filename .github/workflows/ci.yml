@@ -52,13 +52,3 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: npx semantic-release
-
-  generate-writerside-docs:
-    needs: pipeline
-    if: github.ref == 'refs/heads/main'
-    uses: ./.github/workflows/generate_writerside_docs.yml
-    secrets: inherit
-    with:
-      writerside_instance: 'Writerside/dcs'
-      artifact_name: 'webHelpDCS2-all.zip'
-      docker_version: 242.21870
