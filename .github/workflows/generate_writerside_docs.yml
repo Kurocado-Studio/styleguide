@@ -3,12 +3,6 @@ name: Build, Test, and Deploy Documentation
 on:
   workflow_call:
     inputs:
-      skip_checkout:
-        type: boolean
-        default: false
-      github_token:
-        type: string
-        required: true
       writerside_instance:
         type: string
         required: true
@@ -22,20 +16,17 @@ on:
         required: true
         default: '242.21870'
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: 'pages'
-  cancel-in-progress: false
-
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }} # Ensure access to private repo
+          fetch-depth: 0
+
       - name: Build documentation using Writerside Docker builder
         uses: JetBrains/writerside-github-action@v4
         with:
@@ -69,7 +60,7 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
         with:
-          token: ${{ inputs.github_token }}
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Test documentation using Writerside Checker
         uses: JetBrains/writerside-checker-action@v1

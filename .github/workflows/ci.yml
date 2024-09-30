@@ -1,5 +1,14 @@
 name: CI/CD Workflow
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: 'pages'
+  cancel-in-progress: false
+
 on:
   pull_request:
   push:
@@ -7,40 +16,48 @@ on:
       - main
 
 jobs:
-  setup:
-    uses: ./.github/workflows/_base.yml@v1
-    with:
-      node_version: '18'
+  pipeline:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
 
-  commitlint:
-    needs: setup
-    uses: ./.github/workflows/commitlint.yml@v1
-    with:
-      edit: '.git/COMMIT_EDITMSG'
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
 
-  eslint:
-    needs: setup
-    uses: ./.github/workflows/eslint-check.yml@v1
-    with:
-      maxWarnings: '0'
+      - name: Install pnpm
+        run: npm install -g pnpm
 
-  prettier:
-    needs: setup
-    uses: ./.github/workflows/prettier-check.yml@v1
+      - name: Install dependencies with pnpm
+        run: pnpm install
+
+      - name: Run Commitlint
+        run: git log -1 --pretty=%B | pnpm exec commitlint
+
+      - name: Run ESLint
+        run: pnpm eslint . --max-warnings=0 # Use pnpm
+
+      - name: Run Prettier
+        run: pnpm prettier --check . # Use pnpm
+
+      - name: Run Semantic Release
+        if: github.ref == 'refs/heads/main'
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npx semantic-release
 
   generate-writerside-docs:
-    needs: setup
+    needs: pipeline
     if: github.ref == 'refs/heads/main'
-    uses: ./.github/workflows/generate_writerside_docs.yml@v1
+    uses: ./.github/workflows/generate_writerside_docs.yml
+    secrets: inherit
     with:
-      npm_token: ${{ secrets.NPM_TOKEN }}
-      github_token: ${{ secrets.GITHUB_TOKEN }}
-
-  semantic-release:
-    needs: setup
-    if: github.ref == 'refs/heads/main'
-    uses: ./.github/workflows/semantic-release.yml@v1
-    with:
-      node_version: '18'
-      npm_token: ${{ secrets.NPM_TOKEN }}
-      github_token: ${{ secrets.GITHUB_TOKEN }}
+      writerside_instance: 'Writerside/dcs'
+      artifact_name: 'webHelpDCS2-all.zip'
+      docker_version: 242.21870
