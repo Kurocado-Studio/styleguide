@@ -1,0 +1,16 @@
+name: Prettier Check
+
+on:
+  workflow_call:
+    inputs:
+      skip_checkout:
+        type: boolean
+        default: false
+
+jobs:
+  prettier:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Run Prettier Check
+        run: pnpm prettier --check .
