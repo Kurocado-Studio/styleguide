@@ -1,9 +1,26 @@
 name: Build, Test, and Deploy Documentation
 
 on:
-  push:
-    branches: ['main']
-  workflow_dispatch:
+  workflow_call:
+    inputs:
+      skip_checkout:
+        type: boolean
+        default: false
+      github_token:
+        type: string
+        required: true
+      writerside_instance:
+        type: string
+        required: true
+        default: 'Writerside/dcs'
+      artifact_name:
+        type: string
+        required: true
+        default: 'webHelpDCS2-all.zip'
+      docker_version:
+        type: string
+        required: true
+        default: '242.21870'
 
 permissions:
   contents: read
@@ -14,45 +31,30 @@ concurrency:
   group: 'pages'
   cancel-in-progress: false
 
-env:
-  INSTANCE: 'Writerside/dcs'
-  ARTIFACT: 'webHelpDCS2-all.zip'
-  DOCKER_VERSION: '242.21870'
-
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          fetch-depth: 0
-
       - name: Build documentation using Writerside Docker builder
         uses: JetBrains/writerside-github-action@v4
         with:
-          instance: ${{ env.INSTANCE }}
-          artifact: ${{ env.ARTIFACT }}
-          docker-version: ${{ env.DOCKER_VERSION }}
-
-      - name: List files after build
-        run: ls -R
+          instance: ${{ inputs.writerside_instance }}
+          artifact: ${{ inputs.artifact_name }}
+          docker-version: ${{ inputs.docker_version }}
 
       - name: Save Writerside artifact with build results
         uses: actions/upload-artifact@v4
         with:
           name: docs
           path: |
-            artifacts/${{ env.ARTIFACT }}  # Artifact saved inside artifacts folder
-            artifacts/report.json  # Optional: any reports generated
+            artifacts/${{ inputs.artifact_name }} 
+            artifacts/report.json
           retention-days: 7
 
-      - name: Unzip and list Writerside artifact
+      - name: Unzip Writerside artifact
         run: |
-          unzip -O UTF-8 -qq artifacts/${{ env.ARTIFACT }} -d dir  # Unzip from artifacts folder
-          ls -R dir  # List contents of unzipped directory
+          unzip -O UTF-8 -qq artifacts/${{ inputs.artifact_name }} -d dir
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v4
@@ -67,9 +69,9 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ inputs.github_token }}
 
       - name: Test documentation using Writerside Checker
         uses: JetBrains/writerside-checker-action@v1
         with:
-          instance: ${{ env.INSTANCE }}
+          instance: ${{ inputs.writerside_instance }}

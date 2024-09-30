@@ -1,0 +1,46 @@
+name: CI/CD Workflow
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  setup:
+    uses: ./_base.yml@v1
+    with:
+      node_version: '18'
+
+  commitlint:
+    needs: setup
+    uses: ./commitlint.yml@v1
+    with:
+      edit: '.git/COMMIT_EDITMSG'
+
+  eslint:
+    needs: setup
+    uses: ./eslint-check.yml@v1
+    with:
+      maxWarnings: '0'
+
+  prettier:
+    needs: setup
+    uses: ./prettier-check.yml@v1
+
+  generate-writerside-docs:
+    needs: setup
+    if: github.ref == 'refs/heads/main'
+    uses: ./generate_writerside_docs.yml@v1
+    with:
+      npm_token: ${{ secrets.NPM_TOKEN }}
+      github_token: ${{ secrets.GITHUB_TOKEN }}
+
+  semantic-release:
+    needs: setup
+    if: github.ref == 'refs/heads/main'
+    uses: ./semantic-release.yml@v1
+    with:
+      node_version: '18'
+      npm_token: ${{ secrets.NPM_TOKEN }}
+      github_token: ${{ secrets.GITHUB_TOKEN }}

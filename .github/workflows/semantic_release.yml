@@ -1,0 +1,22 @@
+name: Semantic Release
+
+on:
+  workflow_call:
+    inputs:
+      npm_token:
+        type: string
+        required: true
+      github_token:
+        type: string
+        required: true
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Run Semantic Release
+        env:
+          NODE_AUTH_TOKEN: ${{ inputs.npm_token }}
+          GITHUB_TOKEN: ${{ inputs.github_token }}
+        run: npx semantic-release
