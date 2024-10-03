@@ -12,12 +12,6 @@
   },
   "license": "MPL-2.0",
   "exports": {
-    "./gh-actions/base": "./.github/workflows/_base.yml",
-    "./gh-actions/commitlint": "./.github/workflows/commitlint.yml",
-    "./gh-actions/deploy_writerside_docs": "./.github/workflows/deploy_writerside_docs.yml",
-    "./gh-actions/eslint_check": "./.github/workflows/eslint_check.yml",
-    "./gh-actions/npm_publish": "./.github/workflows/npm_publish.yml",
-    "./gh-actions/prettier_check": "./.github/workflows/prettier_check.yml",
     "./commitlint": "./src/commitlint/index.js",
     "./semantic-release": "./src/semantic-release/index.js",
     "./eslint/base": "./src/eslint/eslint.base.js",
@@ -34,7 +28,14 @@
     "./tsconfig/web": "./src/tsconfig/tsconfig.web.json"
   },
   "main": "index.js",
-  "files": ["src/eslint", "src/prettier", "src/tsconfig"],
+  "files": [
+    "src/.github",
+    "src/commitlint",
+    "src/eslint",
+    "src/prettier",
+    "src/semantic-release",
+    "src/tsconfig"
+  ],
   "scripts": {
     "commitlint": "pnpm exec commitlint --edit",
     "eslint-check": "eslint --max-warnings=0 .",
