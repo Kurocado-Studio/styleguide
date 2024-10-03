@@ -12,15 +12,6 @@ module.exports = {
     '@semantic-release/commit-analyzer',
     '@semantic-release/release-notes-generator',
     '@semantic-release/github',
-    [
-      '@semantic-release/git',
-      {
-        assets: ['CHANGELOG.md', 'package.json', 'package-lock.json'],
-        // eslint-disable-next-line no-template-curly-in-string -- required by `semantic-release`.
-        message: 'chore(release): ${nextRelease.version} [skip ci]',
-      },
-    ],
-    '@semantic-release/github',
     '@semantic-release/npm',
   ],
   preset: 'conventionalcommits',
