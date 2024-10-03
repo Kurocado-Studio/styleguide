@@ -11,6 +11,7 @@ module.exports = {
     '@semantic-release/changelog',
     '@semantic-release/commit-analyzer',
     '@semantic-release/release-notes-generator',
+    '@semantic-release/github',
     [
       'semantic-release-github-pullrequest',
       {
@@ -26,7 +27,6 @@ module.exports = {
         pullrequestTitle: 'chore(release): ${nextRelease.version}',
       },
     ],
-    '@semantic-release/github',
     '@semantic-release/npm',
   ],
 };
