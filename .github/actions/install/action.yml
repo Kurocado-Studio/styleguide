@@ -4,16 +4,16 @@ description: 'Sets up Node, and installs dependencies'
 runs:
   using: 'composite'
   steps:
-    - name: Set up PNPM
-      uses: pnpm/action-setup@v3
-      with:
-        version: '7'
-
     - name: Set up Node.js
       uses: actions/setup-node@v4
       with:
         node-version: 20
         cache: pnpm
+
+    - name: Install pnpm
+      shell: bash
+      run: |
+        npm install -g pnpm
 
     - name: Install dependencies
       shell: bash
