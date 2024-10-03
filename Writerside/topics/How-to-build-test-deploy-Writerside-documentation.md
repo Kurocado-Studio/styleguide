@@ -2,7 +2,7 @@ Here's the revised guide with the updated assumption:
 
 ---
 
-# How to Build, Test & Deploy Writerside Documentation
+# Release Workflow
 
 In this guide, you will learn how to set up a **reusable GitHub Actions workflow** to build, test,
 and deploy Writerside documentation to GitHub Pages. The reusable workflow will be installed
