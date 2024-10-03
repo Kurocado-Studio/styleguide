@@ -14,7 +14,7 @@ on:
   pull_request:
   push:
     branches:
-      - main
+      - canary
 
 jobs:
   code-quality:
