@@ -1,4 +1,4 @@
-name: CI/CD Workflow
+name: Code Quality
 
 permissions:
   pull-requests: write
@@ -17,7 +17,7 @@ on:
       - main
 
 jobs:
-  pipeline:
+  code-quality:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -46,8 +46,16 @@ jobs:
       - name: Run Prettier
         run: pnpm prettier --check . # Use pnpm
 
-      - name: List Existing Semantic Release Branches
-        run: git branch -r | grep 'semantic-release-pr-' # Use pnpm
+      - name: Delete existing semantic-release PR branches
+        run: |
+          git fetch --prune
+          BRANCHES=$(git branch -r | grep 'semantic-release-pr-' || true)
+          if [ -n "$BRANCHES" ]; then
+            echo "$BRANCHES" | sed 's/origin\///' | xargs -r git push origin --delete {}
+          else
+            echo "No semantic-release PR branches found."
+          fi
+        shell: bash
 
       - name: Run Semantic Release
         if: github.ref == 'refs/heads/main'
