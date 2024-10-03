@@ -1,0 +1,20 @@
+name: Release Workflow
+
+permissions:
+  pull-requests: write
+  contents: write
+  pages: write
+  id-token: write
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  ci-release:
+    uses: ./.github/workflows/ci.release.yml@v1
+    secrets:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      PAT_FORCE_PUSH: ${{ secrets.GITHUB_TOKEN }}
