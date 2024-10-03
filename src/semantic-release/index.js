@@ -16,6 +16,7 @@ module.exports = {
       '@semantic-release/git',
       {
         assets: ['CHANGELOG.md', 'package.json', 'package-lock.json'],
+        // eslint-disable-next-line no-template-curly-in-string -- required by `semantic-release`.
         message: 'chore(release): ${nextRelease.version} [skip ci]',
       },
     ],
