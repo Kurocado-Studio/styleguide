@@ -27,6 +27,12 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }} # Ensure access to private repo
           fetch-depth: 0
 
+      - name: Install Dependencies
+        uses: ./lib/actions/install-dependencies
+
+      - name: Run Lint Checks
+        uses: ./.github/actions/lint
+
       - name: Build docs using Writerside Docker builder
         uses: JetBrains/writerside-github-action@v4
         with:

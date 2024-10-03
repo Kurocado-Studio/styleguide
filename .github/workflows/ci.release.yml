@@ -1,4 +1,10 @@
-name: Call Release Workflow
+name: Release Workflow
+
+permissions:
+  pull-requests: write
+  contents: write
+  pages: write
+  id-token: write
 
 on:
   push:
@@ -10,19 +16,68 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }} # Ensure access to private repo
           fetch-depth: 0
 
       - name: Install Dependencies
-        uses: ./.github/lib/dependencies.workflow.yml
+        uses: ./lib/actions/install-dependencies
 
-      - name: Release
-        uses: ./.github/lib/release.workflow.yml
-        with:
-          release-branch-prefix: 'release-'
-          release-label: 'release'
+      - name: Run Lint Checks
+        uses: ./.github/actions/lint
+
+      - name: Build Assets
+        run: ${{ inputs.build-command }}
+
+      - name: Run Semantic Release
+        id: semantic_release
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PAT_FORCE_PUSH: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: npx semantic-release
+
+      - name: Create Release Branch
+        if: success() && steps.semantic_release.outputs.nextRelease
+        run: |
+          VERSION=${{ steps.semantic_release.outputs.nextRelease.version }}
+          git checkout -b ${{ inputs.release-branch-prefix }}${VERSION}
+
+      - name: Push Release Branch
+        if: success() && steps.semantic_release.outputs.nextRelease
+        env:
+          PAT: ${{ secrets.PAT_FORCE_PUSH }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git remote set-url origin https://x-access-token:${PAT}@github.com/${{ github.repository }}.git
+          git push origin ${{ inputs.release-branch-prefix }}${VERSION} --force
+
+      - name: Extract Version from package.json
+        id: extract_version
+        run: |
+          VERSION=$(jq -r .version package.json)
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+      - name: Extract Changelog
+        id: changelog
+        run: |
+          CHANGELOG=$(awk '/^## \[/ {print; exit}' CHANGELOG.md)
+          echo "changelog=$CHANGELOG" >> $GITHUB_OUTPUT
+
+      - name: Create Pull Request to Main
+        if: success() && steps.semantic_release.outputs.nextRelease
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          title: 'chore/release: ${{ steps.extract_version.outputs.version }}'
+          body: |
+            This is an automated pull request for release version `${{ steps.extract_version.outputs.version }}`.
+
+            **Changelog:**
+            ```
+            ${{ steps.changelog.outputs.changelog }}
+            ```
+          head: ${{ inputs.release-branch-prefix }}${{ steps.extract_version.outputs.version }}
+          base: main
+          commit-message: 'chore/release: ${{ steps.extract_version.outputs.version }} [skip ci]'
+          labels: ${{ inputs.release-label }}
