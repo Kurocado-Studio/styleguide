@@ -46,6 +46,9 @@ jobs:
       - name: Run Prettier
         run: pnpm prettier --check . # Use pnpm
 
+      - name: List Existing Semantic Release Branches
+        run: git branch -r | grep 'semantic-release-pr-' # Use pnpm
+
       - name: Run Semantic Release
         if: github.ref == 'refs/heads/main'
         env:
