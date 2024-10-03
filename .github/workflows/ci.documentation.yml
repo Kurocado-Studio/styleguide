@@ -7,6 +7,6 @@ on:
 
 jobs:
   ci-documentation:
-    uses: ./.github/templates/ci.documentation.yml
+    uses: ./.github/templates/ci.documentation.yml@v1
     secrets:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
