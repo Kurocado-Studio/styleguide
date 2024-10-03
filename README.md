@@ -1,6 +1,7 @@
 # Kurocado Studio Style Guide
 
 [Read the docs](https://kurocado-studio.github.io/styleguide/starter-topic.html)
+[NPM Package](https://www.npmjs.com/package/@kurocado-studio/style-guide)
 
 This repository contains the style guide for our project, specifically tailored for TypeScript. We
 have used the Vercel Style Guide as a base for our TypeScript configurations, and aspire to maintain
