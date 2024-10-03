@@ -13,7 +13,7 @@ module.exports = {
   moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx'],
   moduleNameMapper: {
     '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
-    '\\.(gif|ttf|eot|png|jpg|jpeg|svg)$': '<rootDir>/__mocks__/fileMock.js',
+    '\\.(gif|ttf|eot|png|jpg|svg)$': '<rootDir>/__mocks__/fileMock.js',
   },
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
   snapshotSerializers: ['@emotion/jest/serializer'],
