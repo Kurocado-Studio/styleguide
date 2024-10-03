@@ -12,6 +12,10 @@
   },
   "license": "MPL-2.0",
   "exports": {
+    "./jest/base": "./src/jest/jest.config.base.js",
+    "./jest/node": "./src/jest/jest.config.node.js",
+    "./jest/react": "./src/jest/jest.config.react.js",
+    "./jest/remix": "./src/jest/jest.config.remix.js",
     "./commitlint": "./src/commitlint/index.js",
     "./semantic-release": "./src/semantic-release/index.js",
     "./eslint/base": "./src/eslint/eslint.base.js",
@@ -32,6 +36,7 @@
     "src/.github",
     "src/commitlint",
     "src/eslint",
+    "src/jest",
     "src/prettier",
     "src/semantic-release",
     "src/tsconfig"
