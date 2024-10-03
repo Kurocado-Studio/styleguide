@@ -1,4 +1,4 @@
-name: CI/CD Workflow
+name: Code Quality
 
 permissions:
   pull-requests: write
@@ -17,7 +17,7 @@ on:
       - main
 
 jobs:
-  pipeline:
+  code-quality:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
