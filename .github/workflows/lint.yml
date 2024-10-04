@@ -1,11 +1,5 @@
 name: Lint Workflow
 
-permissions:
-  pull-requests: write
-  contents: write
-  pages: write
-  id-token: write
-
 concurrency:
   group: 'code-quality-${{ github.ref }}'
   cancel-in-progress: false
