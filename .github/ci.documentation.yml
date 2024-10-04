@@ -7,6 +7,6 @@ on:
 
 jobs:
   ci-documentation:
-    uses: kurocado-studio/styleguide/.github/workflows/documentation.yml@v1
+    uses: kurocado-studio/styleguide/.github/workflows/documentation.yml@main
     secrets:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

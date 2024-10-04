@@ -23,10 +23,10 @@ jobs:
           fetch-depth: 0
 
       - name: Install Dependencies
-        uses: kurocado-studio/styleguide/.github/actions/install
+        uses: kurocado-studio/styleguide/.github/actions/install@main
 
       - name: Run Lint Checks
-        uses: kurocado-studio/styleguide/.github/actions/lint
+        uses: kurocado-studio/styleguide/.github/actions/lint@main
 
       - name: Build Assets
         run: ${{ inputs.build-command }}

@@ -13,7 +13,7 @@ on:
 
 jobs:
   ci-release:
-    uses: kurocado-studio/styleguide/.github/workflows/release.yml@v1
+    uses: kurocado-studio/styleguide/.github/workflows/release.yml@main
     secrets:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
