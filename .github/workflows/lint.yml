@@ -1,4 +1,4 @@
-name: Code Quality
+name: Lint Workflow
 
 permissions:
   pull-requests: write

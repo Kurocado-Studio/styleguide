@@ -1,4 +1,4 @@
-name: Writerside Documentation
+name: Writerside Documentation Workflow
 
 on:
   workflow_call:
