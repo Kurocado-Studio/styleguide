@@ -53,37 +53,27 @@ c. Add Required Secrets
 1. **GITHUB_TOKEN**: Automatically provided by GitHub Actions; no need to add manually unless
    customizing permissions.
 
-**Install Styleguide**
+**Add Writerside instance to the root of your project**
 
-```
-npm install --save-dev @kurocado-studio/styleguide
-```
+[Install Writerside IDE](https://www.jetbrains.com/writerside/)
+[Download Writerside Jetbrains Plugin](https://plugins.jetbrains.com/plugin/20158-writerside)
+
+- Name of the instance: Docs
+- ID of the instance: dcs INSTANCE: 'Writerside/dcs'
 
 **Create the Release Workflow File in the Consuming Repository**
 
 ```yaml
-# .github/workflows/writerside-documentation.yml
+# .github/workflows/writerside-writerside-documentation.yml
 name: Writerside Documentation
 
 on:
-  workflow_call:
   push:
     branches:
       - main
 
-permissions:
-  contents: write
-  pages: write
-  id-token: write
-
-env:
-  INSTANCE: 'Writerside/dcs' # Name of the module (adjust for your project)
-  ARTIFACT: 'webHelpDCS2-all.zip' # Name of the artifact to be generated
-  DOCKER_VERSION: '242.21870' # Specific Docker version
-
 jobs:
-  build-and-deploy-docs:
-    uses: @kurocado-studio/styleguide/.github/workflows/documentation.yml@v1
-    secrets:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  documentation:
+    uses: kurocado-studio/styleguide/.github/workflows/writerside-documentation@main
+    secrets: inherit
 ```

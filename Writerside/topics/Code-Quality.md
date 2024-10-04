@@ -46,12 +46,6 @@ c. Add Required Secrets
 1. **GITHUB_TOKEN**: Automatically provided by GitHub Actions; no need to add manually unless
    customizing permissions.
 
-**Install Styleguide**
-
-```
-npm install --save-dev @kurocado-studio/styleguide
-```
-
 **Create the Release Workflow File in the Consuming Repository**
 
 ```yaml
@@ -59,14 +53,13 @@ npm install --save-dev @kurocado-studio/styleguide
 name: Code Quality
 
 on:
-   pull_request:
-   push:
-      branches:
-         - main
+  pull_request:
+  push:
+    branches:
+      - main
 
 jobs:
-   ci-lint:
-      uses: @kurocado-studio/styleguide/.github/workflows/lint.yml@v1
-      secrets:
-         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  code-quality:
+    uses: kurocado-studio/styleguide/.github/workflows/lint.yml@main
+    secrets: inherit
 ```
