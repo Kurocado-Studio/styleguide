@@ -57,28 +57,26 @@ c. Add Required Secrets
 3. **PAT_FORCE_PUSH**: Personal Access Token with permissions to push to protected branches and
    create branches.
 
-**Install Styleguide**
-
-```
-npm install --save-dev @kurocado-studio/styleguide
-```
-
-**Create the Release Workflow File in the Consuming Repository**
+**Create the Release Workflow File in the Consuming Repository with the below permissions**
 
 ```yaml
 # .github/workflows/release.yml
-name: Release
+name: Release Workflow
+
+permissions:
+  pull-requests: write
+  contents: write
+  pages: write
+  id-token: write
 
 on:
+  workflow_call:
   push:
     branches:
       - main
 
 jobs:
-  ci-release:
-    uses: @kurocado-studio/styleguide/.github/workflows/release.yml@v1
-    secrets:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      PAT_FORCE_PUSH: ${{ secrets.PAT_FORCE_PUSH }}
+  manage-release:
+    uses: kurocado-studio/styleguide/.github/workflows/release.yml@main
+    secrets: inherit
 ```
