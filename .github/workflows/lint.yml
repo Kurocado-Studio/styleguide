@@ -28,7 +28,7 @@ jobs:
           fetch-depth: 0
 
       - name: Install Dependencies
-        uses: ./.github/actions/install
+        uses: kurocado-studio/styleguide/.github/actions/install
 
       - name: Run Lint Checks
-        uses: ./.github/actions/lint
+        uses: kurocado-studio/styleguide/.github/actions/lint
