@@ -47,6 +47,23 @@ Below are the CLI dependencies needed to run the styleguide configurations
 }
 ```
 
+## Scripts
+
+Add the following scripts to `package.json`
+
+```json
+{
+  "scripts": {
+    "commitlint": "pnpm exec commitlint --edit",
+    "eslint-check": "eslint --max-warnings=0 .",
+    "prepare": "husky install",
+    "prettier-check": "prettier --check .",
+    "prettier-fix": "prettier --check . --write",
+    "semantic-release": "semantic-release"
+  }
+}
+```
+
 ## Prettier
 
 To use our Prettier configuration, add the following `prettier.config.js` at the root of the
