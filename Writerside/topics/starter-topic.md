@@ -124,13 +124,13 @@ project:
 ### For apps and web-based projects
 
 ```javascript
-module.exports = require.resolve('@kurocado-studio/style-guide/semantic-release/app');
+module.exports = require.resolve('@kurocado-studio/style-guide/release/app');
 ```
 
 ### For packages that will be released publicly on NPM
 
 ```javascript
-module.exports = require.resolve('@kurocado-studio/style-guide/semantic-release/npm');
+module.exports = require.resolve('@kurocado-studio/style-guide/release/npm');
 ```
 
 [See Semantic Release](https://github.com/Kurocado-Studio/styleguide/tree/main/src/semantic-release)
