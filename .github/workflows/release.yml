@@ -71,7 +71,7 @@ jobs:
         uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          title: 'chore/release: ${{ steps.extract_version.outputs.version }}'
+          title: 'chore(release): ${{ steps.extract_version.outputs.version }}'
           body: |
             This is an automated pull request for release version `${{ steps.extract_version.outputs.version }}`.
 
@@ -81,5 +81,5 @@ jobs:
             ```
           head: ${{ inputs.release-branch-prefix }}${{ steps.extract_version.outputs.version }}
           base: main
-          commit-message: 'chore/release: ${{ steps.extract_version.outputs.version }} [skip ci]'
+          commit-message: 'chore(release): ${{ steps.extract_version.outputs.version }} [skip ci]'
           labels: ${{ inputs.release-label }}
