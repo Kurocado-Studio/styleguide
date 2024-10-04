@@ -8,6 +8,6 @@ on:
 
 jobs:
   ci-lint:
-    uses: ./.github/workflows/ci.lint.yml@v1
+    uses: ./.github/workflows/lint.yml@v1
     secrets:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

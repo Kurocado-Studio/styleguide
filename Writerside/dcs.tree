@@ -8,8 +8,8 @@
 
     <toc-element topic="starter-topic.md"/>
     <toc-element topic="Workflows.md">
+        <toc-element topic="Writerside.md"/>
+        <toc-element topic="Code-Quality.md"/>
         <toc-element topic="Release.md"/>
-        <toc-element topic="How-to-build-test-deploy-Writerside-documentation.md"/>
     </toc-element>
-    <toc-element topic="How-to-Set-Up-and-Use-Reusable-GitHub-Actions-Across-Repositories.md"/>
 </instance-profile>
