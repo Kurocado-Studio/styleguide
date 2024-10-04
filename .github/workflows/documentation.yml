@@ -1,4 +1,4 @@
-name: Writerside Documentation
+name: Writerside Documentation Workflow
 
 on:
   workflow_call:
@@ -27,10 +27,10 @@ jobs:
           fetch-depth: 0
 
       - name: Install Dependencies
-        uses: ./.github/actions/install
+        uses: kurocado-studio/styleguide/.github/actions/install@main
 
       - name: Run Lint Checks
-        uses: ./.github/actions/lint
+        uses: kurocado-studio/styleguide/.github/actions/lint@main
 
       - name: Build docs using Writerside Docker builder
         uses: JetBrains/writerside-github-action@v4
