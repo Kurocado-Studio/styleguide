@@ -1,4 +1,12 @@
 # About docs
 
-Writerside adds this topic when you create a new documentation project. You can use it as a sandbox
-to play with Writerside features, and remove it from the TOC when you don't need it anymore.
+This repository provides a standardized and reusable GitHub Actions workflow setup inspired by
+Vercel’s Styleguide. The setup includes three primary workflows designed to enhance your project’s
+CI/CD pipeline:
+
+1. [Release Workflow](Release.md): Automates the release process, including versioning, changelog
+   generation, and pull request creation.
+2. [Code Quality Workflow](Code-Quality.md): Ensures code consistency and quality through automated
+   linting and formatting checks.
+3. [Writerside Documentation Workflow](Writerside.md): Builds and deploys project documentation
+   using Docker-based builders.

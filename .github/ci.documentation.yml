@@ -1,0 +1,12 @@
+name: Writerside Documentation
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  ci-documentation:
+    uses: ./.github/workflows/documentation.yml@v1
+    secrets:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -11,6 +11,7 @@ concurrency:
   cancel-in-progress: false
 
 on:
+  workflow_call:
   pull_request:
   push:
     branches:

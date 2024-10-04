@@ -1,6 +1,6 @@
 # Kurocado Studio Style Guide
 
-[Read the docs](https://kurocado-studio.github.io/styleguide/starter-topic.html)
+[Read the docs](https://kurocado-studio.github.io/styleguide/starter-topic.html) |
 [NPM Package](https://www.npmjs.com/package/@kurocado-studio/style-guide)
 
 This repository contains the style guide for our project, specifically tailored for TypeScript. We
@@ -105,7 +105,3 @@ In your `tsconfig.json`, extend our base TypeScript configuration:
 ```
 
 This ensures that your TypeScript settings are aligned with our style guide and project standards.
-
-## Credits
-
-#### We’ve taken inspiration and guidance from [Vercel’s Style Guide](https://vercel.com) and used their TypeScript configurations as a base for this project. We aim to match the same high standards they uphold for code quality and consistency.

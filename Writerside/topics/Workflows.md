@@ -1,4 +1,4 @@
-# Automated Release Workflow with `semantic-release`
+# Workflows
 
 This repository utilizes a **reusable GitHub Actions workflow** to automate the release process
 using `semantic-release`. This setup ensures consistent and efficient releases across multiple
