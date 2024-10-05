@@ -88,6 +88,13 @@ module.exports = {
     // or cretae one with Vue-specific rules
     require.resolve('@kurocado-studio/style-guide/eslint/react'),
   ],
+  parserOptions: {
+    // your parserOptions, for example:
+    ecmaVersion: 2020,
+    project: true,
+    sourceType: 'module',
+    tsconfigRootDir: __dirname,
+  },
   // ...any additional rules
 };
 ```
@@ -97,6 +104,13 @@ module.exports = {
 ```javascript
 module.exports = {
   extends: [require.resolve('@kurocado-studio/style-guide/eslint/node')],
+  parserOptions: {
+    // your parserOptions, for example:
+    ecmaVersion: 2020,
+    project: true,
+    sourceType: 'module',
+    tsconfigRootDir: __dirname,
+  },
   // ...any additional rules
 };
 ```
