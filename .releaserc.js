@@ -1,1 +1,1 @@
-module.exports = require('./src/semantic-release/semantic-release.npm');
+module.exports = require('./src/semantic-release/semanticRelease.npm');

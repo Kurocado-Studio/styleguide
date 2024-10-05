@@ -1,4 +1,4 @@
-const baseAppConfig = require('./semantic-release.app');
+const baseAppConfig = require('./semanticRelease.app');
 
 module.exports = {
   ...baseAppConfig,

@@ -1,4 +1,4 @@
-const jsxA11yRules = require('./jsx-a11y');
+const jsxA11yRules = require('./jsxA11y');
 
 module.exports = {
   rules: {
