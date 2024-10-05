@@ -17,17 +17,17 @@ module.exports = {
       },
     },
     {
-      files: ['**/*.ts', '**/*.js'], // Target other files for kebab-case
+      files: ['**/*.ts', '**/*.js'], // Target other files for camelCase
       rules: {
         /**
-         * Require kebabCase filename case for all linted files.
+         * Require camelCase filename case for all linted files.
          *
          * @see  https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/filename-case.md
          */
         'unicorn/filename-case': [
           'error',
           {
-            case: 'kebabCase',
+            case: 'camelCase',
           },
         ],
       },
