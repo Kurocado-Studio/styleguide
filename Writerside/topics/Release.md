@@ -60,7 +60,6 @@ c. Add Required Secrets
 **Create the Release Workflow File in the Consuming Repository with the below permissions**
 
 ```yaml
-# .github/workflows/release.yml
 name: Release Workflow
 
 permissions:

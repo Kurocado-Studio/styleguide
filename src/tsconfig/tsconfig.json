@@ -33,9 +33,9 @@
     "incremental": true,
     "baseUrl": "./",
     "paths": {
-      "@*": ["src/*"]
+      "@app*": ["app/*"],
+      "@src*": ["src/*"],
     }
   },
-  "include": ["src/**/*"],
   "exclude": ["node_modules", "build", "dist"]
 }

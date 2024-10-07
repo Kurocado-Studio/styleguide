@@ -29,7 +29,7 @@ jobs:
       - name: Install Dependencies
         uses: kurocado-studio/styleguide/.github/actions/install@main
 
-      - name: Run Lint Checks
+      - name: Lint
         uses: kurocado-studio/styleguide/.github/actions/lint@main
 
       - name: Build docs using Writerside Docker builder

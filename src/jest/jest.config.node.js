@@ -8,6 +8,10 @@ module.exports = {
       tsconfig: '<rootDir>/tsconfig.spec.json',
     },
   },
+  collectCoverageFrom: [
+    ...baseConfig.collectCoverageFrom,
+    'src/**/*.{js,jsx,ts,tsx}',
+  ],
   moduleNameMapper: {
     ...baseConfig.moduleNameMapper,
     '^@/(.*)$': '<rootDir>/src/$1',

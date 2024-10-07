@@ -1,4 +1,4 @@
-# Kurocado Studio Style Guide
+# Style Guide
 
 [NPM Package](https://www.npmjs.com/package/@kurocado-studio/style-guide) |
 [GitHub Repository](https://github.com/Kurocado-Studio/styleguide)
@@ -14,6 +14,7 @@ styleguide
 - [Prettier](#prettier)
 - [ESLint](#eslint)
 - [TypeScript](#typescript)
+- [Jest](#jest)
 - [Commitlint](#commitlint)
 - [Semantic Release](#semantic-release)
 - [GitHub Actions](#github-actions)
@@ -25,7 +26,6 @@ styleguide
 npm install --save-dev @kurocado-studio/style-guide
 
 # If you use Yarn
-
 yarn add --dev @kurocado-studio/style-guide
 ```
 
@@ -40,6 +40,7 @@ Below are the CLI dependencies needed to run the styleguide configurations
     "@commitlint/config-conventional": "19.0.3",
     "eslint": "8.57.0",
     "husky": "9.0.11",
+    "jest": "^29.7.0",
     "prettier": "3.3.3",
     "semantic-release": "23.0.2",
     "typescript": "5.3.3"
@@ -54,6 +55,8 @@ Add the following scripts to `package.json`
 ```json
 {
   "scripts": {
+    "build": "YOUR BUILD SCRIPT",
+    "test": "jest --coverage --ci",
     "commitlint": "pnpm exec commitlint --edit",
     "eslint-check": "eslint --max-warnings=0 .",
     "prepare": "husky install",
@@ -85,11 +88,10 @@ To use our ESLint configuration, add the following `.eslintrc.js` at the root of
 module.exports = {
   extends: [
     require.resolve('@kurocado-studio/style-guide/eslint/browser'),
-    // or cretae one with Vue-specific rules
+    // or create one with Vue-specific rules
     require.resolve('@kurocado-studio/style-guide/eslint/react'),
   ],
   parserOptions: {
-    // your parserOptions, for example:
     ecmaVersion: 2020,
     project: true,
     sourceType: 'module',
@@ -105,7 +107,6 @@ module.exports = {
 module.exports = {
   extends: [require.resolve('@kurocado-studio/style-guide/eslint/node')],
   parserOptions: {
-    // your parserOptions, for example:
     ecmaVersion: 2020,
     project: true,
     sourceType: 'module',
@@ -116,6 +117,19 @@ module.exports = {
 ```
 
 [See ESLint rules](https://github.com/Kurocado-Studio/styleguide/tree/main/src/eslint)
+
+## Jest
+
+To use our Commitlint configuration, add the following `.commitlintrc.js` at the root of the
+project:
+
+```javascript
+module.exports = {
+  extends: ['@kurocado-studio/style-guide/commitlint'],
+};
+```
+
+[See Commitlint rules](https://github.com/Kurocado-Studio/styleguide/tree/main/src/commitlint)
 
 ## Commitlint
 

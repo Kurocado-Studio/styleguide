@@ -49,7 +49,6 @@ c. Add Required Secrets
 **Create the Release Workflow File in the Consuming Repository**
 
 ```yaml
-# .github/workflows/code-quality.yml
 name: Code Quality
 
 on:

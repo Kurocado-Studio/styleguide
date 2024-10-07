@@ -1,3 +1,5 @@
 {
-  "extends": ["src/tsconfig/tsconfig.node.json"]
+  "extends": [
+    "src/tsconfig/tsconfig.nestjs.json"
+  ]
 }
