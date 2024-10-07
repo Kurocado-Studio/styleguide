@@ -64,7 +64,6 @@ c. Add Required Secrets
 **Create the Release Workflow File in the Consuming Repository**
 
 ```yaml
-# .github/workflows/writerside-writerside-documentation.yml
 name: Writerside Documentation
 
 on:

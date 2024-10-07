@@ -6,6 +6,6 @@ on:
       - main
 
 jobs:
-  ci-documentation:
+  documentation:
     uses: kurocado-studio/styleguide/.github/workflows/writerside-documentation@main
     secrets: inherit

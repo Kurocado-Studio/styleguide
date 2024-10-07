@@ -2,6 +2,10 @@ const baseConfig = require('./jest.config.base.js');
 
 module.exports = {
   ...baseConfig,
+  collectCoverageFrom: [
+    ...baseConfig.collectCoverageFrom,
+    'src/**/*.{js,jsx,ts,tsx}',
+  ],
   globals: {
     'ts-jest': {
       diagnostics: false,

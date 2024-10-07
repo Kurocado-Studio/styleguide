@@ -12,7 +12,7 @@ on:
       - main
 
 jobs:
-  ci-release:
+  release:
     uses: kurocado-studio/styleguide/.github/workflows/release.yml@main
     secrets:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

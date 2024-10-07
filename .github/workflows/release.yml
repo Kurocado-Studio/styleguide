@@ -16,22 +16,25 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
 
-      - name: Install Dependencies
+      - name: Install
         uses: kurocado-studio/styleguide/.github/actions/install@main
 
-      - name: Run Lint Checks
+      - name: Lint
         uses: kurocado-studio/styleguide/.github/actions/lint@main
 
-      - name: Build Assets
-        run: ${{ inputs.build-command }}
+      - name: Test
+        uses: kurocado-studio/styleguide/.github/actions/test@main
 
-      - name: Run Semantic Release
+      - name: Build
+        run: pnpm run build
+
+      - name: Semantic Release
         id: semantic_release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

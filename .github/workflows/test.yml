@@ -1,4 +1,4 @@
-name: Lint Workflow
+name: Test Workflow
 
 concurrency:
   group: 'code-quality-${{ github.ref }}'
@@ -15,14 +15,17 @@ jobs:
   code-quality:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
 
-      - name: Install
+      - name: Install Dependencies
         uses: kurocado-studio/styleguide/.github/actions/install@main
 
       - name: Lint
         uses: kurocado-studio/styleguide/.github/actions/lint@main
+
+      - name: Jest
+        uses: kurocado-studio/styleguide/.github/actions/test@main

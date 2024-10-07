@@ -3,7 +3,7 @@
         SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
 
 <instance-profile id="dcs"
-                 name="Kurocado Studio Style Guide"
+                 name="Style Guide"
                  start-page="starter-topic.md">
 
     <toc-element topic="starter-topic.md"/>

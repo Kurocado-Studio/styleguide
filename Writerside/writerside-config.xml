@@ -1,5 +1,5 @@
 <project>
     <modules>
-        <module name="fddfd" path="Writerside" />
+        <module name="docs" path="Writerside" />
     </modules>
 </project>
