@@ -34,7 +34,7 @@
     "baseUrl": "./",
     "paths": {
       "@app*": ["app/*"],
-      "@src*": ["src/*"],
+      "@src*": ["src/*"]
     }
   },
   "exclude": ["node_modules", "build", "dist"]
