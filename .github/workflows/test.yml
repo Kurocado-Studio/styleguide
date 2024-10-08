@@ -27,5 +27,5 @@ jobs:
       - name: Lint
         uses: kurocado-studio/styleguide/.github/actions/lint@main
 
-      - name: Jest
+      - name: Test
         uses: kurocado-studio/styleguide/.github/actions/test@main
