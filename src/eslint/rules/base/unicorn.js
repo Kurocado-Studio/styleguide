@@ -12,6 +12,7 @@ module.exports = {
           'error',
           {
             case: 'pascalCase',
+            ignore: ['\\.spec\\.tsx', '\\.test\\.tsx'],
           },
         ],
       },
