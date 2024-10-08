@@ -1,5 +1,4 @@
 module.exports = {
-  extends: ['plugin:vitest/recommended'],
   rules: {
     /**
      * Disallow duplicate setup and teardown hooks.

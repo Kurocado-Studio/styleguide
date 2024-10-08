@@ -1,9 +1,12 @@
 const {
   ECMA_VERSION,
   JAVASCRIPT_FILES,
+  JAVASCRIPT_TEST_FILES,
   TYPESCRIPT_FILES,
+  TYPESCRIPT_TEST_FILES,
 } = require('./constants');
 const unicorn = require('./rules/base/unicorn');
+const vitest = require('./rules/vitest');
 
 /**
  * @see https://github.com/eslint/eslint/issues/3458
@@ -49,6 +52,13 @@ module.exports = {
         sourceType: 'module',
         tsconfigRootDir: __dirname,
       },
+    },
+    {
+      env: { node: true },
+      extends: ['plugin:vitest/recommended'],
+      files: [...TYPESCRIPT_TEST_FILES, ...JAVASCRIPT_TEST_FILES],
+      plugins: ['vitest'],
+      rules: vitest.rules,
     },
   ],
   parserOptions: {
