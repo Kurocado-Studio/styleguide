@@ -23,6 +23,7 @@
     "./release/app": "./src/semantic-release/semanticRelease.app.js",
     "./release/npm": "./src/semantic-release/semanticRelease.npm.js",
     "./prettier": "./src/prettier/index.js",
+    "./vitest/setup-react": "./src/vitest/setup.react.js",
     "./vitest/react": "./src/vitest/vite.react.js",
     "./tsconfig/base": "./src/tsconfig/tsconfig.base.json",
     "./tsconfig/node": "./src/tsconfig/tsconfig.node.json",
