@@ -60,6 +60,12 @@ module.exports = {
       plugins: ['vitest'],
       rules: vitest.rules,
     },
+    {
+      files: ['vitest.config.ts'],
+      rules: {
+        'import/no-cycle': 'off',
+      },
+    },
   ],
   parserOptions: {
     ecmaVersion: ECMA_VERSION,
