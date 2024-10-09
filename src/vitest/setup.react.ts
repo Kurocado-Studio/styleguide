@@ -5,7 +5,10 @@ import * as matchers from 'vitest-axe/matchers';
 
 expect.extend(matchers);
 
-// @ts-expect-error since we are mocking HTMLCanvasElement.getContext fn
+// eslint-disable @typescript-eslint/no-unsafe-call
+// eslint-disable @typescript-eslint/no-unsafe-member-access
+// eslint-disable @typescript-eslint/no-unsafe-assignment
+// @ts-expect-error since we are mocking HTMLCanvasElement.getContext
 HTMLCanvasElement.prototype.getContext = () => {
   return {
     beginPath: vi.fn(),

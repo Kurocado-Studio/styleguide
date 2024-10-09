@@ -1,3 +1,4 @@
 {
-  "extends": ["src/tsconfig/tsconfig.nestjs.json"]
+  "extends": ["./src/tsconfig/tsconfig.nestjs.json"],
+  "include": ["./src/**/*.ts", "./src/**/*.tsx"],
 }
