@@ -13,6 +13,6 @@ export default defineConfig({
     css: true,
     environment: 'jsdom',
     globals: true,
-    setupFiles: './setup.react.js',
+    setupFiles: require.resolve('./setup.react.js'),
   },
 });
