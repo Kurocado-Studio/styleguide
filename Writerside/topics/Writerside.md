@@ -2,6 +2,8 @@
 
 ## Overview
 
+Builds and deploys project documentation using Docker-based builders.
+
 The following sequence diagram illustrates the interactions and steps involved in the Writerside
 Documentation workflow, triggered by a push to the main branch or a workflow call.
 

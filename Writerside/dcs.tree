@@ -4,8 +4,9 @@
 
 <instance-profile id="dcs"
                  name="Style Guide"
-                 start-page="starter-topic.md">
+                 start-page="PRD.md">
 
+    <toc-element topic="PRD.md"/>
     <toc-element topic="starter-topic.md"/>
     <toc-element topic="Workflows.md">
         <toc-element topic="Writerside.md"/>

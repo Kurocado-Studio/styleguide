@@ -1,13 +1,8 @@
-# Style Guide
+# Setup
 
-[NPM Package](https://www.npmjs.com/package/@kurocado-studio/style-guide) |
-[GitHub Repository](https://github.com/Kurocado-Studio/styleguide)
-
-This repository contains the style guide for our project, specifically tailored for TypeScript. We
+This repository contains the style guide for our projects, specifically tailored for TypeScript. We
 have used the [Vercel Style Guide](https://github.com/vercel/style-guide) as a base for our
-TypeScript configurations, and aspire to maintain the same high standards in our code quality. We
-extend our thanks to [Vercel](https://github.com/vercel/style-guide) for open-sourcing their
-styleguide
+TypeScript configurations, and aspire to maintain the same high standards in our code quality.
 
 ## Overview
 

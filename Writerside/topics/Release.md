@@ -2,6 +2,9 @@
 
 ## Overview
 
+Automates the release process, including versioning, changelog generation, and pull request
+creation.
+
 The following sequence diagram illustrates the interactions and steps involved in the Release
 workflow, triggered by a push to the `main` branch.
 

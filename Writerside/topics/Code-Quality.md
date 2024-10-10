@@ -2,6 +2,8 @@
 
 ## Overview
 
+Ensures code consistency and quality through automated linting and formatting checks.
+
 The following sequence diagram illustrates the interactions and steps involved in the **Code
 Quality** workflow, triggered by a push to the `main` branch or a pull request.
 
