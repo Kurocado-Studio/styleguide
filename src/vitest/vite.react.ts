@@ -14,6 +14,6 @@ export default defineConfig({
     css: true,
     environment: 'jsdom',
     globals: true,
-    setupFiles: require.resolve('./setup.react.ts'),
+    setupFiles: './setup.react.ts',
   },
 });
