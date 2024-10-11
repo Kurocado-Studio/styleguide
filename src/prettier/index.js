@@ -8,6 +8,7 @@ module.exports = {
   endOfLine: 'lf',
   importOrder: [
     '<THIRD_PARTY_MODULES>',
+    '^~/(.*)$',
     '^@/(.*)$',
     '^@app/(.*)$',
     '^@src/(.*)$',
