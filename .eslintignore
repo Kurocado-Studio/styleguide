@@ -1,2 +1,3 @@
 src/vitest/setup.react.ts
 src/vitest/vite.react.ts
+node_modules

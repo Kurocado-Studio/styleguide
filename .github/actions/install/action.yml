@@ -4,6 +4,9 @@ description: 'Sets up Node, and installs dependencies'
 runs:
   using: 'composite'
   steps:
+    - name: Clear cache
+      uses: actions/cache@v3
+
     - name: Set up Node.js
       uses: actions/setup-node@v4
       with:
@@ -18,4 +21,4 @@ runs:
       shell: bash
       run: |
         corepack enable
-        pnpm install
+        pnpm install --frozen-lockfile
