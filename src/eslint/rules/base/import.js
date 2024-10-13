@@ -81,23 +81,23 @@ module.exports = {
         'newlines-between': 'always',
         pathGroups: [
           {
+            group: 'internal',
             pattern: '^~/**',
-            group: 'internal',
             position: 'before',
           },
           {
+            group: 'internal',
             pattern: '^@app/**',
-            group: 'internal',
             position: 'before',
           },
           {
+            group: 'internal',
             pattern: '^@src/**',
-            group: 'internal',
             position: 'before',
           },
           {
-            pattern: '^@/**',
             group: 'internal',
+            pattern: '^@/**',
             position: 'before',
           },
         ],
