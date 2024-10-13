@@ -18,4 +18,4 @@ runs:
       shell: bash
       run: |
         corepack enable
-        pnpm install --frozen-lockfile
+        npm install --frozen-lockfile
