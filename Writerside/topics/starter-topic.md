@@ -1,201 +1,152 @@
-# Setup
+# About Styleguide
 
-This repository contains the style guide for our projects, specifically tailored for TypeScript. We
-have used the [Vercel Style Guide](https://github.com/vercel/style-guide) as a base for our
-TypeScript configurations, and aspire to maintain the same high standards in our code quality.
+<show-structure depth="3"/>
 
-## Overview
+|                   |                                                                                                    |
+| ----------------- | -------------------------------------------------------------------------------------------------- |
+| **Owner**         | [@csantiago132](https://github.com/csantiago132)                                                   |
+| **Team**          | [research-and-development](https://github.com/orgs/Kurocado-Studio/teams/research-and-development) |
+| **Summary**       | A styleguide to enable developers to set up repositories quickly                                   |
+| **Status**        | **Live**                                                                                           |
+| **Repository**    | [](https://github.com/Kurocado-Studio/styleguide)                                                  |
+| **Documentation** | [](https://kurocado-studio.github.io/styleguide/)                                                  |
+| **NPM Registry**  | [](https://www.npmjs.com/package/@kurocado-studio/style-guide)                                     |
+| **Releases**      | [](https://github.com/Kurocado-Studio/styleguide/releases)                                         |
 
-- [Prettier](#prettier)
-- [ESLint](#eslint)
-- [TypeScript](#typescript)
-- [Jest](#jest)
-- [Commitlint](#commitlint)
-- [Semantic Release](#semantic-release)
-- [GitHub Actions](#github-actions)
+## Problem Definition
 
-### Installation
+This document outlines Kurocado Studio's internal Style Guide. It explores the challenges that this
+initiative addresses and highlights the key reasons why companies like Vercel, and Airbnb
+open-source their style guides.
 
-```bash
-# If you use npm
-npm install --save-dev @kurocado-studio/style-guide
+By adopting a unified style guide inspired by Vercel's approach and integrating GitHub Actions, we
+aim to streamline development processes, facilitate easier collaboration, enhance the overall
+quality of our software products, and improving internal processes, demonstrating thought leadership
+in design and development standards.
 
-# If you use Yarn
-yarn add --dev @kurocado-studio/style-guide
-```
+### Objective
 
-## Dependencies
+1. Provide a comprehensive style guide based on Vercel's, enabling Kurocado Studio set up
+   repositories quickly with high-quality standards.
+2. Open-sourcing the style guide to position Kurocado Studio as a contributor to the developer
+   community, fostering goodwill and potentially attracting collaboration opportunities
+3. Open-sourcing the Style Guide fosters transparency and gives external developers insight into
+   Kurocado Studio’s internal processes.
 
-Below are the CLI dependencies needed to run the styleguide configurations
+### Use Cases
 
-```json
-{
-  "devDependencies": {
-    "@commitlint/cli": "19.0.3",
-    "@commitlint/config-conventional": "19.0.3",
-    "eslint": "8.57.0",
-    "husky": "9.0.11",
-    "jest": "^29.7.0",
-    "prettier": "3.3.3",
-    "semantic-release": "23.0.2",
-    "typescript": "5.3.3"
-  }
-}
-```
+1. Internal Team Adoption Kurocado Studio's internal teams will use the Style Guide as a primary
+   reference point for all design and development standards
 
-## Scripts
+2. External Contributor Alignment External developers or freelancers working with Kurocado Studio
+   will benefit from having access to the Style Guide, ensuring that their contributions are aligned
+   with the studio’s quality standards from the outset.
 
-Add the following scripts to `package.json`
+3. Client Collaboration When collaborating with clients, the open-source Style Guide can serve as a
+   transparent resource that clients can reference to understand how their projects are being built
+   and designed.
 
-```json
-{
-  "scripts": {
-    "build": "YOUR BUILD SCRIPT",
-    "test": "jest --coverage --ci",
-    "commitlint": "pnpm exec commitlint --edit",
-    "eslint-check": "eslint --max-warnings=0 .",
-    "prepare": "husky install",
-    "prettier-check": "prettier --check .",
-    "prettier-fix": "prettier --check . --write",
-    "semantic-release": "semantic-release"
-  }
-}
-```
+### Stakeholders
 
-## Prettier
+|                 |                                                                                                    |
+| --------------- | -------------------------------------------------------------------------------------------------- |
+| **Responsible** | [research-and-development](https://github.com/orgs/Kurocado-Studio/teams/research-and-development) |
+| **Accountable** | [@csantiago132](https://github.com/csantiago132)                                                   |
+| **Consulted**   | N/A                                                                                                |
+| **Informed**    | N/A                                                                                                |
 
-To use our Prettier configuration, add the following `prettier.config.js` at the root of the
-project:
+### Scope & Constraints
 
-```javascript
-module.exports = require.resolve('@kurocado-studio/style-guide/prettier');
-```
+**In Scope:**
 
-[See Prettier rules](https://github.com/Kurocado-Studio/styleguide/blob/main/src/prettier/)
+- Development of a comprehensive style guide covering code formatting, linting rules, commit
+  conventions, configuration management, and automated workflows using GitHub Actions.
+- Creation of reusable configuration files and scripts to enforce the style guide and automate
+  workflows across repositories.
+- Documentation and onboarding materials to assist developers in adopting the style guide and GitHub
+  Actions workflows.
+- Open-sourcing the style guide on GitHub and publishing it to the NPM registry.
 
-## ESLint
+**Out of Scope:**
 
-To use our ESLint configuration, add the following `.eslintrc.js` at the root of the project:
+- Support for languages and frameworks not currently used within Kurocado Studio.
 
-### Browser
+**Constraints:**
 
-```javascript
-module.exports = {
-  extends: [
-    require.resolve('@kurocado-studio/style-guide/eslint/browser'),
-    // or create one with Vue-specific rules
-    require.resolve('@kurocado-studio/style-guide/eslint/react'),
-  ],
-  parserOptions: {
-    ecmaVersion: 2020,
-    project: true,
-    sourceType: 'module',
-    tsconfigRootDir: __dirname,
-  },
-  // ...any additional rules
-};
-```
+- Limited development time and resources; prioritization is essential.
 
-### Node
+### Risks
 
-```javascript
-module.exports = {
-  extends: [require.resolve('@kurocado-studio/style-guide/eslint/node')],
-  parserOptions: {
-    ecmaVersion: 2020,
-    project: true,
-    sourceType: 'module',
-    tsconfigRootDir: __dirname,
-  },
-  // ...any additional rules
-};
-```
+- **Resource Allocation:** Limited resources might delay the implementation or lead to incomplete
+  coverage of standards and workflows.
+- **Open Source Vulnerabilities:** Open-sourcing the style guide may expose it to malicious
+  contributions or misuse.
+- **Workflow Failures:** Automated GitHub Actions workflows might fail or cause unintended
+  disruptions if not properly configured and tested.
 
-[See ESLint rules](https://github.com/Kurocado-Studio/styleguide/tree/main/src/eslint)
+## Solution Definition
 
-## Jest
+### User flows
 
-To use our Commitlint configuration, add the following `.commitlintrc.js` at the root of the
-project:
+1. **Initial Setup:**
 
-```javascript
-module.exports = {
-  extends: ['@kurocado-studio/style-guide/commitlint'],
-};
-```
+   - Developer clones the repository.
+   - Installs necessary dependencies via NPM.
 
-[See Commitlint rules](https://github.com/Kurocado-Studio/styleguide/tree/main/src/commitlint)
+2. **Development Workflow:**
+   - Developer writes code adhering to the style guide.
+   - Pre-commit hooks automatically lint and format code.
+   - GitHub Actions automatically run tests, linting, and build processes on each commit/pull
+     request.
+   - Pull requests are reviewed for compliance with the style guide and successful workflow runs.
 
-## Commitlint
+## Launch Readiness
 
-To use our Commitlint configuration, add the following `.commitlintrc.js` at the root of the
-project:
+### Key Milestones
 
-```javascript
-module.exports = {
-  extends: ['@kurocado-studio/style-guide/commitlint'],
-};
-```
+|                |                                                               |
+| -------------- | ------------------------------------------------------------- |
+| Stable Release | [](https://github.com/Kurocado-Studio/styleguide/milestone/1) |
 
-[See Commitlint rules](https://github.com/Kurocado-Studio/styleguide/tree/main/src/commitlint)
+### Testing plan
 
-## Semantic Release
+- **Integration Testing:** Apply the style guide and GitHub Actions workflows to a set of
+  repositories and verify that the setup process works seamlessly.
+- **User Acceptance Testing (UAT):** Collect feedback from developers during the beta phase to
+  identify any issues or areas for improvement.
+- **Continuous Integration (CI) Validation:** Integrate the style guide and GitHub Actions workflows
+  with CI pipelines to automatically enforce code standards and workflow integrity during builds.
 
-To use our Semantic Release configuration, add the following `.releaserc.js` at the root of the
-project:
+### Marketing plan
 
-### For apps and web-based projects
+- **Documentation:** Create comprehensive documentation and onboarding guides to facilitate
+  adoption.
+- **Community Engagement:** Promote the open-source style guide and workflows through blog posts,
+  social media, and developer forums to attract external contributors.
 
-```javascript
-module.exports = require.resolve('@kurocado-studio/style-guide/release/app');
-```
+### Legal checks
 
-### For packages that will be released publicly on NPM
+- **License Compliance:** Ensure that all dependencies, configurations, and GitHub Actions workflows
+  comply with open-source licenses.
+- **Intellectual Property:** Verify that no proprietary code or configurations are inadvertently
+  included in the open-source repository.
+- **Terms of Use:** Update the repository's README, LICENSE, and CONTRIBUTING files to clearly state
+  usage terms and contribution guidelines.
+- **Data Privacy:** Ensure that no sensitive information is exposed through documentation,
+  configuration files, or workflows.
 
-```javascript
-module.exports = require.resolve('@kurocado-studio/style-guide/release/npm');
-```
+## Success
 
-[See Semantic Release](https://github.com/Kurocado-Studio/styleguide/tree/main/src/semantic-release)
+- **Consistency Across Projects**: Measured by the reduction in discrepancies in design and code
+  standards across internal and client projects.
+- **Community Engagement**: Number of contributions, issues raised, and discussions initiated on the
+  open-source Style Guide repository.
+- **Industry Recognition**: Media mentions, citations, or adoption of the Kurocado Studio Style
+  Guide by other developers or companies.
 
-## TypeScript
+### Next steps
 
-In your `tsconfig.json`, extend our base TypeScript configuration
-
-### TypeScript Base
-
-```json
-{
-  "extends": "@kurocado-studio/styleguide/tsconfig/base"
-}
-```
-
-### TypeScript Browser
-
-```json
-{
-  "extends": "@kurocado-studio/styleguide/tsconfig/web"
-}
-```
-
-### TypeScript Node
-
-```json
-{
-  "extends": "@kurocado-studio/styleguide/tsconfig/node"
-}
-```
-
-[See Typescript configs](https://github.com/Kurocado-Studio/styleguide/tree/main/src/tsconfig)
-
-## GitHub Actions
-
-This repository provides a standardized and reusable GitHub Actions workflow setup. The setup
-includes three primary workflows designed to enhance your project’s CI/CD pipeline:
-
-1. [Release Workflow](Release.md): Automates the release process, including versioning, changelog
-   generation, and pull request creation.
-2. [Code Quality Workflow](Code-Quality.md): Ensures code consistency and quality through automated
-   linting and formatting checks.
-3. [Writerside Documentation Workflow](Writerside.md): Builds and deploys project documentation
-   using Docker-based builders.
+- **Continuous Improvement:** Regularly update the style guide and GitHub Actions workflows based on
+  feedback and evolving best practices.
+- **Community Building:** Foster a community around the style guide and workflows by organizing
+  events, hackathons, and collaborative projects to encourage external contributions.
