@@ -3,14 +3,17 @@
         SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
 
 <instance-profile id="dcs"
-                 name="Style Guide"
-                 start-page="PRD.md">
+                 name="Kurocado Studio Styleguide"
+                 start-page="starter-topic.md">
 
-    <toc-element topic="PRD.md"/>
     <toc-element topic="starter-topic.md"/>
-    <toc-element topic="Workflows.md">
-        <toc-element topic="Writerside.md"/>
+    <toc-element topic="Guides.md">
+        <toc-element topic="How-To-Install-Prettier.md"/>
+        <toc-element topic="How-To-Install-ESLint.md"/>
+    </toc-element>
+    <toc-element topic="Github-Actions.md">
         <toc-element topic="Code-Quality.md"/>
         <toc-element topic="Release.md"/>
+        <toc-element topic="Writerside.md"/>
     </toc-element>
 </instance-profile>
