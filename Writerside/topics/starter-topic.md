@@ -1,4 +1,4 @@
-# About Styleguide
+# Kurocado Studio Styleguide
 
 <show-structure depth="3"/>
 
