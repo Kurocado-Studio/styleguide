@@ -22,9 +22,10 @@
     "./prettier": "./src/prettier/index.js",
     "./vitest/setup-react": "./src/vitest/setup.react.ts",
     "./vitest/react": "./src/vitest/vite.react.ts",
-    "./tsconfig/base": "./src/tsconfig/tsconfig.base.json",
-    "./tsconfig/node": "./src/tsconfig/tsconfig.node.json",
-    "./tsconfig/web": "./src/tsconfig/tsconfig.web.json"
+    "./tsconfig/base": "./src/tsconfig/tsconfig.json",
+    "./tsconfig/nestjs": "./src/tsconfig/tsconfig.nestjs.json",
+    "./tsconfig/react": "./src/tsconfig/tsconfig.react.json",
+    "./tsconfig/remix": "./src/tsconfig/tsconfig.remix.json"
   },
   "main": "index.js",
   "files": [
