@@ -14,11 +14,8 @@
   "exports": {
     "./eslint/base": "./src/eslint/eslint.base.js",
     "./eslint/browser": "./src/eslint/eslint.browser.js",
-    "./eslint/jest": "./src/eslint/eslint.jest.js",
     "./eslint/node": "./src/eslint/eslint.node.js",
-    "./eslint/playwright": "./src/eslint/eslint.playwright.js",
     "./eslint/react": "./src/eslint/eslint.react.js",
-    "./eslint/testingLibrary": "./src/eslint/eslint.testingLibrary.js",
     "./commitlint": "./src/commitlint/index.js",
     "./release/app": "./src/semantic-release/semanticRelease.app.js",
     "./release/npm": "./src/semantic-release/semanticRelease.npm.js",

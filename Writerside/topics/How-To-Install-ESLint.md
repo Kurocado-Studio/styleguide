@@ -26,6 +26,8 @@ To use our ESLint configuration, add the following `.eslintrc.js` file at the ro
 This configuration supports both browser and Node.js environments. Choose the one that fits your
 project or customize as needed.
 
+**[See all ESLint configurations available](https://github.com/Kurocado-Studio/styleguide/tree/main/src/eslint)**
+
 ### Browser Configuration
 
 Create a `.eslintrc.js` file with the following content for browser-based projects:
@@ -75,23 +77,18 @@ following under the `"scripts"` section:
 }
 ```
 
-**Explanation of Scripts:**
-
-- `lint`: Runs ESLint on all `.js` and `.jsx` files in your project.
-- `lint:fix`: Runs ESLint and automatically fixes problems where possible.
-
-## Step 7 — Run ESLint
+## Step 4 — Run ESLint
 
 Run the lint script to analyze your code for issues:
 
 ```bash
-npm run lint
+npm run eslint-check
 ```
 
 You'll see output similar to:
 
 ```
-/path/to/my-javascript-project/src/index.js
+/path/to/my-project/src/index.js
   5:10  error  'React' is defined but never used  no-unused-vars
 
 ✖ 1 problem (1 error, 0 warnings)
@@ -100,13 +97,13 @@ You'll see output similar to:
 To automatically fix fixable issues, run:
 
 ```bash
-npm run lint:fix
+npm run eslint-fix
 ```
 
 You'll see output similar to:
 
 ```
-/path/to/my-javascript-project/src/index.js
+/path/to/my-project/src/index.js
   5:10  error  'React' is defined but never used  no-unused-vars
 
 ✖ 1 problem (1 error, 0 warnings)
@@ -114,7 +111,7 @@ You'll see output similar to:
 Fixed some of the issues.
 ```
 
-## Step 8 — Integrate ESLint with Your Code Editor
+## Step 5 — Integrate ESLint with Your Code Editor
 
 To enhance your workflow, integrate ESLint with your code editor to display linting errors in
 real-time.
@@ -141,9 +138,3 @@ real-time.
        "eslint.validate": ["javascript", "javascriptreact"]
      }
      ```
-
-   - This configuration enables ESLint to automatically fix issues when you save your files.
-
-```
-
-```
