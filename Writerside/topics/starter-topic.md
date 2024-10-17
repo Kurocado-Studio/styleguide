@@ -8,6 +8,7 @@
 | **Team**          | [research-and-development](https://github.com/orgs/Kurocado-Studio/teams/research-and-development) |
 | **Summary**       | A styleguide to enable developers to set up repositories quickly                                   |
 | **Status**        | **Live**                                                                                           |
+| **Project Board** | [](https://github.com/orgs/Kurocado-Studio/projects/5/views/1)                                     |
 | **Repository**    | [](https://github.com/Kurocado-Studio/styleguide)                                                  |
 | **Documentation** | [](https://kurocado-studio.github.io/styleguide/)                                                  |
 | **NPM Registry**  | [](https://www.npmjs.com/package/@kurocado-studio/style-guide)                                     |

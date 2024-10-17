@@ -39,6 +39,9 @@ module.exports = {
 To simplify the linting process, add scripts to your `package.json`. Open `package.json` and add the
 following under the `"scripts"` section:
 
+<note>The <a href="Code-Quality.md">Code-Quality Workflow</a> uses the following commands in the
+CI/CD pipeline</note>
+
 ```json
 "scripts": {
   "commitlint": "pnpm exec commitlint --edit",

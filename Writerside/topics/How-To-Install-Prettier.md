@@ -49,6 +49,9 @@ module.exports = require.resolve('@kurocado-studio/style-guide/prettier');
 To simplify the formatting process, add a script to your `package.json`. Open `package.json` and add
 the following under the `"scripts"` section:
 
+<note>The <a href="Code-Quality.md">Code-Quality Workflow</a> uses the following commands in the
+CI/CD pipeline</note>
+
 ```json
 "scripts": {
   "prettier-check": "prettier --check .",
