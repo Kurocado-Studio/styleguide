@@ -1,5 +1,11 @@
 # Release
 
+<note>
+   <procedure title="The following needs to be configured" id="procedure-id">
+      <step><a href="How-To-Install-Semantic-Release.md">Semantic Release</a></step>
+   </procedure>
+</note>
+
 ## Overview
 
 Automates the release process, including versioning, changelog generation, and pull request
@@ -37,8 +43,6 @@ sequenceDiagram
 ```
 
 ## Quick Start
-
-**Configuring Necessary Secrets**
 
 For the Release workflow to function correctly, certain secrets must be configured in your GitHub
 repository settings.
