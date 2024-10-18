@@ -1,4 +1,4 @@
-# Release
+# Release Workflow
 
 <note>
    <procedure title="The following needs to be configured" id="procedure-id">
