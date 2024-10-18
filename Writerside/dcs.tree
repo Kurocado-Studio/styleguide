@@ -13,6 +13,7 @@
         <toc-element topic="How-To-Install-Commitlint.md"/>
         <toc-element topic="How-To-Install-Typescript.md"/>
         <toc-element topic="How-To-Install-Semantic-Release.md"/>
+        <toc-element topic="How-To-Install-Vitest.md"/>
     </toc-element>
     <toc-element topic="Github-Actions.md">
         <toc-element topic="Code-Quality.md"/>

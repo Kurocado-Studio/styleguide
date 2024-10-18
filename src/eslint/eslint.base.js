@@ -58,10 +58,14 @@ module.exports = {
       extends: ['plugin:vitest/recommended'],
       files: [...TYPESCRIPT_TEST_FILES, ...JAVASCRIPT_TEST_FILES],
       plugins: ['vitest'],
-      rules: vitest.rules,
+      rules: {
+        ...vitest.rules,
+        '@typescript-eslint/no-unsafe-call': 'off',
+        'import/order': 'off',
+      },
     },
     {
-      files: ['vitest.config.ts'],
+      files: ['vitest.web.ts', 'vitest.node.ts'],
       rules: {
         'import/no-cycle': 'off',
       },
