@@ -1,4 +1,11 @@
-# Code Quality
+# Code Quality Workflow
+
+## Prerequisites
+
+- [Prettier Setup](How-To-Install-Prettier.md)
+- [ESLint Setup](How-To-Install-ESLint.md)
+- [Commitlint Setup](How-To-Install-Commitlint.md)
+- [Vitest Setup](How-To-Install-Vitest.md)
 
 ## Overview
 
@@ -27,28 +34,45 @@ sequenceDiagram
     end
 ```
 
-## Quick Start
+## Step 1 — Configure Necessary Secrets
 
-**Configuring Necessary Secrets**
+For the Code Quality workflow to function correctly, certain secrets must be configured in your
+GitHub repository settings. These secrets ensure secure access to necessary tools and services
+during the workflow execution.
 
-For the Release workflow to function correctly, certain secrets must be configured in your GitHub
-repository settings.
-
-a. Navigate to Repository Settings
+### a. Navigate to Repository Settings
 
 1. Go to your repository on GitHub.
-2. Click on Settings.
+2. Click on the **Settings** tab.
 
-b. Access Secrets
+### b. Access Secrets
 
-1. In the left sidebar, click on Secrets and variables > Actions.
+1. In the left sidebar, click on **Secrets and variables** under the **Security** section.
+2. Select **Actions** to manage secrets for GitHub Actions.
 
-c. Add Required Secrets
+### c. Add Required Secrets
 
-1. **GITHUB_TOKEN**: Automatically provided by GitHub Actions; no need to add manually unless
-   customizing permissions.
+1. **GITHUB_TOKEN**: This token is automatically provided by GitHub Actions and typically does not
+   need to be added manually unless you require customized permissions.
+2. **Additional Secrets**: If your workflow requires access to external services or APIs (e.g.,
+   authentication tokens, API keys), add them here by clicking on **New repository secret** and
+   providing the necessary name and value.
 
-**Create the Release Workflow File in the Consuming Repository**
+## Step 2 — Create the Code Quality Workflow File
+
+Create a GitHub Actions workflow file that defines the steps for automated linting and formatting
+checks. This workflow will be triggered by pushes to the `main` branch or the creation/update of
+pull requests.
+
+### a. Add the Workflow File
+
+1. In your repository, navigate to the `.github/workflows/` directory. If it doesn't exist, create
+   it.
+2. Create a new file named `code-quality.yml` (or any name of your choice).
+
+### b. Define the Workflow
+
+Add the following content to the `code-quality.yml` file:
 
 ```yaml
 name: Code Quality
