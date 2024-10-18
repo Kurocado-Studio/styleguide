@@ -25,7 +25,7 @@ const config = require.resolve('@kurocado-studio/style-guide/vitest/web');
 export default defineConfig(config);
 ```
 
-Then add the setup file:
+Create a `setup.web.ts` file to configure the testing environment before running tests:
 
 ```typescript
 require.resolve('@kurocado-studio/style-guide/vitest/setup-web');
@@ -41,7 +41,7 @@ const config = require.resolve('@kurocado-studio/style-guide/vitest/node');
 export default defineConfig(config);
 ```
 
-Then add the setup file:
+Create a `setup.node.ts` file to configure the testing environment before running tests:
 
 ```typescript
 require.resolve('@kurocado-studio/style-guide/vitest/setup-node');
