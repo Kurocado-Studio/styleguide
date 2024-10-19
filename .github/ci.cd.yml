@@ -13,16 +13,17 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   test:
+    needs: lint
     uses: kurocado-studio/styleguide/.github/workflows/test.yml@main
     secrets: inherit
 
   document:
-    needs: lint
+    needs: test
     uses: kurocado-studio/styleguide/.github/workflows/writerside-documentation@main
     secrets: inherit
 
   release:
-    needs: documentation
+    needs: document
     uses: kurocado-studio/styleguide/.github/workflows/release.yml@main
     secrets:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
