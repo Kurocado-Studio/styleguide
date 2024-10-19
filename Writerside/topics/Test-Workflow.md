@@ -1,35 +1,33 @@
-# Code Quality Workflow
+# Test Workflow
 
 ## Prerequisites
 
-- [Prettier Setup](How-To-Install-Prettier.md)
-- [ESLint Setup](How-To-Install-ESLint.md)
-- [Commitlint Setup](How-To-Install-Commitlint.md)
+- [Vitest Setup](How-To-Install-Vitest.md)
 
 ## Overview
 
 Ensures code consistency and quality through automated linting and formatting checks.
 
-The following sequence diagram illustrates the interactions and steps involved in the **Code
-Quality** workflow, triggered by a push to the `main` branch or a pull request.
+The following sequence diagram illustrates the interactions and steps involved in the **Test**
+workflow, triggered by a push to the `main` branch or a pull request.
 
 ```mermaid
 sequenceDiagram
     participant Developer
     participant GitHubRepo as GitHub Repository
     participant Runner as GitHub Actions Runner
-    participant Linter as Linting Tools
+    participant Vitest as Vitest Tools
     participant GitHubAPI as GitHub API
 
     Developer->>GitHubRepo: Push to `main` Branch or Create/Update Pull Request
-    GitHubRepo->>Runner: Trigger Code Quality Workflow
+    GitHubRepo->>Runner: Trigger Test Workflow
     Runner->>GitHubRepo: Checkout Repository
     Runner->>Runner: Install Dependencies
-    Runner->>Runner: Run Lint Checks
-    alt Linting Successful
+    Runner->>Runner: Run Tests
+    alt Tests Successful
         Runner->>GitHubAPI: Proceed with Workflow Completion
-    else Linting Failed
-        Runner->>Developer: Report Linting Errors
+    else Tests Failed
+        Runner->>Developer: Report Test Errors
     end
 ```
 
@@ -57,21 +55,20 @@ during the workflow execution.
    authentication tokens, API keys), add them here by clicking on **New repository secret** and
    providing the necessary name and value.
 
-## Step 2 — Create the Code Quality Workflow File
+## Step 2 — Create the Test Workflow File
 
-Create a GitHub Actions workflow file that defines the steps for automated linting and formatting
-checks. This workflow will be triggered by pushes to the `main` branch or the creation/update of
-pull requests.
+Create a GitHub Actions workflow file that defines the steps for automated testing checks. This
+workflow will be triggered by pushes to the `main` branch or the creation/update of pull requests.
 
 ### a. Add the Workflow File
 
 1. In your repository, navigate to the `.github/workflows/` directory. If it doesn't exist, create
    it.
-2. Create a new file named `code-quality.yml` (or any name of your choice).
+2. Create a new file named `test.yml` (or any name of your choice).
 
 ### b. Define the Workflow
 
-Add the following content to the `code-quality.yml` file:
+Add the following content to the `test.yml` file:
 
 ```yaml
 name: Code Quality
@@ -84,6 +81,6 @@ on:
 
 jobs:
   code-quality:
-    uses: kurocado-studio/styleguide/.github/workflows/lint.yml@main
+    uses: kurocado-studio/styleguide/.github/workflows/test.yml@main
     secrets: inherit
 ```
