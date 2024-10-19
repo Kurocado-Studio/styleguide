@@ -1,10 +1,8 @@
 # Release Workflow
 
-<note>
-   <procedure title="The following needs to be configured" id="procedure-id">
-      <step><a href="How-To-Install-Semantic-Release.md">Semantic Release</a></step>
-   </procedure>
-</note>
+## Prerequisites
+
+- [Semantic Release Setup](How-To-Install-Semantic-Release.md)
 
 ## Overview
 
@@ -16,75 +14,92 @@ workflow, triggered by a push to the `main` branch.
 
 ```mermaid
 sequenceDiagram
-    participant Developer
-    participant GitHub as GitHub Repository
-    participant Runner as GitHub Actions Runner
-    participant Semantic as Semantic Release
-    participant GitHubAPI as GitHub API
+   participant Developer
+   participant GitHubRepo as GitHub Repository
+   participant Runner as GitHub Actions Runner
+   participant SemanticRelease as Semantic Release
+   participant NPM as NPM Registry
+   participant GitHubAPI as GitHub API
 
-    Developer->>GitHub: Push to `main` Branch
-    GitHub->>Runner: Trigger Release Workflow
-    Runner->>GitHub: Checkout Repository
-    Runner->>Runner: Install Dependencies
-    Runner->>Runner: Run Lint Checks
-    Runner->>Runner: Build Assets (pnpm run build)
-    Runner->>Semantic: Execute `semantic-release`
-    Semantic-->>Runner: nextRelease Output (version, etc.)
-    alt Release Successful
-        Runner->>Runner: Create Release Branch (`release-{VERSION}`)
-        Runner->>Runner: Commit Changes to Release Branch
-        Runner->>GitHub: Push Release Branch (`release-{VERSION}`)
-        Runner->>Runner: Extract Version from `package.json`
-        Runner->>Runner: Extract Changelog from `CHANGELOG.md`
-        Runner->>GitHubAPI: Create Pull Request to `main`
-    else Release Not Successful
-        Runner->>Runner: Terminate Workflow
-    end
+   Developer->>GitHubRepo: Push to `main` Branch or Trigger Workflow Call
+   GitHubRepo->>Runner: Trigger Release Workflow
+
+   Runner->>Runner: Checkout Repository
+   Runner->>Runner: Install Dependencies
+   Runner->>Runner: Build Project
+
+   Runner->>SemanticRelease: Run Semantic Release
+   SemanticRelease-->>Runner: Determine Next Release Version
+
+   alt Next Release Exists
+      Runner->>Runner: Create Release Branch
+      Runner->>Runner: Push Release Branch to GitHub
+
+      Runner->>Runner: Extract Version from package.json
+      Runner->>Runner: Extract Changelog from CHANGELOG.md
+
+      Runner->>GitHubAPI: Create Pull Request to `main` with Release Branch
+   else No Release Needed
+      Note right of Runner: "Create Release Branch" and subsequent steps are skipped
+   end
+
+   SemanticRelease->>NPM: Publish Package to NPM Registry
+   NPM-->>SemanticRelease: Confirmation of Publish
+   SemanticRelease-->>Runner: Publish Successful
 ```
 
-## Quick Start
+## Step 1 — Configure Necessary Secrets
 
-For the Release workflow to function correctly, certain secrets must be configured in your GitHub
-repository settings.
-
-a. Navigate to Repository Settings
+### a. Navigate to Repository Settings
 
 1. Go to your repository on GitHub.
-2. Click on Settings.
+2. Click on the **Settings** tab.
 
-b. Access Secrets
+### b. Access Secrets
 
-1. In the left sidebar, click on Secrets and variables > Actions.
+1. In the left sidebar, click on **Secrets and variables** under the **Security** section.
+2. Select **Actions** to manage secrets for GitHub Actions.
 
-c. Add Required Secrets
+### c. Add Required Secrets
 
-1. **GITHUB_TOKEN**: Automatically provided by GitHub Actions; no need to add manually unless
-   customizing permissions.
-2. **NPM_TOKEN**: Authenticates with the NPM registry to publish packages.
-3. **PAT_FORCE_PUSH**: Personal Access Token with permissions to push to protected branches and
-   create branches.
+1. **GITHUB_TOKEN**: This token is automatically provided by GitHub Actions and typically does not
+   need to be added manually unless you require customized permissions.
+2. **PAT_FORCE_PUSH**: Personal Access Token configured with the necessary scopes (permissions) to
+   allow a GitHub Actions workflow to perform force push operations on a repository.
+3. **Additional Secrets**: If your workflow requires access to external services or APIs (e.g.,
+   authentication tokens, API keys), add them here by clicking on **New repository secret** and
+   providing the necessary name and value.
 
-**Create the Release Workflow File in the Consuming Repository with the below permissions**
+## Step 2 — Add the Release Workflow
+
+You’ll need to add the Release Workflow YAML file to your repository. This file defines the
+automated steps for releasing your project.
+
+### a. Add the Workflow File
+
+1. In your repository, navigate to the `.github/workflows/` directory. If it doesn't exist, create
+   it.
+2. Create a new file named `release.yml` (or any name of your choice).
+
+### b. Define the Workflow
+
+Add the following content to the `release.yml` file:
 
 ```yaml
 name: Release Workflow
 
-permissions:
-  pull-requests: write
-  contents: write
-  pages: write
-  id-token: write
-
 on:
-  workflow_call:
   push:
     branches:
       - main
 
 jobs:
-  manage-release:
+  release:
     uses: kurocado-studio/styleguide/.github/workflows/release.yml@main
-    secrets: inherit
+    secrets:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      PAT_FORCE_PUSH: ${{ secrets.GITHUB_TOKEN }}
 ```
 
 ### Full CI/CD Pipeline Example {collapsible="true"}
