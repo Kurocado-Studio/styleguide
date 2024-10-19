@@ -17,8 +17,9 @@
     </toc-element>
     <toc-element topic="Github-Actions.md">
         <toc-element topic="Code-Quality.md"/>
-        <toc-element topic="Release.md"/>
         <toc-element topic="Test-Workflow.md"/>
+        <toc-element topic="Release.md"/>
         <toc-element topic="Writerside.md"/>
+        <toc-element topic="Deploy-Workflow.md"/>
     </toc-element>
 </instance-profile>
