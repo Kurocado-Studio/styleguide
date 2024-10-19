@@ -6,7 +6,6 @@ inputs:
     description: 'Commit SHA for deployment'
     required: true
 
-
 runs:
   using: 'composite'
   steps:
