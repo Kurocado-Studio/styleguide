@@ -17,11 +17,10 @@ jobs:
     uses: kurocado-studio/styleguide/.github/workflows/writerside-documentation@main
     secrets: inherit
 
-
   test:
     uses: kurocado-studio/styleguide/.github/workflows/test.yml@main
     secrets: inherit
-    
+
   release:
     needs: documentation
     uses: kurocado-studio/styleguide/.github/workflows/release.yml@main
