@@ -12,9 +12,13 @@ jobs:
     secrets:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  documentation:
+  document:
     needs: lint
     uses: kurocado-studio/styleguide/.github/workflows/writerside-documentation@main
+    secrets: inherit
+
+  test:
+    uses: kurocado-studio/styleguide/.github/workflows/test.yml@main
     secrets: inherit
 
   release:
@@ -23,7 +27,7 @@ jobs:
     secrets:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      PAT_FORCE_PUSH: ${{ secrets.GITHUB_TOKEN }}
+      PAT_FORCE_PUSH: ${{ secrets.PAT_FORCE_PUSH }}
     if: |
       github.event_name == 'push' && 
       github.ref == 'refs/heads/main'

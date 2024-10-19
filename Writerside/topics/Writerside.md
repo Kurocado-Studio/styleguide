@@ -74,7 +74,9 @@ sequenceDiagram
 
 1. **GITHUB_TOKEN**: This token is automatically provided by GitHub Actions and typically does not
    need to be added manually unless you require customized permissions.
-2. **Additional Secrets**: If your workflow requires access to external services or APIs (e.g.,
+2. **PAT_FORCE_PUSH**: Personal Access Token configured with the necessary scopes (permissions) to
+   allow a GitHub Actions workflow to perform force push operations on a repository.
+3. **Additional Secrets**: If your workflow requires access to external services or APIs (e.g.,
    authentication tokens, API keys), add them here by clicking on **New repository secret** and
    providing the necessary name and value.
 
