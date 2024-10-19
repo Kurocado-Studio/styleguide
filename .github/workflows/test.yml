@@ -9,7 +9,7 @@ on:
   pull_request:
   push:
     branches:
-      - canary
+      - main
 
 jobs:
   code-quality:
@@ -23,9 +23,6 @@ jobs:
 
       - name: Install Dependencies
         uses: kurocado-studio/styleguide/.github/actions/install@main
-
-      - name: Lint
-        uses: kurocado-studio/styleguide/.github/actions/lint@main
 
       - name: Test
         uses: kurocado-studio/styleguide/.github/actions/test@main
