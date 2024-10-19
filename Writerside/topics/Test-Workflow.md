@@ -80,7 +80,7 @@ on:
       - main
 
 jobs:
-  code-quality:
+  test:
     uses: kurocado-studio/styleguide/.github/workflows/test.yml@main
     secrets: inherit
 ```
