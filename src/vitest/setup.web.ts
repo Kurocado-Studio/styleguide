@@ -1,7 +1,11 @@
+/* eslint @typescript-eslint/no-unsafe-member-access: 0 */
 import '@testing-library/jest-dom/vitest';
+import { config } from 'dotenv';
 import { expect, vi } from 'vitest';
 import 'vitest-axe/extend-expect';
 import * as matchers from 'vitest-axe/matchers';
+
+config({ path: '.env.test' });
 
 expect.extend(matchers);
 

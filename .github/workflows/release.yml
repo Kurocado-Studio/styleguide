@@ -3,11 +3,19 @@ name: Release Workflow
 permissions:
   pull-requests: write
   contents: write
-  pages: write
   id-token: write
 
 on:
   workflow_call:
+    inputs:
+      release-branch-prefix:
+        description: 'Prefix for the release branch name'
+        required: true
+        type: string
+      release-label:
+        description: 'Label to apply to the release pull request'
+        required: false
+        type: string
   push:
     branches:
       - main
@@ -25,33 +33,30 @@ jobs:
       - name: Install
         uses: kurocado-studio/styleguide/.github/actions/install@main
 
-      - name: Lint
-        uses: kurocado-studio/styleguide/.github/actions/lint@main
-
-      - name: Test
-        uses: kurocado-studio/styleguide/.github/actions/test@main
-
       - name: Build
         run: pnpm run build
 
-      - name: Semantic Release
+      - name: Release
         id: semantic_release
+        uses: semantic-release/action@v6
+        with:
+          args: --ci
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npx semantic-release
 
       - name: Create Release Branch
-        if: success() && steps.semantic_release.outputs.nextRelease
+        if: success() && steps.semantic_release.outputs.nextRelease != ''
         run: |
           VERSION=${{ steps.semantic_release.outputs.nextRelease.version }}
           git checkout -b ${{ inputs.release-branch-prefix }}${VERSION}
 
       - name: Push Release Branch
-        if: success() && steps.semantic_release.outputs.nextRelease
+        if: success() && steps.semantic_release.outputs.nextRelease != ''
         env:
           PAT: ${{ secrets.PAT_FORCE_PUSH }}
         run: |
+          VERSION=${{ steps.semantic_release.outputs.nextRelease.version }}
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git remote set-url origin https://x-access-token:${PAT}@github.com/${{ github.repository }}.git
@@ -70,7 +75,7 @@ jobs:
           echo "changelog=$CHANGELOG" >> $GITHUB_OUTPUT
 
       - name: Create Pull Request to Main
-        if: success() && steps.semantic_release.outputs.nextRelease
+        if: success() && steps.semantic_release.outputs.nextRelease != ''
         uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}

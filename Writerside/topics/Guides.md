@@ -9,7 +9,6 @@ To complete this, you will need:
   [How to Install Node.js and Create a Local Development Environment](https://www.digitalocean.com/community/tutorial_series/how-to-install-node-js-and-create-a-local-development-environment)
   guide.
 - A code editor like [Visual Studio Code](https://code.visualstudio.com/download)
-- [@kurocado-studio/style-guide installed](https://www.npmjs.com/package/@kurocado-studio/style-guide)
 
 ## Initialize Your Project
 
@@ -43,9 +42,36 @@ Wrote to /path/to/my-project/package.json:
 
 ## Setup
 
+### Install @kurocado-studio/style-guide
+
+```Bash
+npm install --save-dev @kurocado-studio/style-guide
+```
+
+[see @kurocado-studio/style-guide on NPM](https://www.npmjs.com/package/@kurocado-studio/style-guide)
+
+### Install Husky
+
+```Bash
+npm install --save-dev husky
+```
+
+### Next, enable Git hooks:
+
+```Bash
+npx husky install
+```
+
+### Add `lint-staged` to `package.json`
+
+```json
+"lint-staged": {
+  "*": "npm run prettier-fix",
+  "**/*.{ts,tsx}": ["npm run prettier-fix", "npm run eslint-check"]
+}
+```
+
+## Other Configurations
+
 - [How To Install Prettier](How-To-Install-Prettier.md)
 - [How To Install ESLint](How-To-Install-ESLint.md)
-
-```
-
-```
