@@ -87,3 +87,7 @@ jobs:
     uses: kurocado-studio/styleguide/.github/workflows/lint.yml@main
     secrets: inherit
 ```
+
+### Full CI/CD Pipeline Example {collapsible="true"}
+
+<code-block lang="yaml" src="ci.yml" />

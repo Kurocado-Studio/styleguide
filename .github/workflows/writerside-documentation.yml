@@ -5,6 +5,8 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'Writerside/**'
 
 permissions:
   contents: write
@@ -19,6 +21,10 @@ env:
 jobs:
   build-and-deploy-docs:
     runs-on: ubuntu-latest
+    if: |
+      github.event_name != 'workflow_call' ||
+      (github.event_name == 'workflow_call' && 
+        contains(steps.check_changes.outputs.changed_paths, 'Writerside/'))
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -29,8 +35,10 @@ jobs:
       - name: Install Dependencies
         uses: kurocado-studio/styleguide/.github/actions/install@main
 
-      - name: Lint
-        uses: kurocado-studio/styleguide/.github/actions/lint@main
+      - name: Check for changes in Writerside directory
+        id: check_changes
+        run: |
+          echo "::set-output name=changed_paths::$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep '^Writerside/')"
 
       - name: Build docs using Writerside Docker builder
         uses: JetBrains/writerside-github-action@v4
