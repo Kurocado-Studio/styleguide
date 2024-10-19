@@ -12,7 +12,11 @@ jobs:
     secrets:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  documentation:
+  test:
+    uses: kurocado-studio/styleguide/.github/workflows/test.yml@main
+    secrets: inherit
+
+  document:
     needs: lint
     uses: kurocado-studio/styleguide/.github/workflows/writerside-documentation@main
     secrets: inherit
