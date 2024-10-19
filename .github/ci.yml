@@ -1,0 +1,29 @@
+name: CI/CD Pipeline
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  lint:
+    uses: kurocado-studio/styleguide/.github/workflows/lint.yml@main
+    secrets:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  documentation:
+    needs: lint
+    uses: kurocado-studio/styleguide/.github/workflows/writerside-documentation@main
+    secrets: inherit
+
+  release:
+    needs: documentation
+    uses: kurocado-studio/styleguide/.github/workflows/release.yml@main
+    secrets:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      PAT_FORCE_PUSH: ${{ secrets.GITHUB_TOKEN }}
+    if: |
+      github.event_name == 'push' && 
+      github.ref == 'refs/heads/main'

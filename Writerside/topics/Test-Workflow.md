@@ -84,3 +84,7 @@ jobs:
     uses: kurocado-studio/styleguide/.github/workflows/test.yml@main
     secrets: inherit
 ```
+
+### Full CI/CD Pipeline Example {collapsible="true"}
+
+<code-block lang="yaml" src="ci.yml" />
