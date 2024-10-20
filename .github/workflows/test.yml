@@ -12,7 +12,7 @@ on:
       - main
 
 jobs:
-  code-quality:
+  test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository

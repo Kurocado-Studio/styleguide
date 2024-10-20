@@ -19,12 +19,8 @@ env:
   DOCKER_VERSION: '242.21870' # Specific Docker version
 
 jobs:
-  build-and-deploy-docs:
+  writerside-documentation:
     runs-on: ubuntu-latest
-    if: |
-      github.event_name != 'workflow_call' ||
-      (github.event_name == 'workflow_call' && 
-        contains(steps.check_changes.outputs.changed_paths, 'Writerside/'))
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
