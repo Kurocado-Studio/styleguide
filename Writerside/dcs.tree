@@ -5,7 +5,6 @@
 <instance-profile id="dcs"
                  name="Kurocado Studio Styleguide"
                  start-page="starter-topic.md">
-
     <toc-element topic="starter-topic.md"/>
     <toc-element topic="Guides.md">
         <toc-element topic="How-To-Install-Prettier.md"/>
