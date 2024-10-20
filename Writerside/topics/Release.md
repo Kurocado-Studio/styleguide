@@ -32,15 +32,9 @@ sequenceDiagram
    SemanticRelease-->>Runner: Determine Next Release Version
 
    alt Next Release Exists
-      Runner->>Runner: Create Release Branch
-      Runner->>Runner: Push Release Branch to GitHub
-
-      Runner->>Runner: Extract Version from package.json
-      Runner->>Runner: Extract Changelog from CHANGELOG.md
-
-      Runner->>GitHubAPI: Create Pull Request to `main` with Release Branch
+      Runner->>SemanticRelease: subsequent steps are followed
    else No Release Needed
-      Note right of Runner: "Create Release Branch" and subsequent steps are skipped
+      Note right of Runner: subsequent steps are skipped
    end
 
    SemanticRelease->>NPM: Publish Package to NPM Registry
