@@ -15,6 +15,7 @@ module.exports = {
     '^[../]',
     '^./',
   ],
+  importOrderParserPlugins: ['typescript', 'jsx', 'decorators-legacy'],
   importOrderSeparation: true,
   importOrderSortSpecifiers: true,
   jsxSingleQuote: true,
