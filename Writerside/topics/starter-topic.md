@@ -20,10 +20,11 @@ This document outlines Kurocado Studio's internal Style Guide. It explores the c
 initiative addresses and highlights the key reasons why companies like Vercel, and Airbnb
 open-source their style guides.
 
-By adopting a unified style guide inspired by Vercel's approach and integrating GitHub Actions, we
-aim to streamline development processes, facilitate easier collaboration, enhance the overall
-quality of our software products, and improving internal processes, demonstrating thought leadership
-in design and development standards.
+Kurocado Studio is adopting the **[Epic Stack](https://www.epicweb.dev/epic-stack)**. By creating a
+style guide inspired by Vercel's approach and integrating GitHub Actions, we aim to streamline
+development processes, facilitate easier collaboration, enhance the overall quality of our software
+products, and improving internal processes, demonstrating thought leadership in design and
+development standards.
 
 ### Objective
 
@@ -70,7 +71,7 @@ in design and development standards.
 
 **Out of Scope:**
 
-- Support for languages and frameworks not currently used within Kurocado Studio.
+- Support for languages and frameworks not currently used within Epic Stack.
 
 **Constraints:**
 
@@ -151,3 +152,10 @@ in design and development standards.
   feedback and evolving best practices.
 - **Community Building:** Foster a community around the style guide and workflows by organizing
   events, hackathons, and collaborative projects to encourage external contributions.
+
+### See Also:
+
+- **[Epic Stack documentation](https://github.com/epicweb-dev/epic-stack/tree/main/docs)**
+- **[Epic Stack repository](https://github.com/epicweb-dev/epic-stack)**
+- **[Epic Stack decisions](https://github.com/epicweb-dev/epic-stack/tree/main/docs/decisions)**
+- **[Epic Stack website](https://www.epicweb.dev/epic-stack)**

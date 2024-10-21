@@ -28,7 +28,6 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "importsNotUsedAsValues": "error",
     "preserveSymlinks": true,
     "incremental": true,
     "baseUrl": "./",
