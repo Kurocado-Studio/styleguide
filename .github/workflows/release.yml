@@ -1,21 +1,7 @@
 name: Release Workflow
 
-permissions:
-  pull-requests: write
-  contents: write
-  id-token: write
-
 on:
   workflow_call:
-    inputs:
-      release-branch-prefix:
-        description: 'Prefix for the release branch name'
-        required: true
-        type: string
-      release-label:
-        description: 'Label to apply to the release pull request'
-        required: false
-        type: string
   push:
     branches:
       - main
