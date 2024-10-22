@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
   "extends": "./tsconfig.json",
-  "display": "Node",
+  "display": "Kurocado Studio NestJS tsconfig",
   "compilerOptions": {
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
@@ -11,6 +11,6 @@
     "rootDir": "./src",
     "target": "ES2020"
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*.ts"],
   "exclude": ["node_modules", "dist"]
 }

@@ -9,7 +9,7 @@
 install Prettier as a development dependency:
 
 ```bash
-npm install --save-dev prettier
+pnpm install --save-dev prettier
 ```
 
 You'll see the following output:
@@ -66,7 +66,7 @@ This script tells Prettier to format all files within the `src` directory.
 Run the format script to automatically format your code:
 
 ```bash
-npm run prettier-fix
+pnpm run prettier-fix
 ```
 
 You'll see output similar to:

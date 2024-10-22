@@ -9,6 +9,7 @@ To complete this, you will need:
   [How to Install Node.js and Create a Local Development Environment](https://www.digitalocean.com/community/tutorial_series/how-to-install-node-js-and-create-a-local-development-environment)
   guide.
 - A code editor like [Visual Studio Code](https://code.visualstudio.com/download)
+- [PNPM installed](https://pnpm.io/installation)
 
 ## Initialize Your Project
 
@@ -18,7 +19,7 @@ yet, you can create one using the following commands:
 ```bash
 mkdir my-project
 cd my-project
-npm init -y
+pnpm init -y
 ```
 
 You'll see the following output:
@@ -45,7 +46,7 @@ Wrote to /path/to/my-project/package.json:
 ### Install @kurocado-studio/style-guide
 
 ```Bash
-npm install --save-dev @kurocado-studio/style-guide
+pnpm install --save-dev @kurocado-studio/style-guide
 ```
 
 [see @kurocado-studio/style-guide on NPM](https://www.npmjs.com/package/@kurocado-studio/style-guide)
@@ -53,7 +54,7 @@ npm install --save-dev @kurocado-studio/style-guide
 ### Install Husky
 
 ```Bash
-npm install --save-dev husky
+pnpm install --save-dev husky
 ```
 
 ### Next, enable Git hooks:
@@ -66,8 +67,8 @@ npx husky install
 
 ```json
 "lint-staged": {
-  "*": "npm run prettier-fix",
-  "**/*.{ts,tsx}": ["npm run prettier-fix", "npm run eslint-check"]
+  "*": "pnpm run prettier-fix",
+  "**/*.{ts,tsx}": ["pnpm run prettier-fix", "pnpm run eslint-check"]
 }
 ```
 

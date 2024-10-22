@@ -9,7 +9,7 @@
 Next, install ESLint as a development dependency:
 
 ```bash
-npm install --save-dev eslint
+pnpm install --save-dev eslint
 ```
 
 You'll see output similar to:
@@ -85,7 +85,7 @@ CI/CD pipeline</note>
 Run the lint script to analyze your code for issues:
 
 ```bash
-npm run eslint-check
+pnpm run eslint-check
 ```
 
 You'll see output similar to:
@@ -100,7 +100,7 @@ You'll see output similar to:
 To automatically fix fixable issues, run:
 
 ```bash
-npm run eslint-fix
+pnpm run eslint-fix
 ```
 
 You'll see output similar to:

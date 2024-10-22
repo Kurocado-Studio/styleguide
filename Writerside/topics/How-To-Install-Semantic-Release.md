@@ -7,7 +7,7 @@
 ## Step 1 — Install Semantic Release
 
 ```Bash
-npm install --save-dev semantic-release
+pnpm install --save-dev semantic-release
 ```
 
 You’ll see output similar to:

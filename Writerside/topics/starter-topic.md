@@ -93,7 +93,7 @@ development standards.
 1. **Initial Setup:**
 
    - Developer clones the repository.
-   - Installs necessary dependencies via NPM.
+   - Installs necessary dependencies via pnpm.
 
 2. **Development Workflow:**
    - Developer writes code adhering to the style guide.

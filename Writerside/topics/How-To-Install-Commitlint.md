@@ -9,7 +9,7 @@
 First, install Commitlint as a development dependency:
 
 ```bash
-npm install --save-dev @commitlint/{config-conventional,cli}
+pnpm install --save-dev @commitlint/{config-conventional,cli}
 ```
 
 You’ll see output similar to:

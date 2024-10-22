@@ -44,29 +44,9 @@ sequenceDiagram
     DeployWorkflow-->>Runner: Deployment Successful
 ```
 
-## Step 1 — Configure Necessary Secrets
+## Step 1 — Create an app with Fly Launch
 
-For the Deployment workflow to function correctly, certain secrets must be configured in your GitHub
-repository settings. These secrets ensure secure access to necessary tools and services during the
-workflow execution.
-
-### a. Navigate to Repository Settings
-
-1. Go to your repository on GitHub.
-2. Click on the **Settings** tab.
-
-### b. Access Secrets
-
-1. In the left sidebar, click on **Secrets and variables** under the **Security** section.
-2. Select **Actions** to manage secrets for GitHub Actions.
-
-### c. Add Required Secrets
-
-1. **FLY_API_TOKEN**:Your Fly.io API token for authenticating deployments.
-2. **SENTRY_AUTH_TOKEN**: Your Sentry authentication token for integrating deployments with Sentry.
-3. **Additional Secrets**: If your workflow requires access to other external services or APIs
-   (e.g., database credentials, API keys), add them here by clicking on New repository secret and
-   providing the necessary name and value.
+Start by reading **[create an app with Fly Launch](https://fly.io/docs/launch/create/)**
 
 ## Step 2 — Create the Deployment Workflow File
 

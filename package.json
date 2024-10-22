@@ -51,11 +51,11 @@
   },
   "lint-staged": {
     "*": [
-      "npm run commitlint",
-      "npm run prettier-fix"
+      "pnpm run commitlint",
+      "pnpm run prettier-fix"
     ],
     "**/*.{ts,tsx}": [
-      "npm run eslint-check"
+      "pnpm run eslint-check"
     ]
   },
   "dependencies": {
@@ -100,7 +100,7 @@
     "vitest-axe": "^0.1.0"
   },
   "engines": {
-    "node": ">=18.18"
+    "node": ">=20"
   },
   "peerDependencies": {
     "@commitlint/cli": "^19.0.3",

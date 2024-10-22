@@ -9,7 +9,7 @@
 First, install TypeScript as a development dependency:
 
 ```Bash
-npm install --save-dev typescript
+pnpm install --save-dev typescript
 ```
 
 You’ll see output similar to:
