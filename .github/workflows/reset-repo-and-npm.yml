@@ -1,65 +1,9 @@
-name: 'Reset Repository and Unpublish npm Package'
+name: 'Unpublish NPM Package'
 
 on:
   workflow_dispatch:
 
 jobs:
-  delete-releases-tags:
-    name: 'Delete All Releases and Tags'
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Install GitHub CLI
-        run: |
-          sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0
-          sudo apt-add-repository https://cli.github.com/packages
-          sudo apt update
-          sudo apt install gh -y
-
-      - name: Authenticate GitHub CLI
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          echo $GITHUB_TOKEN | gh auth login --with-token
-
-      - name: Delete All Releases
-        run: |
-          echo "Fetching all releases..."
-          RELEASES=$(gh release list --limit 1000 --json tagName -q '.[].tagName')
-
-          if [ -z "$RELEASES" ]; then
-            echo "No releases found."
-          else
-            echo "Deleting releases..."
-            for release in $RELEASES; do
-              echo "Deleting release: $release"
-              gh release delete "$release" --yes
-            done
-            echo "All releases deleted."
-          fi
-
-      - name: Delete All Tags
-        run: |
-          echo "Fetching all tags..."
-          TAGS=$(git tag)
-
-          if [ -z "$TAGS" ]; then
-            echo "No tags found."
-          else
-            echo "Deleting tags..."
-            for tag in $TAGS; do
-              echo "Deleting tag: $tag"
-              git push origin --delete "$tag" || echo "Failed to delete remote tag: $tag"
-              git tag -d "$tag" || echo "Failed to delete local tag: $tag"
-            done
-            echo "All tags deleted."
-          fi
-
   unpublish-npm-package:
     name: 'Unpublish npm Package'
     needs: delete-releases-tags
