@@ -1,0 +1,35 @@
+name: Release
+
+permissions:
+  pull-requests: write
+  contents: write
+  id-token: write
+
+on:
+  workflow_call:
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    if: |
+      github.event_name == 'push' && 
+      github.ref == 'refs/heads/main'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Install
+        uses: kurocado-studio/styleguide/.github/actions/install@main
+
+      - name: Build
+        run: pnpm run build
+
+      - name: Release
+        id: semantic_release
+        run: npx semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

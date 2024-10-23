@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Kurocado Studio Base tsconfig",
+  "docs": "https://kurocado-studio.github.io/styleguide",
+  "compilerOptions": {
+    "target": "ES2020",
+    "moduleResolution": "node",
+    "allowJs": false,
+    "skipLibCheck": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "strictBindCallApply": true,
+    "strictFunctionTypes": true,
+    "strictPropertyInitialization": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noUncheckedIndexedAccess": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noEmitOnError": true,
+    "noEmit": false,
+    "forceConsistentCasingInFileNames": true,
+    "useUnknownInCatchVariables": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "preserveSymlinks": true,
+    "incremental": false,
+    "baseUrl": "./",
+    "paths": {
+      "@app*": ["app/*"],
+      "@src*": ["src/*"]
+    }
+  },
+  "exclude": ["node_modules", "build", "dist"]
+}
