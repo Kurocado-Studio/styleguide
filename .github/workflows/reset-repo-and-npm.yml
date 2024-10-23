@@ -1,4 +1,4 @@
-name: 'Unpublish NPM Package'
+name: 'Reset Repository and Unpublish npm Package'
 
 on:
   workflow_dispatch:
@@ -6,7 +6,6 @@ on:
 jobs:
   unpublish-npm-package:
     name: 'Unpublish npm Package'
-    needs: delete-releases-tags
     runs-on: ubuntu-latest
 
     steps:
