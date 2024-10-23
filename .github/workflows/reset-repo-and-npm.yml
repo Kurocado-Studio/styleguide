@@ -1,11 +1,11 @@
-name: "Reset Repository and Unpublish npm Package"
+name: 'Reset Repository and Unpublish npm Package'
 
 on:
   workflow_dispatch:
 
 jobs:
   delete-releases-tags:
-    name: "Delete All Releases and Tags"
+    name: 'Delete All Releases and Tags'
     runs-on: ubuntu-latest
 
     steps:
@@ -31,7 +31,7 @@ jobs:
         run: |
           echo "Fetching all releases..."
           RELEASES=$(gh release list --limit 1000 --json tagName -q '.[].tagName')
-          
+
           if [ -z "$RELEASES" ]; then
             echo "No releases found."
           else
@@ -47,7 +47,7 @@ jobs:
         run: |
           echo "Fetching all tags..."
           TAGS=$(git tag)
-          
+
           if [ -z "$TAGS" ]; then
             echo "No tags found."
           else
@@ -61,7 +61,7 @@ jobs:
           fi
 
   unpublish-npm-package:
-    name: "Unpublish npm Package"
+    name: 'Unpublish npm Package'
     needs: delete-releases-tags
     runs-on: ubuntu-latest
 
