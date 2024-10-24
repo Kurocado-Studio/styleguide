@@ -131,7 +131,7 @@ on:
 
 jobs:
   release:
-    uses: kurocado-studio/styleguide/.github/workflows/composite.release.yml@main
+    uses: kurocado-studio/styleguide/.github/workflows/workflow.release.yml@main
     secrets:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

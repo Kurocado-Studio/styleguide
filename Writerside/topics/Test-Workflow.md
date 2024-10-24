@@ -81,7 +81,7 @@ on:
 
 jobs:
   test:
-    uses: kurocado-studio/styleguide/.github/workflows/composite.test.yml@main
+    uses: kurocado-studio/styleguide/.github/workflows/workflow.test.yml@main
     secrets: inherit
 ```
 

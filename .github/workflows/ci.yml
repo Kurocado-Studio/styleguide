@@ -14,20 +14,20 @@ on:
 
 jobs:
   lint:
-    uses: kurocado-studio/styleguide/.github/workflows/composite.lint.yml@main
+    uses: kurocado-studio/styleguide/.github/workflows/workflow.lint.yml@main
     secrets: inherit
 
   test:
     needs: [lint]
-    uses: kurocado-studio/styleguide/.github/workflows/composite.test.yml@main
+    uses: kurocado-studio/styleguide/.github/workflows/workflow.test.yml@main
     secrets: inherit
 
   document:
     needs: [test]
-    uses: kurocado-studio/styleguide/.github/workflows/composite.document.yml@main
+    uses: kurocado-studio/styleguide/.github/workflows/workflow.document.yml@main
     secrets: inherit
 
   release:
     needs: [document]
-    uses: kurocado-studio/styleguide/.github/workflows/composite.release.yml@main
+    uses: kurocado-studio/styleguide/.github/workflows/workflow.release.yml@main
     secrets: inherit
