@@ -11,7 +11,7 @@
 | **Project Board** | [](https://github.com/orgs/Kurocado-Studio/projects/5/views/1)                                     |
 | **Repository**    | [](https://github.com/Kurocado-Studio/styleguide)                                                  |
 | **Documentation** | [](https://kurocado-studio.github.io/styleguide/)                                                  |
-| **NPM Registry**  | [](https://www.npmjs.com/package/@kurocado-studio/style-guide)                                     |
+| **NPM Registry**  | [](https://www.npmjs.com/package/@kurocado-studio/styleguide)                                      |
 | **Releases**      | [](https://github.com/Kurocado-Studio/styleguide/releases)                                         |
 
 ## Problem Definition
