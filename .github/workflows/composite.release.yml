@@ -14,13 +14,6 @@ on:
       - beta
       - canary
       - pre/rc
-  pull_request:
-    branches:
-      - main
-      - alpha
-      - beta
-      - canary
-      - pre/rc
 
 jobs:
   release:
