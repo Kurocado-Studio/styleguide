@@ -84,7 +84,7 @@ on:
 
 jobs:
   code-quality:
-    uses: kurocado-studio/styleguide/.github/workflows/composite.lint.yml@main
+    uses: kurocado-studio/styleguide/.github/workflows/workflow.lint.yml@main
     secrets: inherit
 ```
 

@@ -11,6 +11,16 @@
     "url": "https://github.com/Kurocado-Studio/styleguide.git"
   },
   "license": "MPL-2.0",
+  "scripts": {
+    "commitlint": "pnpm exec commitlint --edit",
+    "eslint-check": "eslint --max-warnings=0 .",
+    "prepare": "husky install",
+    "prettier-check": "prettier --check .",
+    "prettier-fix": "prettier --check . --write",
+    "semantic-release": "semantic-release",
+    "test": "echo \"no test specified\" && exit 0",
+    "build": "echo \"no build needed\" && exit 0"
+  },
   "exports": {
     "./eslint/base": "./src/eslint/eslint.base.js",
     "./eslint/browser": "./src/eslint/eslint.browser.js",
@@ -39,16 +49,6 @@
     "src/semantic-release",
     "src/tsconfig"
   ],
-  "scripts": {
-    "commitlint": "pnpm exec commitlint --edit",
-    "eslint-check": "eslint --max-warnings=0 .",
-    "prepare": "husky install",
-    "prettier-check": "prettier --check .",
-    "prettier-fix": "prettier --check . --write",
-    "semantic-release": "semantic-release",
-    "test": "echo \"no test specified\" && exit 0",
-    "build": "echo \"no build needed\" && exit 0"
-  },
   "lint-staged": {
     "*": [
       "pnpm run commitlint",
