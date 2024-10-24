@@ -7,13 +7,6 @@ permissions:
 
 on:
   workflow_call:
-  push:
-    branches:
-      - main
-      - alpha
-      - beta
-      - canary
-      - pre/rc
 
 jobs:
   release:
