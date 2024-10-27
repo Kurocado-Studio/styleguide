@@ -1,4 +1,4 @@
-# Kurocado Studio Styleguide
+# Kurocado Studio Styleguide @alpha
 
 <show-structure depth="3"/>
 
