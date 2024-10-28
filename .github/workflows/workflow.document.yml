@@ -49,6 +49,7 @@ jobs:
           else
             echo "No changes in Writerside directory."
             echo "writerside_changed=false" >> $GITHUB_OUTPUT
+          fi
 
   document:
     needs: [check-changes]
