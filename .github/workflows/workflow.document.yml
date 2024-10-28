@@ -14,7 +14,7 @@ env:
   DOCKER_VERSION: '242.21870' # Specific Docker version
 
 jobs:
-  preflight:
+  check-changes:
     runs-on: ubuntu-latest
     if: |
       github.event_name == 'push' && 
@@ -52,9 +52,8 @@ jobs:
           fi
 
   document:
-    needs: [preflight]
-    if: |
-      needs.check_changes.outputs.writerside_changed == 'true'
+    needs: [check-changes]
+    if: ${{ needs.check-changes.outputs.writerside_changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
