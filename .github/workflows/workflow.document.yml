@@ -53,7 +53,7 @@ jobs:
 
   document:
     needs: [check-changes]
-    if: needs.preflight.outputs.writerside_changed == 'true'
+    if: ${{ needs.check-changes.outputs.writerside_changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
