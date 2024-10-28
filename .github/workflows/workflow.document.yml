@@ -53,7 +53,7 @@ jobs:
 
   document:
     needs: [preflight]
-    if: | 
+    if: |
       needs.check_changes.outputs.writerside_changed == 'true'
     runs-on: ubuntu-latest
     steps:
