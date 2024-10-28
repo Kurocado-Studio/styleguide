@@ -54,9 +54,7 @@ jobs:
   document:
     needs: [preflight]
     if: |
-      github.event_name == 'push' && 
-      needs.check_changes.outputs.writerside_changed == 'true' && 
-      github.ref == 'refs/heads/main'
+      needs.check_changes.outputs.writerside_changed == 'true'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
