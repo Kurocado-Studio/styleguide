@@ -60,8 +60,9 @@ module.exports = {
     },
   ],
   plugins: [
-    'prettier-plugin-packagejson',
     '@trivago/prettier-plugin-sort-imports',
+    'prettier-plugin-packagejson',
+    'prettier-plugin-tailwindcss',
   ],
   printWidth: 80,
   semi: true,
