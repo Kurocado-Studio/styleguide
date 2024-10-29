@@ -1,51 +1,11 @@
 name: 'Deploy'
-description: 'Deploys the application to Fly.io for staging and production environments.'
-
-inputs:
-  commit_sha:
-    description: 'Commit SHA for deployment'
-    required: true
+description: 'Deploys the application to Fly.io'
 
 runs:
   using: 'composite'
   steps:
-    - name: Checkout
-      uses: actions/checkout@v4
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        fetch-depth: 0
-
-    - name: Read app name
-      uses: SebRollen/toml-action@v1.2.0
-      id: app_name
-      with:
-        file: 'fly.toml'
-        field: 'app'
-
-    - name: Install Flyctl
-      uses: superfly/flyctl-actions@master
-      with:
-        version: 'latest'
-
-    - name: Deploy Dev
-      if: ${{ github.ref == 'refs/heads/dev' }}
-      shell: bash
-      run: |
-        flyctl deploy --remote-only --verbose
+    - name: Deploy
+      uses: superfly/flyctl-actions/setup-flyctl@master
+      run: flyctl deploy --remote-only
       env:
         FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
-
-    - name: Deploy Production
-      if: ${{ github.ref == 'refs/heads/main' }}
-      shell: bash
-      run: |
-        flyctl deploy --remote-only --verbose
-      env:
-        FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
-
-    - name: Set Deployed Version
-      id: set_version
-      shell: bash
-      run: |
-        VERSION=$(jq -r .version package.json)
-        echo "deployed_version=${VERSION}" >> $GITHUB_OUTPUT
