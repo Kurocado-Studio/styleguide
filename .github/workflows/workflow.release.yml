@@ -15,6 +15,13 @@ on:
         type: string
 
 jobs:
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Debug Inputs
+        run: |
+          echo "Received branch input: ${{ inputs.branch_name }}"
+
   release:
     runs-on: ubuntu-latest
     if: |
