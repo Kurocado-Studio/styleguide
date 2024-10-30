@@ -1,5 +1,5 @@
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
+  group: ${{ github.workflow }}-${{ inputs.branch }}
   cancel-in-progress: true
 
 permissions:
@@ -9,17 +9,21 @@ permissions:
 
 on:
   workflow_call:
+    inputs:
+      branch:
+        required: true
+        type: string
 
 jobs:
   release:
     runs-on: ubuntu-latest
     if: |
       (
-        github.ref == 'refs/heads/main' ||
-        github.ref == 'refs/heads/alpha' ||
-        github.ref == 'refs/heads/beta' ||
-        github.ref == 'refs/heads/canary' ||
-        github.ref == 'refs/heads/pre/rc'
+        inputs.branch == 'refs/heads/main' ||
+        inputs.branch == 'refs/heads/alpha' ||
+        inputs.branch == 'refs/heads/beta' ||
+        inputs.branch == 'refs/heads/canary' ||
+        inputs.branch == 'refs/heads/pre/rc'
       )
     steps:
       - name: Checkout
