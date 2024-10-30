@@ -1,5 +1,5 @@
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
+  group: ${{ github.workflow }}-${{ inputs.branch_name }}
   cancel-in-progress: true
 
 permissions:
@@ -15,13 +15,6 @@ on:
         type: string
 
 jobs:
-  debug:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Debug Inputs
-        run: |
-          echo "Received branch input: ${{ inputs.branch_name }}"
-
   release:
     runs-on: ubuntu-latest
     if: |
