@@ -3,7 +3,7 @@
   "compilerOptions": {
     "jsx": "react-jsx",
     "lib": ["DOM", "DOM.Iterable", "ES2020"],
-    "noEmit": false,
+    "noEmit": false
   },
   "display": "Kurocado Studio React tsconfig",
   "extends": "./tsconfig.json",
