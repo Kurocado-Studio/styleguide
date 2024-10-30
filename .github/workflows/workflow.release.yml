@@ -1,4 +1,6 @@
-name: Release
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 permissions:
   pull-requests: write
@@ -7,30 +9,21 @@ permissions:
 
 on:
   workflow_call:
+    inputs:
+      branch_name:
+        required: true
+        type: string
 
 jobs:
   release:
     runs-on: ubuntu-latest
     if: |
       (
-        github.event_name == 'push' &&
-        (
-          github.ref == 'refs/heads/main' ||
-          github.ref == 'refs/heads/alpha' ||
-          github.ref == 'refs/heads/beta' ||
-          github.ref == 'refs/heads/canary' ||
-          github.ref == 'refs/heads/pre/rc'
-        )
-      ) ||
-      (
-        github.event_name == 'pull_request' &&
-        (
-          github.base_ref == 'main' ||
-          github.base_ref == 'alpha' ||
-          github.base_ref == 'beta' ||
-          github.base_ref == 'canary' ||
-          github.base_ref == 'pre/rc'
-        )
+        inputs.branch_name == 'refs/heads/main' ||
+        inputs.branch_name == 'refs/heads/alpha' ||
+        inputs.branch_name == 'refs/heads/beta' ||
+        inputs.branch_name == 'refs/heads/canary' ||
+        inputs.branch_name == 'refs/heads/pre/rc'
       )
     steps:
       - name: Checkout
