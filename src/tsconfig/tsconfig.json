@@ -3,7 +3,7 @@
   "display": "Kurocado Studio Base tsconfig",
   "docs": "https://kurocado-studio.github.io/styleguide",
   "compilerOptions": {
-    "allowJs": false,
+    "allowJs": true,
     "alwaysStrict": true,
     "baseUrl": ".",
     "declaration": true,
