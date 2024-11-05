@@ -2,13 +2,13 @@
   "name": "@kurocado-studio/styleguide",
   "version": "0.0.0-semantically-released",
   "description": "Kurocado Studio's engineering style guide",
-  "homepage": "https://github.com/Kurocado-Studio/styleguide",
+  "homepage": "https://github.com/kurocado-studio/styleguide",
   "bugs": {
-    "url": "https://github.com/Kurocado-Studio/styleguide/issues"
+    "url": "https://github.com/kurocado-studio/styleguide/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Kurocado-Studio/styleguide.git"
+    "url": "https://github.com/kurocado-studio/styleguide.git"
   },
   "license": "MIT",
   "scripts": {
