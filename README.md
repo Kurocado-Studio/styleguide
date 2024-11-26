@@ -9,10 +9,10 @@ repositories quickly with consistent code quality and best practices.
 
 ```bash
 # If you use npm
-npm install --save-dev @kurocado-studio/style-guide
+npm install --save-dev @kurocado-studio/styleguide
 
 # If you use Yarn
-yarn add --dev @kurocado-studio/style-guide
+yarn add --dev @kurocado-studio/styleguide
 ```
 
 ## Dependencies & Setup

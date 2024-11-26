@@ -8,8 +8,8 @@ import * as matchers from 'vitest-axe/matchers';
 config({ path: '.env.test' });
 
 expect.extend(matchers);
-
-// @ts-expect-error since we are mocking HTMLCanvasElement.getContext
+//  HTMLCanvasElement is a mock,hence is not defined
+// eslint-disable-next-line no-undef
 HTMLCanvasElement.prototype.getContext = () => {
   return {
     beginPath: vi.fn(),
