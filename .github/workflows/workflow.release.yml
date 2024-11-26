@@ -1,7 +1,3 @@
-concurrency:
-  group: ${{ github.workflow }}-${{ inputs.branch_name }}
-  cancel-in-progress: true
-
 permissions:
   pull-requests: write
   contents: write
