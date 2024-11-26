@@ -1,5 +1,5 @@
 concurrency:
-  group: ${{ github.workflow }}-${{ inputs.branch_name }}
+  group: ${{ github.ref }}
   cancel-in-progress: true
 
 permissions:
