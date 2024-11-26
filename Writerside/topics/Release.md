@@ -74,7 +74,7 @@ sequenceDiagram
    else No Release Needed
       Note right of Runner: Subsequent steps are skipped
    end
-   alt Repository is using semantic-release.app
+   alt Repository is using semantic-release.npm
       SemanticRelease->>NPMRegistry: Publish to NPM with "@semantic-release/npm"
       NPMRegistry-->>SemanticRelease: Confirmation of Publish
       SemanticRelease-->>Runner: Publish Successful
