@@ -1,3 +1,12 @@
+<!--
+ * Made with ❤️ and adobo by Kurocado Studio
+ * Copyright (c) 2024. All Rights Reserved.
+ *
+ * Learn more about Kurocado Studio: {@link https://www.kurocado.studio}
+ *
+ * Explore our open-source projects: {@link https://github.com/kurocado-studio}
+-->
+
 # Kurocado Studio Style Guide
 
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](https://kurocado-studio.github.io/styleguide/contributing.html)

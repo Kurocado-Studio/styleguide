@@ -1,4 +1,12 @@
 /**
+ * Made with ❤️ and adobo by Kurocado Studio
+ * Copyright (c) 2024. All Rights Reserved.
+ *
+ * Learn more about Kurocado Studio: {@link https://www.kurocado.studio}
+ *
+ * Explore our open-source projects: {@link https://github.com/kurocado-studio}
+ */
+/**
  * Some of the defaults can be overridden by an EditorConfig file. We define those here to ensure that doesn't happen.
  * See: https://github.com/prettier/prettier/blob/main/docs/configuration.md#editorconfig
  */
