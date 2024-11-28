@@ -6,6 +6,5 @@
  *
  * Explore our open-source projects: {@link https://github.com/kurocado-studio}
  */
-module.exports = {
-  extends: ['./src/commitlint'],
-};
+// eslint-disable-next-line import/no-default-export
+export {commitLintConfig as default } from './src/commitlint/index.js'

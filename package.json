@@ -11,6 +11,7 @@
     "url": "https://github.com/kurocado-studio/styleguide.git"
   },
   "license": "MIT",
+  "type": "module",
   "scripts": {
     "commitlint": "pnpm exec commitlint --edit",
     "eslint-check": "eslint --max-warnings=0 .",

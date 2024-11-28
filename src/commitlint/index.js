@@ -6,7 +6,7 @@
  *
  * Explore our open-source projects: {@link https://github.com/kurocado-studio}
  */
-module.exports = {
+export const commitLintConfig = {
   extends: ['@commitlint/config-conventional'],
   rules: {
     'body-max-line-length': [2, 'always', 200],
