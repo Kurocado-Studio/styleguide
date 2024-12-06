@@ -10,7 +10,7 @@ import { vitePlugin as remixVitePlugin } from '@remix-run/dev';
 
 import { viteConfig } from './config';
 
-module.exports = {
+export const viteWebConfig = {
   build: {
     target: 'esnext',
   },

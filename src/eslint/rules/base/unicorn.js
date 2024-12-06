@@ -6,7 +6,7 @@
  *
  * Explore our open-source projects: {@link https://github.com/kurocado-studio}
  */
-module.exports = {
+export const unicornConfig = {
   overrides: [
     {
       files: ['**/*.tsx'], // Target only .tsx files

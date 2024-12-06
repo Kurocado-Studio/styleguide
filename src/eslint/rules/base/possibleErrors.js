@@ -6,7 +6,7 @@
  *
  * Explore our open-source projects: {@link https://github.com/kurocado-studio}
  */
-module.exports = {
+export const possibleErrorsConfig = {
   rules: {
     /**
      * Disallow the use of console.

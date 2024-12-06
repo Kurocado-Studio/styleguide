@@ -6,14 +6,17 @@
  *
  * Explore our open-source projects: {@link https://github.com/kurocado-studio}
  */
-module.exports = {
-  extends: [
-    'plugin:react/recommended',
-    'plugin:react-hooks/recommended',
-    'plugin:jsx-a11y/recommended',
-    'plugin:import/react',
-    require.resolve('./rules/react'),
-  ],
+import jsxA11yRecommended from 'eslint-plugin-jsx-a11y';
+import reactRecommended from 'eslint-plugin-react';
+import reactHooksRecommended from 'eslint-plugin-react-hooks';
+
+import { reactEslintConfig } from './rules/react/index.js';
+
+export const eslintReactConfig = {
+  ...reactEslintConfig,
+  ...jsxA11yRecommended,
+  ...reactHooksRecommended,
+  ...reactRecommended,
   plugins: ['react'],
   settings: {
     react: {

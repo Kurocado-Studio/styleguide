@@ -31,15 +31,15 @@ found 0 vulnerabilities
 
 ## Step 2 — Configure ESLint
 
-To use our ESLint configuration, add the following `.eslintrc.js` file at the root of your project.
-This configuration supports both browser and Node.js environments. Choose the one that fits your
-project or customize as needed.
+To use our ESLint configuration, add the following `eslint.config.js` file at the root of your
+project. This configuration supports both browser and Node.js environments. Choose the one that fits
+your project or customize as needed.
 
 **[See all ESLint configurations available](https://github.com/Kurocado-Studio/styleguide/tree/main/src/eslint)**
 
 ### Browser Configuration
 
-Create a `.eslintrc.js` file with the following content for browser-based projects:
+Create a `eslint.config.js` file with the following content for browser-based projects:
 
 ```javascript
 module.exports = {

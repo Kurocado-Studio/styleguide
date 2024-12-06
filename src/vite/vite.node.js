@@ -8,7 +8,7 @@
  */
 import { viteConfig } from './config';
 
-module.exports = {
+export const viteNodeConfig = {
   plugins: viteConfig.plugins,
   test: {
     ...viteConfig.test,

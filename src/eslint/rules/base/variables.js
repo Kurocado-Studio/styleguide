@@ -6,7 +6,7 @@
  *
  * Explore our open-source projects: {@link https://github.com/kurocado-studio}
  */
-module.exports = {
+export const variablesConfig = {
   rules: {
     'no-label-var': 'error',
     'no-undef-init': 'warn',

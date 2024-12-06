@@ -113,11 +113,18 @@ development standards.
 
 ## Launch Readiness
 
+| Branch/Type |                                                                                                                                                                                           |
+| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Main        | [![CI/CD Pipeline](https://github.com/Kurocado-Studio/styleguide/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/Kurocado-Studio/styleguide/actions/workflows/ci.yml) |
+
 ### Key Milestones
 
-|                |                                                               |
-| -------------- | ------------------------------------------------------------- |
-| Stable Release | [](https://github.com/Kurocado-Studio/styleguide/milestone/1) |
+[see all milestones](https://github.com/Kurocado-Studio/styleguide/milestones)
+
+|                                 |                                                               |
+| ------------------------------- | ------------------------------------------------------------- |
+| CommonJS to ESModule conversion | [](https://github.com/Kurocado-Studio/styleguide/milestone/1) |
+| Stable Release                  | [](https://github.com/Kurocado-Studio/styleguide/milestone/2) |
 
 ### Testing plan
 

@@ -6,4 +6,4 @@
  *
  * Explore our open-source projects: {@link https://github.com/kurocado-studio}
  */
-module.exports = require('./src/prettier');
+export { prettierConfig as default } from './src/prettier/index.js';

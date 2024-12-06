@@ -7,7 +7,7 @@
  * Explore our open-source projects: {@link https://github.com/kurocado-studio}
  */
 // Source: https://github.com/playwright-community/eslint-plugin-playwright/blob/v1.5.1/src/index.ts#L101-L129
-module.exports = {
+export const playwrightEslintConfig = {
   rules: {
     'no-empty-pattern': 'off',
     'playwright/expect-expect': 'warn',

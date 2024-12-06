@@ -7,9 +7,11 @@
  * Explore our open-source projects: {@link https://github.com/kurocado-studio}
  */
 // These share identical configuration options, so we want to keep them in sync.
-const noUnusedVarsConfig = require('../variables').rules['no-unused-vars'];
+import { variablesConfig } from '../base/variables.js';
 
-module.exports = {
+const noUnusedVarsConfig = variablesConfig.rules['no-unused-vars'];
+
+export const extensionEslintConfig = {
   rules: {
     /**
      * Require default parameters to be last.

@@ -38,6 +38,7 @@ module.exports = (configName, packageName) => {
     log(
       `- ${packageManager} ${command} ${packageName}@${pkgJson.peerDependencies[packageName]}`,
     );
+    log(e);
 
     process.exit(1);
   }

@@ -10,7 +10,7 @@
  * These are enabled by `import/recommended`, but are better handled by
  * TypeScript and typescript-eslint.
  */
-module.exports = {
+export const importConfig = {
   rules: {
     'import/default': 'off',
     'import/export': 'off',
