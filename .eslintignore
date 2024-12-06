@@ -1,5 +1,0 @@
-src/vitest/setup.web.ts
-src/vitest/setup.node.ts
-src/vitest/vitest.web.ts
-src/vitest/vitest.node.ts
-node_modules

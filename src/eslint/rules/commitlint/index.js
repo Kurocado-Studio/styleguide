@@ -6,7 +6,7 @@
  *
  * Explore our open-source projects: {@link https://github.com/kurocado-studio}
  */
-module.exports = {
+export const commitLintEslintConfig = {
   rules: {
     'body-max-line-length': [0, 'always', 200],
     'header-max-length': [2, 'always', 72],

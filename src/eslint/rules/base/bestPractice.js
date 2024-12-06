@@ -6,7 +6,7 @@
  *
  * Explore our open-source projects: {@link https://github.com/kurocado-studio}
  */
-module.exports = {
+export const bestPractice = {
   rules: {
     /**
      * Require return statements in array methods callbacks.

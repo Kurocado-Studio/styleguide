@@ -1,4 +1,8 @@
 {
-  "extends": ["./src/tsconfig/tsconfig.nestjs.json"],
-  "include": ["./src/**/*.ts", "./src/**/*.tsx"]
+  "extends": ["./src/tsconfig/tsconfig.node.json"],
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": ".",
+    "typeRoots": ["./src/types", "eslint-plugin-tsdoc"]
+  }
 }

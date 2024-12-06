@@ -6,9 +6,13 @@
  *
  * Explore our open-source projects: {@link https://github.com/kurocado-studio}
  */
-module.exports = {
-  env: {
-    browser: true,
+import { eslintBaseConfig } from './eslint.base.js';
+
+export const eslintBrowserConfig = {
+  ...eslintBaseConfig,
+  languageOptions: {
+    globals: {
+      browser: true,
+    },
   },
-  extends: './eslint.base',
 };

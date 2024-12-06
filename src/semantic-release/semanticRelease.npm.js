@@ -6,9 +6,9 @@
  *
  * Explore our open-source projects: {@link https://github.com/kurocado-studio}
  */
-const baseAppConfig = require('./semanticRelease.app');
+import { semanticReleaseBaseConfig } from './base.js';
 
-module.exports = {
-  ...baseAppConfig,
-  plugins: [...baseAppConfig.plugins, '@semantic-release/npm'],
+export const semanticReleaseNpmConfig = {
+  ...semanticReleaseBaseConfig,
+  plugins: [...semanticReleaseBaseConfig.plugins, '@semantic-release/npm'],
 };

@@ -6,7 +6,7 @@
  *
  * Explore our open-source projects: {@link https://github.com/kurocado-studio}
  */
-module.exports = {
+export const stylisticConfig = {
   rules: {
     /**
      * Require camel case names.

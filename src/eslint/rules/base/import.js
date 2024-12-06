@@ -6,7 +6,7 @@
  *
  * Explore our open-source projects: {@link https://github.com/kurocado-studio}
  */
-module.exports = {
+export const importConfig = {
   rules: {
     /**
      * Disallow non-import statements appearing before import statements.

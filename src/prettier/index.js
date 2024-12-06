@@ -10,7 +10,7 @@
  * Some of the defaults can be overridden by an EditorConfig file. We define those here to ensure that doesn't happen.
  * See: https://github.com/prettier/prettier/blob/main/docs/configuration.md#editorconfig
  */
-module.exports = {
+export const prettierConfig = {
   arrowParens: 'always',
   bracketSpacing: true,
   endOfLine: 'lf',

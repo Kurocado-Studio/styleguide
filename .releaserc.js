@@ -6,4 +6,4 @@
  *
  * Explore our open-source projects: {@link https://github.com/kurocado-studio}
  */
-module.exports = require('./src/semantic-release/semanticRelease.npm');
+export { semanticReleaseNpmConfig as default } from './src/semantic-release/semanticRelease.npm.js';

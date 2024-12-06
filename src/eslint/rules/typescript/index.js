@@ -6,13 +6,13 @@
  *
  * Explore our open-source projects: {@link https://github.com/kurocado-studio}
  */
-const extensionRules = require('./extension');
-const importRules = require('./import');
+import { extensionEslintConfig } from './extension.js';
+import { importConfig } from './import.js';
 
-module.exports = {
+export const typescriptEslintConfig = {
   rules: {
-    ...importRules,
-    ...extensionRules,
+    ...importConfig.rules,
+    ...extensionEslintConfig.rules,
     /**
      * Require consistent usage of type exports.
      *

@@ -9,7 +9,7 @@
 const SPEC_PREFIX = 'spec';
 const TEST_PREFIX = 'test';
 
-module.exports = {
+export const sharedEslintConfig = {
   ECMA_VERSION: 2021,
   JAVASCRIPT_FILES: ['*.js?(x)', '*.mjs'],
   JAVASCRIPT_TEST_FILES: [

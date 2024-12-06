@@ -6,6 +6,4 @@
  *
  * Explore our open-source projects: {@link https://github.com/kurocado-studio}
  */
-module.exports = {
-  extends: ['./src/commitlint'],
-};
+export { commitLintConfig as default } from './src/commitlint/index.js';

@@ -18,7 +18,6 @@ config({ path: '.env.test' });
 
 expect.extend(matchers);
 //  HTMLCanvasElement is a mock,hence is not defined
-// eslint-disable-next-line no-undef
 HTMLCanvasElement.prototype.getContext = () => {
   return {
     beginPath: vi.fn(),

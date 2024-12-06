@@ -6,11 +6,11 @@
  *
  * Explore our open-source projects: {@link https://github.com/kurocado-studio}
  */
-const jsxA11yRules = require('./jsxA11y');
+import { jsxA11yConfig } from './jsxA11y.js';
 
-module.exports = {
+export const reactEslintConfig = {
   rules: {
-    ...jsxA11yRules.rules,
+    ...jsxA11yConfig.rules,
     'react/button-has-type': 'warn',
     'react/function-component-definition': 'warn',
     'react/hook-use-state': 'warn',

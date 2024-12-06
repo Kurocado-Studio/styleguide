@@ -6,23 +6,23 @@
  *
  * Explore our open-source projects: {@link https://github.com/kurocado-studio}
  */
-const bestPracticeRules = require('./bestPractice');
-const es6Rules = require('./es6');
-const importRules = require('./import');
-const possibleErrorsRules = require('./possibleErrors');
-const stylisticRules = require('./stylistic');
-const unicornRules = require('./unicorn');
-const variablesRules = require('./variables');
+import { bestPractice } from './bestPractice.js';
+import { es6Config } from './es6.js';
+import { importConfig } from './import.js';
+import { possibleErrorsConfig } from './possibleErrors.js';
+import { stylisticConfig } from './stylistic.js';
+import { unicornConfig } from './unicorn.js';
+import { variablesConfig } from './variables.js';
 
-module.exports = {
+export const base = {
   rules: {
-    ...es6Rules.rules,
-    ...importRules.rules,
-    ...possibleErrorsRules.rules,
-    ...stylisticRules.rules,
-    ...unicornRules.rules,
-    ...variablesRules.rules,
-    ...bestPracticeRules.rules,
+    ...es6Config.rules,
+    ...importConfig.rules,
+    ...possibleErrorsConfig.rules,
+    ...stylisticConfig.rules,
+    ...unicornConfig.rules,
+    ...variablesConfig.rules,
+    ...bestPractice.rules,
     /**
      * Require any TSDoc comments conform to the TSDoc specification.
      *

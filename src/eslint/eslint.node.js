@@ -6,9 +6,15 @@
  *
  * Explore our open-source projects: {@link https://github.com/kurocado-studio}
  */
-module.exports = {
-  env: {
-    node: true,
+import { eslintBaseConfig } from './eslint.base.js';
+
+export const eslintNodeConfig = [
+  ...eslintBaseConfig,
+  {
+    languageOptions: {
+      globals: {
+        node: true,
+      },
+    },
   },
-  extends: './eslint.base',
-};
+];

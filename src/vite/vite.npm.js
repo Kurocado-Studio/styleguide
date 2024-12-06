@@ -25,7 +25,7 @@ const getFileName = (name, format) => {
   return `${sanitized.trim()}.${format}.js`;
 };
 
-module.exports = {
+export const viteNpmConfig = {
   build: {
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),
