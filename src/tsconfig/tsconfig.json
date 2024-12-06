@@ -24,7 +24,6 @@
     "noUncheckedIndexedAccess": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "outDir": "dist",
     "paths": { "@app*": ["app/*"], "@src*": ["src/*"], "~/*": ["src/*"] },
     "preserveSymlinks": true,
     "resolveJsonModule": true,
