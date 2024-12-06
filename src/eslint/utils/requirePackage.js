@@ -6,7 +6,6 @@
  *
  * Explore our open-source projects: {@link https://github.com/kurocado-studio}
  */
-// @ts-check
 const pkgJson = require('../../../package.json');
 
 const log = (message = '') => process.stderr.write(`${message}\n`);
@@ -16,7 +15,7 @@ const log = (message = '') => process.stderr.write(`${message}\n`);
  */
 function readPackageManager() {
   const match = process.env.npm_config_user_agent?.match(/^(?<pm>\w+)\//);
-  return match?.groups ? match.groups?.pm : 'npm';
+  return match?.groups ? match.groups?.['pm'] : 'npm';
 }
 
 /**
