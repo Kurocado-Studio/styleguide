@@ -22,6 +22,8 @@ export default [
       'src/vitest/setup.node.ts',
       'src/vitest/vitest.web.ts',
       'src/vitest/vitest.node.ts',
+      'dist/*',
+      '**/*.d.ts',
       'node_modules',
       '**/temp.js',
       'config/*',
