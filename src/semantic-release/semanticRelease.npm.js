@@ -10,5 +10,9 @@ import { semanticReleaseBaseConfig } from './base.js';
 
 export const semanticReleaseNpmConfig = {
   ...semanticReleaseBaseConfig,
-  plugins: [...semanticReleaseBaseConfig.plugins, '@semantic-release/npm'],
+  plugins: [
+    ...semanticReleaseBaseConfig.plugins,
+    '@semantic-release/github',
+    '@semantic-release/npm',
+  ],
 };
