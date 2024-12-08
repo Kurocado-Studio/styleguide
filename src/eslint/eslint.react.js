@@ -26,6 +26,7 @@ export const eslintReactConfig = [
       },
     },
     plugins: {
+      ...reactRecommended.configs.flat.recommended.plugins,
       'jsx-a11y': jsxA11yRecommended,
       'react-hooks': reactHooksRecommended,
     },

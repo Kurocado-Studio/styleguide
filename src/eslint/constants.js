@@ -74,7 +74,7 @@ export const typescriptLanguageRootConfig = {
   ...typescriptLanguageOptions,
   plugins: {
     import: eslintPluginImport,
-    prettierConfig,
+    prettier: prettierConfig,
     tsdoc: tsdocRecommended,
     unicorn: unicornRecommended,
     vitest: vitestRecommended,

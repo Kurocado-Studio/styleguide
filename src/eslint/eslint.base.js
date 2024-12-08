@@ -24,14 +24,7 @@ const { JAVASCRIPT_TEST_FILES, TYPESCRIPT_TEST_FILES } = sharedEslintConfig;
 export const eslintBaseConfig = [
   ...unicornConfig.overrides,
   javascriptLanguageRootConfig,
-  {
-    ...typescriptLanguageRootConfig,
-    rules: {
-      ...typescriptLanguageRootConfig.rules,
-      ...eslintPluginImport.configs.recommended.rules,
-      ...eslintPluginImport.configs.typescript.rules,
-    },
-  },
+  typescriptLanguageRootConfig,
   {
     env: { node: true },
     extends: ['plugin:vitest/recommended'],
@@ -62,12 +55,20 @@ export const eslintBaseConfig = [
   {
     files: [
       '.commitlintrc.js',
-      'eslint.config.js',
       '.releaserc.js',
+      'eslint.config.js',
+      'postcss.config.js',
       'prettier.config.js',
+      'vite.config.ts',
     ],
     rules: {
+      'import/default': 'off',
+      'import/named': 'off',
+      'import/namespace': 'off',
+      'import/no-cycle': 'off',
       'import/no-default-export': 'off',
+      'import/no-named-as-default': 'off',
+      'import/no-named-as-default-member': 'off',
     },
   },
   {
