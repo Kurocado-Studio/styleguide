@@ -13,6 +13,3 @@ export { semanticReleaseNpmConfig } from './semantic-release/semanticRelease.npm
 export { viteNodeConfig } from './vite/vite.node.js';
 export { viteNpmConfig } from './vite/vite.npm.js';
 export { viteWebConfig } from './vite/vite.web.js';
-
-export * from './vite/setup.node.js';
-export * from './vite/setup.web.js';

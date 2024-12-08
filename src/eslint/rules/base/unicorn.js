@@ -1,3 +1,5 @@
+import unicorn from 'eslint-plugin-unicorn';
+
 /**
  * Made with ❤️ and adobo by Kurocado Studio
  * Copyright (c) 2024. All Rights Reserved.
@@ -10,6 +12,7 @@ export const unicornConfig = {
   overrides: [
     {
       files: ['**/*.tsx'], // Target only .tsx files
+      plugins: { unicorn },
       rules: {
         /**
          * Require pascalCase filename case for all linted files.
@@ -27,6 +30,7 @@ export const unicornConfig = {
     },
     {
       files: ['**/*.ts', '**/*.js'], // Target other files for camelCase
+      plugins: { unicorn },
       rules: {
         /**
          * Require camelCase filename case for all linted files.

@@ -8,7 +8,7 @@
  */
 import { vitePlugin as remixVitePlugin } from '@remix-run/dev';
 
-import { viteConfig } from './config';
+import { viteConfig } from './config.js';
 
 export const viteWebConfig = {
   build: {
@@ -31,3 +31,4 @@ export const viteWebConfig = {
     setupFiles: './setup.web.js',
   },
 };
+//# sourceMappingURL=vite.web.js.map

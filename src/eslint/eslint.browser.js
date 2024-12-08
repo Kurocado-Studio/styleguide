@@ -6,13 +6,26 @@
  *
  * Explore our open-source projects: {@link https://github.com/kurocado-studio}
  */
+import globals from 'globals';
+
+import { typescriptLanguageRootConfig } from './constants.js';
 import { eslintBaseConfig } from './eslint.base.js';
 
-export const eslintBrowserConfig = {
+export const eslintBrowserConfig = [
   ...eslintBaseConfig,
-  languageOptions: {
-    globals: {
-      browser: true,
+  {
+    ...typescriptLanguageRootConfig,
+    languageOptions: {
+      globals: globals.browser,
+    },
+    rules: typescriptLanguageRootConfig.rules,
+    settings: {
+      'import/resolver': {
+        alias: {
+          extensions: ['.ts', '.tsx', '.js', '.jsx'],
+          map: [['~', './app']],
+        },
+      },
     },
   },
-};
+];
