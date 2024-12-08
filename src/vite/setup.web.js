@@ -6,13 +6,11 @@
  *
  * Explore our open-source projects: {@link https://github.com/kurocado-studio}
  */
-
-/* eslint @typescript-eslint/no-unsafe-member-access: 0 */
 import '@testing-library/jest-dom/vitest';
 import { config } from 'dotenv';
 import { expect, vi } from 'vitest';
-import 'vitest-axe/extend-expect';
-import * as matchers from 'vitest-axe/matchers';
+import 'vitest-axe/extend-expect.js';
+import * as matchers from 'vitest-axe/matchers.js';
 
 config({ path: '.env.test' });
 

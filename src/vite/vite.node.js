@@ -6,7 +6,7 @@
  *
  * Explore our open-source projects: {@link https://github.com/kurocado-studio}
  */
-import { viteConfig } from './config';
+import { viteConfig } from './config.js';
 
 export const viteNodeConfig = {
   plugins: viteConfig.plugins,

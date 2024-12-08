@@ -6,7 +6,7 @@
  *
  * Explore our open-source projects: {@link https://github.com/kurocado-studio}
  */
-import { eslintNodeConfig } from './src/eslint/eslint.node.js';
+import { eslintNodeConfig } from './src/index.js';
 
 export default [
   ...eslintNodeConfig,
@@ -15,18 +15,5 @@ export default [
     rules: {
       'sort-keys': 'error',
     },
-  },
-  {
-    ignores: [
-      'src/vitest/setup.web.ts',
-      'src/vitest/setup.node.ts',
-      'src/vitest/vitest.web.ts',
-      'src/vitest/vitest.node.ts',
-      'dist/*',
-      '**/*.d.ts',
-      'node_modules',
-      '**/temp.js',
-      'config/*',
-    ],
   },
 ];

@@ -6,6 +6,17 @@
  *
  * Explore our open-source projects: {@link https://github.com/kurocado-studio}
  */
+import babelParser from '@babel/eslint-parser';
+import tsRecommended from '@typescript-eslint/eslint-plugin';
+import typescriptParser from '@typescript-eslint/parser';
+import prettierConfig from 'eslint-config-prettier';
+import eslintPluginImport from 'eslint-plugin-import';
+import tsdocRecommended from 'eslint-plugin-tsdoc';
+import unicornRecommended from 'eslint-plugin-unicorn';
+import vitestRecommended from 'eslint-plugin-vitest';
+
+import { base } from './rules/base/index.js';
+
 const SPEC_PREFIX = 'spec';
 const TEST_PREFIX = 'test';
 
@@ -20,4 +31,74 @@ export const sharedEslintConfig = {
   ],
   TYPESCRIPT_FILES: ['*.ts?(x)'],
   TYPESCRIPT_TEST_FILES: [`*.${TEST_PREFIX}.ts?(x)`, `*.${SPEC_PREFIX}.ts?(x)`],
+};
+
+export const typescriptLanguageOptions = {
+  files: sharedEslintConfig.TYPESCRIPT_FILES,
+  languageOptions: {
+    globals: {
+      [`es${sharedEslintConfig.ECMA_VERSION}`]: true,
+    },
+    parser: typescriptParser,
+    parserOptions: {
+      ecmaVersion: sharedEslintConfig.ECMA_VERSION,
+      project: true,
+      requireConfigFile: true,
+      sourceType: 'module',
+      tsconfigRootDir: process.cwd(),
+    },
+  },
+};
+
+export const javascriptLanguageOptions = {
+  files: sharedEslintConfig.JAVASCRIPT_FILES,
+  languageOptions: {
+    globals: {
+      [`es${sharedEslintConfig.ECMA_VERSION}`]: true,
+    },
+    parser: babelParser,
+    parserOptions: {
+      ecmaVersion: sharedEslintConfig.ECMA_VERSION,
+      project: true,
+      requireConfigFile: false,
+      sourceType: 'module',
+    },
+  },
+};
+
+export const tsconfigRootDir = process.cwd();
+
+export const typescriptLanguageRootConfig = {
+  ...typescriptLanguageOptions,
+  plugins: {
+    '@typescript-eslint': tsRecommended,
+    import: eslintPluginImport,
+    prettierConfig,
+    tsdoc: tsdocRecommended,
+    unicorn: unicornRecommended,
+    vitest: vitestRecommended,
+  },
+  rules: {
+    ...base.rules,
+    ...eslintPluginImport.configs.recommended.rules,
+    ...eslintPluginImport.configs.typescript.rules,
+  },
+  settings: {
+    'import/resolver': { node: {} },
+  },
+};
+
+export const javascriptLanguageRootConfig = {
+  ...javascriptLanguageOptions,
+  plugins: {
+    '@typescript-eslint': tsRecommended,
+    import: eslintPluginImport,
+    prettierConfig,
+    tsdoc: tsdocRecommended,
+    unicorn: unicornRecommended,
+    vitest: vitestRecommended,
+  },
+  rules: {
+    '@typescript-eslint/no-var-requires': 'off',
+  },
 };

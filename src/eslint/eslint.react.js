@@ -12,15 +12,18 @@ import reactHooksRecommended from 'eslint-plugin-react-hooks';
 
 import { reactEslintConfig } from './rules/react/index.js';
 
-export const eslintReactConfig = {
-  ...reactEslintConfig,
-  ...jsxA11yRecommended,
-  ...reactHooksRecommended,
-  ...reactRecommended,
-  plugins: ['react'],
-  settings: {
-    react: {
-      version: 'detect',
+export const eslintReactConfig = [
+  {
+    plugins: {
+      'jsx-a11y': jsxA11yRecommended,
+      react: reactRecommended,
+      'react-hooks': reactHooksRecommended,
+    },
+    rules: reactEslintConfig.rules,
+    settings: {
+      react: {
+        version: 'detect',
+      },
     },
   },
-};
+];
