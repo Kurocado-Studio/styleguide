@@ -6,22 +6,19 @@
  *
  * Explore our open-source projects: {@link https://github.com/kurocado-studio}
  */
-import babelParser from '@babel/eslint-parser';
+import globals from 'globals';
 
-import {
-  javascriptLanguageOptions,
-  typescriptLanguageRootConfig,
-} from './constants.js';
+import { typescriptLanguageRootConfig } from './constants.js';
 import { eslintBaseConfig } from './eslint.base.js';
 
 export const eslintBrowserConfig = [
   ...eslintBaseConfig,
   {
     ...typescriptLanguageRootConfig,
-    rules: {
-      ...typescriptLanguageRootConfig.rules,
-      'import/no-cycle': 'off',
+    languageOptions: {
+      globals: globals.browser,
     },
+    rules: typescriptLanguageRootConfig.rules,
     settings: {
       'import/resolver': {
         alias: {

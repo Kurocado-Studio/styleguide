@@ -8,8 +8,11 @@
  */
 import eslintPluginImport from 'eslint-plugin-import';
 import vitestRecommended from 'eslint-plugin-vitest';
+import globals from 'globals';
 
 import {
+  JS_EXTENSIONS_PREFIX,
+  TS_EXTENSIONS_PREFIX,
   javascriptLanguageRootConfig,
   sharedEslintConfig,
   typescriptLanguageRootConfig,
@@ -39,9 +42,21 @@ export const eslintBaseConfig = [
     },
   },
   {
-    files: ['vitest.web.ts', 'vitest.node.ts'],
+    files: [`vite.*.${TS_EXTENSIONS_PREFIX}`],
     rules: {
       'import/no-cycle': 'off',
+    },
+  },
+  {
+    files: [`**/*.${JS_EXTENSIONS_PREFIX}`, `**/*.${TS_EXTENSIONS_PREFIX}`],
+    languageOptions: {
+      globals: globals.node,
+    },
+  },
+  {
+    files: ['src/eslint/constants.js'],
+    rules: {
+      'import/no-unresolved': 'off',
     },
   },
   {
@@ -56,6 +71,6 @@ export const eslintBaseConfig = [
     },
   },
   {
-    ignores: ['dist/*', '**/*.d.ts', 'node_modules', '**/temp.js', 'config/*'],
+    ignores: ['**/*.d.ts', 'dist/*', 'build/*', 'node_modules'],
   },
 ];

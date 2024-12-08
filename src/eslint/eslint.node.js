@@ -8,13 +8,4 @@
  */
 import { eslintBaseConfig } from './eslint.base.js';
 
-export const eslintNodeConfig = [
-  ...eslintBaseConfig,
-  {
-    languageOptions: {
-      globals: {
-        node: true,
-      },
-    },
-  },
-];
+export const eslintNodeConfig = eslintBaseConfig;
