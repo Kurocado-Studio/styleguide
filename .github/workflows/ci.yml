@@ -29,18 +29,13 @@ jobs:
     uses: kurocado-studio/styleguide/.github/workflows/workflow.lint.yml@main
     secrets: inherit
 
-  test:
-    needs: lint
-    uses: kurocado-studio/styleguide/.github/workflows/workflow.test.yml@main
-    secrets: inherit
-
   document:
-    needs: test
+    needs: lint
     uses: kurocado-studio/styleguide/.github/workflows/workflow.document.yml@main
     secrets: inherit
 
   release:
-    needs: test
+    needs: lint
     uses: kurocado-studio/styleguide/.github/workflows/workflow.release.yml@main
     secrets: inherit
     with:

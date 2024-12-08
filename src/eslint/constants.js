@@ -16,6 +16,7 @@ import unicornRecommended from 'eslint-plugin-unicorn';
 import vitestRecommended from 'eslint-plugin-vitest';
 
 import { base } from './rules/base/index.js';
+import { typescriptEslintConfig } from './rules/typescript/index.js';
 
 const SPEC_PREFIX = 'spec';
 const TEST_PREFIX = 'test';
@@ -82,6 +83,7 @@ export const typescriptLanguageRootConfig = {
     ...base.rules,
     ...eslintPluginImport.configs.recommended.rules,
     ...eslintPluginImport.configs.typescript.rules,
+    ...typescriptEslintConfig.rules,
   },
   settings: {
     'import/resolver': { node: {} },
