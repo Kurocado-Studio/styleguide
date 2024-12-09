@@ -12,8 +12,11 @@ description: 'Deploys the application to Fly.io'
 runs:
   using: 'composite'
   steps:
-    - name: Deploy
+    - name: Setup Flyctl
       uses: superfly/flyctl-actions/setup-flyctl@master
+
+    - name: Deploy to Fly.io
+      shell: bash
       run: flyctl deploy --remote-only
       env:
         FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
