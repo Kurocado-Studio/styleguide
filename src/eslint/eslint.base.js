@@ -6,34 +6,20 @@
  *
  * Explore our open-source projects: {@link https://github.com/kurocado-studio}
  */
-import eslintPluginImport from 'eslint-plugin-import';
-import vitestRecommended from 'eslint-plugin-vitest';
 import globals from 'globals';
 
 import {
   JS_EXTENSIONS_PREFIX,
   TS_EXTENSIONS_PREFIX,
   javascriptLanguageRootConfig,
-  sharedEslintConfig,
   typescriptLanguageRootConfig,
 } from './constants.js';
 import { unicornConfig } from './rules/base/unicorn.js';
-
-const { JAVASCRIPT_TEST_FILES, TYPESCRIPT_TEST_FILES } = sharedEslintConfig;
 
 export const eslintBaseConfig = [
   ...unicornConfig.overrides,
   javascriptLanguageRootConfig,
   typescriptLanguageRootConfig,
-  {
-    env: { node: true },
-    extends: ['plugin:vitest/recommended'],
-    files: [...TYPESCRIPT_TEST_FILES, ...JAVASCRIPT_TEST_FILES],
-    plugins: {
-      import: eslintPluginImport,
-      vitest: vitestRecommended,
-    },
-  },
   {
     files: [`vite.*.${TS_EXTENSIONS_PREFIX}`],
     rules: {
