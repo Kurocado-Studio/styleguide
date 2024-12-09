@@ -61,26 +61,12 @@ export const typescriptEslintConfig = {
       'error',
       // Anything type-like should be written in PascalCase.
       {
-        format: ['PascalCase'],
-        selector: ['typeLike', 'enumMember'],
-      },
-      // Interfaces cannot be prefixed with `I`, or have restricted names.
-      {
         custom: {
           match: false,
-          regex: '^I[A-Z]|^(Interface|Props|State)$',
+          regex: '^T[A-Z]|^(Type|Props|State|Interface)$',
         },
         format: ['PascalCase'],
-        selector: 'interface',
-      },
-      // Types cannot be prefixed with`T ` or have restricted names.
-      {
-        custom: {
-          match: false,
-          regex: '^T[A-Z]|^(Type|Props|State)$',
-        },
-        format: ['PascalCase'],
-        selector: 'type',
+        selector: ['typeLike', 'typeAlias', 'enumMember'],
       },
     ],
     /**

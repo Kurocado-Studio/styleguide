@@ -7,6 +7,7 @@
  * Explore our open-source projects: {@link https://github.com/kurocado-studio}
  */
 import babelParser from '@babel/eslint-parser';
+import typescriptPlugin from '@typescript-eslint/eslint-plugin';
 import typescriptParser from '@typescript-eslint/parser';
 import prettierConfig from 'eslint-config-prettier';
 import eslintPluginImport from 'eslint-plugin-import';
@@ -73,6 +74,7 @@ export const javascriptLanguageOptions = {
 export const typescriptLanguageRootConfig = {
   ...typescriptLanguageOptions,
   plugins: {
+    '@typescript-eslint': typescriptPlugin,
     import: eslintPluginImport,
     prettier: prettierConfig,
     tsdoc: tsdocRecommended,

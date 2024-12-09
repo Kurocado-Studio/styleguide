@@ -1,4 +1,7 @@
-export { commitLintConfig } from './commitlint/index.js';
+export {
+  commitLintConfig,
+  commitLintReferenceRequiredConfig,
+} from './commitlint/index.js';
 
 export { eslintBaseConfig } from './eslint/eslint.base.js';
 export { eslintBrowserConfig } from './eslint/eslint.browser.js';
