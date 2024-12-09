@@ -8,9 +8,6 @@
 #
 on:
   workflow_call:
-    secrets:
-      fly_api_token:
-        required: true
 
 jobs:
   deploy:
