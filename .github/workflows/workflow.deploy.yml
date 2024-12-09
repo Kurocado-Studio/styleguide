@@ -8,9 +8,8 @@
 #
 on:
   workflow_call:
-    inputs:
+    secrets:
       fly_api_token:
-        type: string
         required: true
 
 jobs:
@@ -32,4 +31,4 @@ jobs:
       - name: Deploy
         uses: kurocado-studio/styleguide/.github/actions/deploy@main
         with:
-          fly_api_token: ${{ inputs.fly_api_token }}
+          fly_api_token: ${{ secrets.fly_api_token }}
