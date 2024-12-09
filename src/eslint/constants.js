@@ -39,7 +39,6 @@ export const sharedEslintConfig = {
 };
 
 export const typescriptLanguageOptions = {
-  extends: ['plugin:vitest/recommended'],
   files: sharedEslintConfig.TYPESCRIPT_FILES,
   languageOptions: {
     globals: {
