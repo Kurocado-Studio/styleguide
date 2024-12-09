@@ -37,3 +37,11 @@ export const commitLintConfig = {
     ],
   },
 };
+
+export const commitLintReferenceRequiredConfig = {
+  ...commitLintConfig,
+  rules: {
+    ...commitLintConfig.rules,
+    'references-empty': [2, 'never'],
+  },
+};
