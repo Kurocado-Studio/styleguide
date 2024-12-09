@@ -27,3 +27,5 @@ jobs:
 
       - name: Deploy
         uses: kurocado-studio/styleguide/.github/actions/deploy@main
+        with:
+          fly_api_token: ${{ secrets.FLY_API_TOKEN }}
