@@ -7,6 +7,10 @@
 # Explore our open-source projects: {@link https://github.com/kurocado-studio}
 #
 on:
+  push:
+    branches:
+      - dev
+      - main
   workflow_call:
     secrets:
       fly_api_token:
