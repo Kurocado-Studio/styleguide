@@ -23,11 +23,11 @@ jobs:
     runs-on: ubuntu-latest
     if: |
       (
-        inputs.branch_name == 'refs/heads/main' ||
-        inputs.branch_name == 'refs/heads/alpha' ||
-        inputs.branch_name == 'refs/heads/beta' ||
-        inputs.branch_name == 'refs/heads/canary' ||
-        inputs.branch_name == 'refs/heads/pre/rc'
+        inputs.branch_name == 'main' ||
+        inputs.branch_name == 'alpha' ||
+        inputs.branch_name == 'beta' ||
+        inputs.branch_name == 'canary' ||
+        inputs.branch_name == 'pre/rc'
       )
     steps:
       - name: Checkout

@@ -24,7 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     if: |
       github.event_name == 'push' && 
-      github.ref == 'refs/heads/main'
+      github.ref_name == 'main'
     outputs:
       writerside_changed: ${{ steps.check.outputs.writerside_changed }}
     steps:

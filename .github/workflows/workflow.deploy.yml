@@ -8,6 +8,10 @@
 #
 on:
   workflow_call:
+    inputs:
+      branch_name:
+        required: true
+        type: string
     secrets:
       fly_api_token:
         required: true
@@ -16,8 +20,8 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     if: |
-      github.ref == 'refs/heads/main' || 
-      github.ref == 'refs/heads/dev'
+      inputs.branch_name == 'main' || 
+      inputs.branch_name == 'dev'
     steps:
       - name: Checkout
         uses: actions/checkout@v4
