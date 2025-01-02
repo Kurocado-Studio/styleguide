@@ -33,6 +33,7 @@ export const eslintReactConfig = [
     rules: {
       ...reactEslintConfig.rules,
       ...reactRecommended.configs.flat.recommended.rules,
+      ...reactHooksRecommended.configs.recommended.rules,
     },
     settings: {
       react: {
