@@ -66,7 +66,12 @@ export const typescriptEslintConfig = {
           regex: '^T[A-Z]|^(Type|Props|State|Interface)$',
         },
         format: ['PascalCase'],
-        selector: ['typeLike', 'typeAlias', 'enumMember'],
+        selector: ['typeLike', 'typeAlias'],
+      },
+      // except enums
+      {
+        format: ['UPPER_CASE'],
+        selector: 'enumMember',
       },
     ],
     /**
