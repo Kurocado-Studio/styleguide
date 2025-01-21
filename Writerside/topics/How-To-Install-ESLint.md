@@ -24,7 +24,7 @@ pnpm install --save-dev eslint
 You'll see output similar to:
 
 ```
-+ eslint@7.x.x
++ eslint@9.x.x
 added 200 packages from 150 contributors and audited 200 packages in 5s
 found 0 vulnerabilities
 ```
@@ -42,19 +42,29 @@ your project or customize as needed.
 Create a `eslint.config.js` file with the following content for browser-based projects:
 
 ```javascript
-module.exports = {
-  extends: [
-    require.resolve('@kurocado-studio/style-guide/eslint/browser'),
-    require.resolve('@kurocado-studio/style-guide/eslint/react'),
-  ],
-  parserOptions: {
-    ecmaVersion: 2020,
-    project: true,
-    sourceType: 'module',
-    tsconfigRootDir: __dirname,
+import { eslintBrowserConfig, eslintReactConfig } from '@kurocado-studio/styleguide';
+import { defineConfig } from 'eslint-define-config';
+
+export default defineConfig([
+  ...eslintBrowserConfig,
+  ...eslintReactConfig,
+  {
+    files: ['*.{ts, tsx}'],
+    settings: {
+      'import/resolver': {
+        alias: {
+          map: [['~', './app']],
+        },
+        typescript: {
+          project: './tsconfig.json',
+        },
+        node: {
+          extensions: ['.js', '.jsx', '.ts', '.tsx'],
+        },
+      },
+    },
   },
-  // ...any additional rules
-};
+]);
 ```
 
 ### Node.js Configuration

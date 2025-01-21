@@ -48,7 +48,7 @@ touch prettier.config.js
 Open `prettier.config.js` in your code editor and add the following configuration:
 
 ```javascript
-module.exports = require.resolve('@kurocado-studio/style-guide/prettier');
+export { prettierConfig as default } from '@kurocado-studio/styleguide';
 ```
 
 **[See all configuration options](https://github.com/Kurocado-Studio/styleguide/tree/main/src/prettier/index.js)**

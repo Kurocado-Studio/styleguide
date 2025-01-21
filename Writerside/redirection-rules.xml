@@ -10,4 +10,33 @@
         <description>Created after removal of "Writerside.md" from Styleguide</description>
         <accepts>Writerside-md.html</accepts>
     </rule>
+    <rule id="18881f91">
+        <description>Created after removal of "How To Install Prettier" from Kurocado Studio Styleguide</description>
+        <accepts>How-To-Install-Prettier.html</accepts>
+    </rule>
+    <rule id="655a5ffc">
+        <description>Created after removal of "How To Install ESLint" from Kurocado Studio Styleguide</description>
+        <accepts>How-To-Install-ESLint.html</accepts>
+    </rule>
+    <rule id="58366be">
+        <description>Created after removal of "How To Install Commitlint" from Kurocado Studio Styleguide</description>
+        <accepts>How-To-Install-Commitlint.html</accepts>
+    </rule>
+    <rule id="2da9ce7a">
+        <description>Created after removal of "How To Install TypeScript" from Kurocado Studio Styleguide</description>
+        <accepts>How-To-Install-Typescript.html</accepts>
+    </rule>
+    <rule id="396de989">
+        <description>Created after removal of "How To Install Semantic Release" from Kurocado Studio Styleguide
+        </description>
+        <accepts>How-To-Install-Semantic-Release.html</accepts>
+    </rule>
+    <rule id="5610cd9b">
+        <description>Created after removal of "How To Install Vitest" from Kurocado Studio Styleguide</description>
+        <accepts>How-To-Install-Vitest.html</accepts>
+    </rule>
+    <rule id="30e8dd8e">
+        <description>Created after removal of "Guides" from Kurocado Studio Styleguide</description>
+        <accepts>Guides.html</accepts>
+    </rule>
 </rules>
