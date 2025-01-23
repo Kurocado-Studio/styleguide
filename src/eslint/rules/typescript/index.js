@@ -68,7 +68,6 @@ export const typescriptEslintConfig = {
         format: ['PascalCase'],
         selector: ['typeLike', 'typeAlias'],
       },
-      // except enums
       {
         format: ['UPPER_CASE'],
         selector: 'enumMember',
