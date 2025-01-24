@@ -11,6 +11,9 @@
 
 <show-structure depth="3"/>
 
+<warning>This is being migrated to our
+<a href="https://kurocado.atlassian.net/wiki/spaces/Styleguide">Confluence Space</a> </warning>
+
 |                   |                                                                                                    |
 | ----------------- | -------------------------------------------------------------------------------------------------- |
 | **Owner**         | [@csantiago132](https://github.com/csantiago132)                                                   |
