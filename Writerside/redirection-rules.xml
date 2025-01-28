@@ -39,29 +39,4 @@
         <description>Created after removal of "Guides" from Kurocado Studio Styleguide</description>
         <accepts>Guides.html</accepts>
     </rule>
-    <rule id="1ad230bd">
-        <description>Created after removal of "Code Quality Workflow" from Kurocado Studio Styleguide</description>
-        <accepts>Code-Quality.html</accepts>
-    </rule>
-    <rule id="66bd77a4">
-        <description>Created after removal of "Test Workflow" from Kurocado Studio Styleguide</description>
-        <accepts>Test-Workflow.html</accepts>
-    </rule>
-    <rule id="6ead22b8">
-        <description>Created after removal of "Release Workflow" from Kurocado Studio Styleguide</description>
-        <accepts>Release.html</accepts>
-    </rule>
-    <rule id="20746565">
-        <description>Created after removal of "Writerside Documentation Workflow" from Kurocado Studio Styleguide
-        </description>
-        <accepts>Writerside.html</accepts>
-    </rule>
-    <rule id="2c8a8def">
-        <description>Created after removal of "Deploy Workflow" from Kurocado Studio Styleguide</description>
-        <accepts>Deploy-Workflow.html</accepts>
-    </rule>
-    <rule id="4ca2c378">
-        <description>Created after removal of "GitHub Actions" from Kurocado Studio Styleguide</description>
-        <accepts>Github-Actions.html</accepts>
-    </rule>
 </rules>
