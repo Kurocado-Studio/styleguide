@@ -56,6 +56,12 @@ export const eslintBaseConfig = [
     },
   },
   {
+    files: ['**/*.test.ts', '**/*.test.tsx'],
+    rules: {
+      'import/no-cycle': 'off',
+    },
+  },
+  {
     ignores: ['**/*.d.ts', 'dist/*', 'build/*', 'node_modules'],
   },
 ];
