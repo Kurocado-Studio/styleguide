@@ -21,7 +21,7 @@ export const eslintBaseConfig = [
   javascriptLanguageRootConfig,
   typescriptLanguageRootConfig,
   {
-    files: [`vite.*.${TS_EXTENSIONS_PREFIX}`],
+    files: [`vitest.*.${TS_EXTENSIONS_PREFIX}`],
     rules: {
       'import/no-cycle': 'off',
     },
@@ -39,22 +39,20 @@ export const eslintBaseConfig = [
     },
   },
   {
+    files: ['**/*.test.ts', '**/*.test.tsx'],
+    rules: {
+      'import/no-cycle': 'off',
+    },
+  },
+  {
     files: [
       '.commitlintrc.js',
       '.releaserc.js',
       'eslint.config.js',
-      'postcss.config.js',
       'prettier.config.js',
-      'vite.config.ts',
     ],
     rules: {
-      'import/default': 'off',
-      'import/named': 'off',
-      'import/namespace': 'off',
-      'import/no-cycle': 'off',
       'import/no-default-export': 'off',
-      'import/no-named-as-default': 'off',
-      'import/no-named-as-default-member': 'off',
     },
   },
   {

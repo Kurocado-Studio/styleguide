@@ -24,7 +24,9 @@
     "noUncheckedIndexedAccess": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "paths": { "@app*": ["app/*"], "@src*": ["src/*"], "~/*": ["src/*"] },
+    "paths": {
+      "~/*": ["./*"]
+    },
     "preserveSymlinks": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
@@ -37,5 +39,5 @@
     "target": "ES2020",
     "useUnknownInCatchVariables": true
   },
-  "exclude": ["node_modules", "build", "dist", "vite.config.ts"]
+  "exclude": ["node_modules", "build", "dist"]
 }

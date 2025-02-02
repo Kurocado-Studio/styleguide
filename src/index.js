@@ -4,7 +4,6 @@ export {
 } from './commitlint/index.js';
 
 export { eslintBaseConfig } from './eslint/eslint.base.js';
-export { eslintBrowserConfig } from './eslint/eslint.browser.js';
 export { eslintNodeConfig } from './eslint/eslint.node.js';
 export { eslintReactConfig } from './eslint/eslint.react.js';
 
