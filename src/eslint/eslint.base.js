@@ -39,12 +39,6 @@ export const eslintBaseConfig = [
     },
   },
   {
-    files: ['**/*.test.ts', '**/*.test.tsx'],
-    rules: {
-      'import/no-cycle': 'off',
-    },
-  },
-  {
     files: [
       '.commitlintrc.js',
       '.releaserc.js',
