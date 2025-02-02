@@ -99,7 +99,7 @@
     "vitest-axe": "^0.1.0"
   },
   "engines": {
-    "node": ">=20"
+    "node": "20.17.0"
   },
   "peerDependencies": {
     "@commitlint/cli": "^19.0.3",
