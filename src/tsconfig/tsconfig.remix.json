@@ -1,18 +1,15 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
-  "compilerOptions": {
-    "jsx": "react-jsx",
-    "lib": ["DOM", "DOM.Iterable", "ES2020"],
-    "noEmit": false
-  },
   "display": "Kurocado Studio Remix tsconfig",
   "extends": "./tsconfig.json",
-  "include": [
-    "**/.client/**/*.ts",
-    "**/.client/**/*.tsx",
-    "**/.server/**/*.ts",
-    "**/.server/**/*.tsx",
-    "app",
-    "tailwind.config.ts"
-  ]
+  "compilerOptions": {
+    "baseUrl": "./app",
+    "jsx": "react-jsx",
+    "lib": ["DOM", "DOM.Iterable", "ES2020"],
+    "moduleResolution": "Bundler",
+    "noEmit": true,
+    "rootDir": ".",
+    "target": "ES5"
+  },
+  "include": ["app/**/*.ts", "app/**/*.tsx", "tailwind.config.ts"]
 }
