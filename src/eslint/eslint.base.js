@@ -41,19 +41,10 @@ export const eslintBaseConfig = [
       '.releaserc.js',
       'eslint.config.js',
       'prettier.config.js',
-      `vitest.config.ts`,
-      'vite.config.ts',
-    ],
-    rules: {
-      'import/no-default-export': 'off',
-    },
-  },
-  {
-    files: [
-      `vitest.config.ts`,
       'vite.config.ts',
       `**/*.test.ts`,
       `**/*.test.tsx`,
+      `vitest.config.ts`,
     ],
     rules: {
       'import/no-cycle': 'off',
