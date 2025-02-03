@@ -21,12 +21,6 @@ export const eslintBaseConfig = [
   javascriptLanguageRootConfig,
   typescriptLanguageRootConfig,
   {
-    files: [`vitest.*.${TS_EXTENSIONS_PREFIX}`],
-    rules: {
-      'import/no-cycle': 'off',
-    },
-  },
-  {
     files: [`**/*.${JS_EXTENSIONS_PREFIX}`, `**/*.${TS_EXTENSIONS_PREFIX}`],
     languageOptions: {
       globals: globals.node,
@@ -53,9 +47,9 @@ export const eslintBaseConfig = [
     },
   },
   {
-    files: [
-      `app/**/*.test.${TS_EXTENSIONS_PREFIX}`,
-      `src/**/*.test.${TS_EXTENSIONS_PREFIX}`,
+    ignores: [
+      `vitest.*.${TS_EXTENSIONS_PREFIX}`,
+      `**/*.test.${TS_EXTENSIONS_PREFIX}`,
     ],
     rules: {
       'import/no-cycle': 'off',

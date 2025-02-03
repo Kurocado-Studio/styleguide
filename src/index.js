@@ -11,3 +11,5 @@ export { prettierConfig } from './prettier/index.js';
 
 export { semanticReleaseAppConfig } from './semantic-release/semanticRelease.app.js';
 export { semanticReleaseNpmConfig } from './semantic-release/semanticRelease.npm.js';
+
+export { defineConfig as defineESLintConfig } from 'eslint-define-config';
