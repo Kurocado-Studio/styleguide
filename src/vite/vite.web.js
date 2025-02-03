@@ -7,7 +7,6 @@
  * Explore our open-source projects: {@link https://github.com/kurocado-studio}
  */
 import { vitePlugin as remixVitePlugin } from '@remix-run/dev';
-import react from '@vitejs/plugin-react';
 import { get } from 'lodash-es';
 
 import { viteConfig } from './config.js';
@@ -18,7 +17,6 @@ export const viteWebConfig = {
   },
   plugins: [
     ...get(viteConfig, ['plugins'], []),
-    react(),
     remixVitePlugin({
       future: {
         v3_fetcherPersist: true,
