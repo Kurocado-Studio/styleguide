@@ -12,7 +12,7 @@
  */
 import prettierPluginSortImports from '@trivago/prettier-plugin-sort-imports';
 import prettierPluginPackagejson from 'prettier-plugin-packagejson';
-import prettierPluginTailwindcss from 'prettier-plugin-tailwindcss';
+import { options } from 'prettier-plugin-tailwindcss';
 
 export const prettierConfig = {
   arrowParens: 'always',
@@ -71,11 +71,7 @@ export const prettierConfig = {
       },
     },
   ],
-  plugins: [
-    prettierPluginSortImports,
-    prettierPluginPackagejson,
-    prettierPluginTailwindcss,
-  ],
+  plugins: [prettierPluginSortImports, prettierPluginPackagejson, options],
   printWidth: 80,
   semi: true,
   singleQuote: true,
