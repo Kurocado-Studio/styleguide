@@ -47,12 +47,10 @@ export const eslintBaseConfig = [
     },
   },
   {
-    ignores: [
-      `vitest.*.${TS_EXTENSIONS_PREFIX}`,
-      `**/*.test.${TS_EXTENSIONS_PREFIX}`,
-    ],
+    files: [`vitest.config.ts`, `**/*.test.ts`, `**/*.test.tsx`],
     rules: {
       'import/no-cycle': 'off',
+      'import/no-default-export': 'off',
     },
   },
   {
