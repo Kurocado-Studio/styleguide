@@ -68,9 +68,9 @@ export const prettierConfig = {
     },
   ],
   plugins: [
-    '@trivago/prettier-plugin-sort-imports',
-    'prettier-plugin-packagejson',
-    'prettier-plugin-tailwindcss',
+    require('@trivago/prettier-plugin-sort-imports'),
+    require('prettier-plugin-packagejson'),
+    require('prettier-plugin-tailwindcss'),
   ],
   printWidth: 80,
   semi: true,
