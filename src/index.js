@@ -20,4 +20,4 @@ export { defineConfig as defineESLintConfig } from 'eslint-define-config';
 
 export { default as prettierPluginSortImports } from '@trivago/prettier-plugin-sort-imports';
 export { default as prettierPluginPackagejson } from 'prettier-plugin-packagejson';
-export { default as prettierPluginTailwind } from 'prettier-plugin-tailwindcss';
+export * from 'prettier-plugin-tailwindcss';
