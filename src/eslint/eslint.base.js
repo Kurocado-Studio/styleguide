@@ -47,7 +47,12 @@ export const eslintBaseConfig = [
     },
   },
   {
-    files: [`vitest.config.ts`, `**/*.test.ts`, `**/*.test.tsx`],
+    files: [
+      `vitest.config.ts`,
+      'vite.config.ts',
+      `**/*.test.ts`,
+      `**/*.test.tsx`,
+    ],
     rules: {
       'import/no-cycle': 'off',
       'import/no-default-export': 'off',
