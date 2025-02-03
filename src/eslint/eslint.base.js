@@ -33,7 +33,10 @@ export const eslintBaseConfig = [
     },
   },
   {
-    files: ['src/eslint/constants.js'],
+    files: [
+      `src/eslint/constants.${TS_EXTENSIONS_PREFIX}`,
+      `src/eslint/constants.${JS_EXTENSIONS_PREFIX}`,
+    ],
     rules: {
       'import/no-unresolved': 'off',
     },
@@ -50,7 +53,10 @@ export const eslintBaseConfig = [
     },
   },
   {
-    files: ['**/*.test.ts', '**/*.test.tsx'],
+    files: [
+      `app/**/*.test.${TS_EXTENSIONS_PREFIX}`,
+      `src/**/*.test.${TS_EXTENSIONS_PREFIX}`,
+    ],
     rules: {
       'import/no-cycle': 'off',
     },
