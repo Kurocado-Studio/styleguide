@@ -6,8 +6,12 @@
  *
  * Explore our open-source projects: {@link https://github.com/kurocado-studio}
  */
+import dts from 'vite-plugin-dts';
 import tsconfigPaths from 'vite-tsconfig-paths';
 
 export const viteConfig = {
-  plugins: [tsconfigPaths()],
+  plugins: [
+    dts({ exclude: ['**/*.test.ts', '**/*.test.tsx'] }),
+    tsconfigPaths(),
+  ],
 };
