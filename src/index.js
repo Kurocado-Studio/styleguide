@@ -18,6 +18,6 @@ export { viteWebConfig } from './vite/vite.web.js';
 
 export { defineConfig as defineESLintConfig } from 'eslint-define-config';
 
-export { default as prettierPluginSortImports } from '@trivago/prettier-plugin-sort-imports';
-export { default as prettierPluginPackagejson } from 'prettier-plugin-packagejson';
+export * from '@trivago/prettier-plugin-sort-imports';
+export * from 'prettier-plugin-packagejson';
 export * from 'prettier-plugin-tailwindcss';
