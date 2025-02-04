@@ -44,7 +44,6 @@ export const eslintBaseConfig = [
       'vite.config.ts',
       `**/*.test.ts`,
       `**/*.test.tsx`,
-      `vite.config.ts`,
       `vitest.config.ts`,
     ],
     rules: {
@@ -53,6 +52,12 @@ export const eslintBaseConfig = [
     },
   },
   {
-    ignores: ['**/*.d.ts', 'dist/*', 'build/*', 'node_modules'],
+    ignores: [
+      '**/*.d.ts',
+      'vite.config.ts',
+      'dist/*',
+      'build/*',
+      'node_modules',
+    ],
   },
 ];
