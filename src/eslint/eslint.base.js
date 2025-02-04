@@ -44,7 +44,6 @@ export const eslintBaseConfig = [
       'vite.config.ts',
       `**/*.test.ts`,
       `**/*.test.tsx`,
-      `vitest.config.ts`,
     ],
     rules: {
       'import/no-cycle': 'off',
@@ -54,6 +53,7 @@ export const eslintBaseConfig = [
   {
     ignores: [
       '**/*.d.ts',
+      `vitest.config.ts`,
       'vite.config.ts',
       'dist/*',
       'build/*',
