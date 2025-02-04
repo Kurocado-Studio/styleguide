@@ -44,6 +44,7 @@ export const eslintBaseConfig = [
       'vite.config.ts',
       `**/*.test.ts`,
       `**/*.test.tsx`,
+      `vite.config.ts`,
       `vitest.config.ts`,
     ],
     rules: {
