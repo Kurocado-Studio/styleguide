@@ -31,7 +31,7 @@ export const importConfig = {
      *
      * @see  https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-cycle.md
      */
-    'import/no-cycle': 'error',
+    'import/no-cycle': 'off',
     /**
      * Disallow default exports.
      *
