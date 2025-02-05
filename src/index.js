@@ -15,3 +15,5 @@ export { semanticReleaseNpmConfig } from './semantic-release/semanticRelease.npm
 export { viteNodeConfig } from './vite/vite.node.js';
 export { viteNpmConfig } from './vite/vite.npm.js';
 export { viteWebConfig } from './vite/vite.web.js';
+
+export { defineConfig as defineESLintConfig } from 'eslint-define-config';

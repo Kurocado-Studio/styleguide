@@ -6,12 +6,10 @@
  *
  * Explore our open-source projects: {@link https://github.com/kurocado-studio}
  */
+import { get } from 'lodash-es';
+
 import { viteConfig } from './config.js';
 
 export const viteNodeConfig = {
-  plugins: viteConfig.plugins,
-  test: {
-    ...viteConfig.test,
-    setupFiles: './setup.node.js',
-  },
+  plugins: get(viteConfig, ['plugins'], []),
 };

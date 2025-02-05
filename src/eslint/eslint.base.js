@@ -21,27 +21,18 @@ export const eslintBaseConfig = [
   javascriptLanguageRootConfig,
   typescriptLanguageRootConfig,
   {
-    files: [`vitest.*.${TS_EXTENSIONS_PREFIX}`],
-    rules: {
-      'import/no-cycle': 'off',
-    },
-  },
-  {
     files: [`**/*.${JS_EXTENSIONS_PREFIX}`, `**/*.${TS_EXTENSIONS_PREFIX}`],
     languageOptions: {
       globals: globals.node,
     },
   },
   {
-    files: ['src/eslint/constants.js'],
+    files: [
+      `src/eslint/constants.${TS_EXTENSIONS_PREFIX}`,
+      `src/eslint/constants.${JS_EXTENSIONS_PREFIX}`,
+    ],
     rules: {
       'import/no-unresolved': 'off',
-    },
-  },
-  {
-    files: ['**/*.test.ts', '**/*.test.tsx'],
-    rules: {
-      'import/no-cycle': 'off',
     },
   },
   {
@@ -50,12 +41,23 @@ export const eslintBaseConfig = [
       '.releaserc.js',
       'eslint.config.js',
       'prettier.config.js',
+      'vite.config.ts',
+      `**/*.test.ts`,
+      `**/*.test.tsx`,
     ],
     rules: {
+      'import/no-cycle': 'off',
       'import/no-default-export': 'off',
     },
   },
   {
-    ignores: ['**/*.d.ts', 'dist/*', 'build/*', 'node_modules'],
+    ignores: [
+      '**/*.d.ts',
+      `vitest.config.ts`,
+      'vite.config.ts',
+      'dist/*',
+      'build/*',
+      'node_modules',
+    ],
   },
 ];

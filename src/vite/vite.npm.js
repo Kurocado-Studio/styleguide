@@ -6,6 +6,7 @@
  *
  * Explore our open-source projects: {@link https://github.com/kurocado-studio}
  */
+import { get } from 'lodash-es';
 import fs from 'node:fs';
 import path from 'node:path';
 import dts from 'vite-plugin-dts';
@@ -41,9 +42,8 @@ export const viteNpmConfig = {
     },
     sourcemap: true,
   },
-  plugins: [...viteConfig.plugins, dts({ insertTypesEntry: true })],
-  test: {
-    ...viteConfig.test,
-    setupFiles: './setup.npm.js',
-  },
+  plugins: [
+    ...get(viteConfig, ['plugins'], []),
+    dts({ insertTypesEntry: true }),
+  ],
 };

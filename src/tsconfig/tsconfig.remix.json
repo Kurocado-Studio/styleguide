@@ -8,7 +8,7 @@
     "lib": ["DOM", "DOM.Iterable", "ES2020"],
     "moduleResolution": "Bundler",
     "noEmit": true,
-    "rootDir": ".",
+    "rootDir": "./app",
     "target": "ES5"
   },
   "include": ["app/**/*.ts", "app/**/*.tsx", "tailwind.config.ts"]

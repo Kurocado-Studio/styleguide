@@ -10,6 +10,10 @@
  * Some of the defaults can be overridden by an EditorConfig file. We define those here to ensure that doesn't happen.
  * See: https://github.com/prettier/prettier/blob/main/docs/configuration.md#editorconfig
  */
+import prettierPluginSortImports from '@trivago/prettier-plugin-sort-imports';
+import prettierPluginPackagejson from 'prettier-plugin-packagejson';
+import { options } from 'prettier-plugin-tailwindcss';
+
 export const prettierConfig = {
   arrowParens: 'always',
   bracketSpacing: true,
@@ -18,8 +22,8 @@ export const prettierConfig = {
     '<THIRD_PARTY_MODULES>',
     '^~/(.*)$',
     '^@/(.*)$',
-    '^@app/(.*)$',
-    '^@src/(.*)$',
+    '^app/(.*)$',
+    '^src/(.*)$',
     '^[../]',
     '^./',
   ],
@@ -67,11 +71,7 @@ export const prettierConfig = {
       },
     },
   ],
-  plugins: [
-    '@trivago/prettier-plugin-sort-imports',
-    'prettier-plugin-packagejson',
-    'prettier-plugin-tailwindcss',
-  ],
+  plugins: [prettierPluginSortImports, prettierPluginPackagejson, options],
   printWidth: 80,
   semi: true,
   singleQuote: true,
