@@ -13,14 +13,14 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
+    "build": "tsc && copyfiles -u 1 src/tsconfig/*.json dist",
     "commitlint": "pnpm exec commitlint --edit",
-    "eslint-check": "eslint --max-warnings=0 .",
     "eslint": "eslint --max-warnings=0 .",
+    "eslint-check": "eslint --max-warnings=0 .",
     "prepare": "husky install",
     "prettier-check": "prettier --check . ",
     "prettier-fix": "prettier --check . --write",
-    "semantic-release": "semantic-release",
-    "build": "tsc && copyfiles -u 1 src/tsconfig/*.json dist"
+    "semantic-release": "semantic-release"
   },
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -37,11 +37,11 @@
   },
   "lint-staged": {
     "*": [
-      "pnpm run commitlint",
       "pnpm run prettier-fix"
     ],
     "**/*.{ts,tsx,js,jsx}": [
-      "pnpm run eslint-check"
+      "pnpm run eslint-fix",
+      "pnpm run lint"
     ]
   },
   "dependencies": {
