@@ -16,6 +16,7 @@
     "build": "tsc && copyfiles -u 1 src/tsconfig/*.json dist",
     "commitlint": "pnpm exec commitlint --edit",
     "eslint": "eslint --max-warnings=0 .",
+    "eslint-fix": "eslint --max-warnings=0 . --fix",
     "eslint-check": "eslint --max-warnings=0 .",
     "prepare": "husky install",
     "prettier-check": "prettier --check . ",
@@ -41,7 +42,7 @@
     ],
     "**/*.{ts,tsx,js,jsx}": [
       "pnpm run eslint-fix",
-      "pnpm run lint"
+      "pnpm run eslint"
     ]
   },
   "dependencies": {
@@ -103,6 +104,7 @@
     "access": "public"
   },
   "devDependencies": {
+    "@kurocado-studio/qa": "^1.0.0",
     "copyfiles": "^2.4.1"
   }
 }

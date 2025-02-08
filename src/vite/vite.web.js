@@ -13,6 +13,7 @@ import { get } from 'lodash-es';
 import { viteConfig } from './config.js';
 
 export const viteWebConfig = {
+  ...viteConfig,
   build: {
     target: 'esnext',
   },

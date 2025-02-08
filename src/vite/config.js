@@ -14,4 +14,8 @@ export const viteConfig = {
     dts({ exclude: ['**/*.test.ts', '**/*.test.tsx'] }),
     tsconfigPaths(),
   ],
+  server: {
+    // mostly to allow CodeSandbox URLs
+    allowedHosts: true,
+  },
 };
