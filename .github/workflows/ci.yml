@@ -15,7 +15,6 @@ permissions:
   pull-requests: write
 
 on:
-  pull_request:
   push:
     branches:
       - main
@@ -23,6 +22,7 @@ on:
       - beta
       - canary
       - pre/rc
+  pull_request:
 
 jobs:
   lint:
