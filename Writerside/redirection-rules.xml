@@ -39,4 +39,41 @@
         <description>Created after removal of "Guides" from Kurocado Studio Styleguide</description>
         <accepts>Guides.html</accepts>
     </rule>
+    <rule id="3d5b25e1">
+        <description>Created after removal of "Code Quality Workflow" from Kurocado Studio Styleguide</description>
+        <accepts>Code-Quality.html</accepts>
+    </rule>
+    <rule id="30d9098e">
+        <description>Created after removal of "Test Workflow" from Kurocado Studio Styleguide</description>
+        <accepts>Test-Workflow.html</accepts>
+    </rule>
+    <rule id="32af6141">
+        <description>Created after removal of "Release Workflow" from Kurocado Studio Styleguide</description>
+        <accepts>Release.html</accepts>
+    </rule>
+    <rule id="49101163">
+        <description>Created after removal of "Writerside Documentation Workflow" from Kurocado Studio Styleguide
+        </description>
+        <accepts>Writerside.html</accepts>
+    </rule>
+    <rule id="4b8e7b98">
+        <description>Created after removal of "Deploy Workflow" from Kurocado Studio Styleguide</description>
+        <accepts>Deploy-Workflow.html</accepts>
+    </rule>
+    <rule id="47ddf555">
+        <description>Created after removal of "GitHub Actions" from Kurocado Studio Styleguide</description>
+        <accepts>Github-Actions.html</accepts>
+    </rule>
+    <rule id="e643425">
+        <description>Created after removal of "Code of Conduct" from Kurocado Studio Styleguide</description>
+        <accepts>CODE-OF-CONDUCT.html</accepts>
+    </rule>
+    <rule id="42400ee9">
+        <description>Created after removal of "Contributing" from Kurocado Studio Styleguide</description>
+        <accepts>CONTRIBUTING.html</accepts>
+    </rule>
+    <rule id="34567225">
+        <description>Created after removal of "Guides" from Kurocado Studio Styleguide</description>
+        <accepts>Guides.html</accepts>
+    </rule>
 </rules>
