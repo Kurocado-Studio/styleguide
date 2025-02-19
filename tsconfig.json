@@ -2,12 +2,13 @@
   "extends": ["./src/tsconfig/tsconfig.node.json"],
   "compilerOptions": {
     "declaration": true,
+    "skipLibCheck": true,
     "declarationDir": "./dist",
     "esModuleInterop": true,
     "outDir": "./dist",
     "resolveJsonModule": true,
-    "rootDir": "./src",
-    "typeRoots": ["./src/types", "eslint-plugin-tsdoc"]
+    "rootDir": ".",
+    "types": ["eslint-plugin-tsdoc"]
   },
   "exclude": ["prettier.config.js", "node_modules", "dist", "eslint.config.js"]
 }

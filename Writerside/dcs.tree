@@ -6,4 +6,10 @@
                  name="Kurocado Studio Styleguide"
                  start-page="starter-topic.md">
     <toc-element topic="starter-topic.md"/>
+    <toc-element topic="How-To-Install-ESLint.md"/>
+    <toc-element topic="How-To-Install-Commitlint.md"/>
+    <toc-element topic="How-To-Install-Prettier.md"/>
+    <toc-element topic="Release.md"/>
+    <toc-element topic="Writerside.md"/>
+    <toc-element topic="Code-Quality.md"/>
 </instance-profile>
