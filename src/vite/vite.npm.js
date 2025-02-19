@@ -44,6 +44,9 @@ export const viteNpmConfig = {
   },
   plugins: [
     ...get(viteConfig, ['plugins'], []),
-    dts({ insertTypesEntry: true }),
+    dts({
+      exclude: ['**/*.test.ts', '**/*.test.tsx'],
+      insertTypesEntry: true,
+    }),
   ],
 };

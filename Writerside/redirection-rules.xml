@@ -76,4 +76,29 @@
         <description>Created after removal of "Guides" from Kurocado Studio Styleguide</description>
         <accepts>Guides.html</accepts>
     </rule>
+    <rule id="680ef74e">
+        <description>Created after removal of "How To Install ESLint" from Kurocado Studio Styleguide</description>
+        <accepts>How-To-Install-ESLint.html</accepts>
+    </rule>
+    <rule id="268c0445">
+        <description>Created after removal of "How To Install Commitlint" from Kurocado Studio Styleguide</description>
+        <accepts>How-To-Install-Commitlint.html</accepts>
+    </rule>
+    <rule id="75eb4ee">
+        <description>Created after removal of "How To Install Prettier" from Kurocado Studio Styleguide</description>
+        <accepts>How-To-Install-Prettier.html</accepts>
+    </rule>
+    <rule id="656a2ffc">
+        <description>Created after removal of "Release Workflow" from Kurocado Studio Styleguide</description>
+        <accepts>Release.html</accepts>
+    </rule>
+    <rule id="5cccdcbd">
+        <description>Created after removal of "Writerside Documentation Workflow" from Kurocado Studio Styleguide
+        </description>
+        <accepts>Writerside.html</accepts>
+    </rule>
+    <rule id="40e9bb90">
+        <description>Created after removal of "Code Quality Workflow" from Kurocado Studio Styleguide</description>
+        <accepts>Code-Quality.html</accepts>
+    </rule>
 </rules>

@@ -9,7 +9,8 @@
     "moduleResolution": "Bundler",
     "noEmit": true,
     "rootDir": "./app",
-    "target": "ES5"
+    "target": "ES5",
+    "types": ["@types/node", "@types/lodash-es"]
   },
   "include": ["app/**/*.ts", "app/**/*.tsx", "tailwind.config.ts"]
 }
