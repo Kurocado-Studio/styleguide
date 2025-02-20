@@ -6,13 +6,12 @@ const tsupOptions: Options = {
   clean: true,
   dts: true,
   entry: ['./src/index.js'],
-  format: ['esm', 'cjs'],
+  format: ['esm'],
   sourcemap: true,
-  // Disable code splitting for CommonJS compatibility
-  splitting: false,
+  splitting: true,
   target: 'node20',
   treeshake: true,
-  onSuccess: async () => {
+  onSuccess: async (): Promise<void> => {
     execSync('copyfiles -u 1 src/tsconfig/*.json dist', { stdio: 'inherit' });
   },
 };
