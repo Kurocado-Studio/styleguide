@@ -7,15 +7,25 @@
  * Explore our open-source projects: {@link https://github.com/kurocado-studio}
  */
 export const commitLintConfig = {
+  'body-max-line-length': [2, 'always', 200],
   extends: ['@commitlint/config-conventional'],
+  'header-max-length': [2, 'always', 90],
   rules: {
-    'body-max-line-length': [2, 'always', 200],
-    'header-max-length': [2, 'always', 90],
     'scope-empty': [2, 'never'],
     'scope-enum': [
       2,
       'always',
-      ['config', 'docs', 'ci', 'release', 'ui', 'api', 'deps', 'deps-dev'],
+      [
+        'config',
+        'docs',
+        'ci',
+        'release',
+        'ui',
+        'test',
+        'api',
+        'deps',
+        'deps-dev',
+      ],
     ],
     'type-enum': [
       2,
