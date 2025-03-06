@@ -27,7 +27,7 @@ To get started with the Kurocado Studio Styleguide, follow these steps:
    ```
 2. Install dependencies.
    ```bash
-   npm install
+   pnpm install
    ```
 3. Follow the [documentation](#) for detailed guidelines on using the style guide templates and
    configurations.
