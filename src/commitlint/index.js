@@ -38,6 +38,7 @@ export const commitLintConfig = {
         'feat',
         'fix',
         'perf',
+        'pnpm',
         'refactor',
         'release',
         'revert',
