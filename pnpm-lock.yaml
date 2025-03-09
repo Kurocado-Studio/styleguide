@@ -19,7 +19,7 @@ importers:
         version: 19.7.1
       '@eslint/js':
         specifier: ^9.19.0
-        version: 9.20.0
+        version: 9.22.0
       '@remix-run/dev':
         specifier: ^2.15.3
         version: 2.15.3(@remix-run/react@2.15.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.7.3))(@types/node@20.5.0)(typescript@5.7.3)(vite@6.1.1(@types/node@20.5.0)(jiti@2.4.2)(yaml@2.7.0))
@@ -885,6 +885,10 @@ packages:
 
   '@eslint/js@9.20.0':
     resolution: {integrity: sha512-iZA07H9io9Wn836aVTytRaNqh00Sad+EamwOVJT12GTLw1VGMFV/4JaME+JjLtr9fiGaoWgYnS54wrfWsSs4oQ==}
+    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+
+  '@eslint/js@9.22.0':
+    resolution: {integrity: sha512-vLFajx9o8d1/oL2ZkpMYbkLv8nDB6yaIwFNt7nI4+I80U/z03SxmfOMsLbvWr3p7C+Wnoh//aOu2pQW8cS0HCQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
   '@eslint/object-schema@2.1.6':
@@ -2077,6 +2081,10 @@ packages:
     resolution: {integrity: sha512-RE3mdQ7P3FRSe7eqCWoeQ/Z9QXrtniSjp1wUjt5nRC3WIpz5rSCve6o3fsZ2aCpJtrZjSZgjwXAoTO5k4tEI0w==}
     engines: {node: '>=4'}
 
+  axe-core@4.10.3:
+    resolution: {integrity: sha512-Xm7bpRXnDSX2YE2YFfBk2FnF0ep6tmG7xPh8iHee8MIcrgq762Nkce856dYtJYLkuIoYZvGfTs/PbZhideTcEg==}
+    engines: {node: '>=4'}
+
   axobject-query@4.1.0:
     resolution: {integrity: sha512-qIj0G9wZbMGNLjLmg1PT6v2mE9AH2zlnADJD/2tC6E00hgmhUOfEB6greHPAfLRSufHqROIUTkw6E+M3lH0PTQ==}
     engines: {node: '>= 0.4'}
@@ -2783,6 +2791,7 @@ packages:
   eslint-define-config@2.1.0:
     resolution: {integrity: sha512-QUp6pM9pjKEVannNAbSJNeRuYwW3LshejfyBBpjeMGaJjaDUpVps4C6KVR8R7dWZnD3i0synmrE36znjTkJvdQ==}
     engines: {node: '>=18.0.0', npm: '>=9.0.0', pnpm: '>=8.6.0'}
+    deprecated: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
 
   eslint-import-resolver-alias@1.1.2:
     resolution: {integrity: sha512-WdviM1Eu834zsfjHtcGHtGfcu+F30Od3V7I9Fi57uhBEwPkjDcii7/yW8jAT+gOhn4P/vOxxNAXbFAKsrrc15w==}
@@ -7000,6 +7009,8 @@ snapshots:
 
   '@eslint/js@9.20.0': {}
 
+  '@eslint/js@9.22.0': {}
+
   '@eslint/object-schema@2.1.6': {}
 
   '@eslint/plugin-kit@0.2.6':
@@ -7069,7 +7080,7 @@ snapshots:
 
   '@kurocado-studio/qa@1.1.1(@swc/core@1.10.18)(@testing-library/dom@10.4.0)(@types/debug@4.1.12)(eslint@9.20.1(jiti@2.4.2))(jiti@2.4.2)(optionator@0.9.4)(prettier@3.5.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@4.34.8)(vite@6.1.1(@types/node@20.5.0)(jiti@2.4.2)(yaml@2.7.0))(vitest-axe@0.1.0(vitest@3.0.6(@types/debug@4.1.12)(@types/node@20.5.0)(jiti@2.4.2)(jsdom@25.0.1)(yaml@2.7.0)))(yaml@2.7.0)':
     dependencies:
-      '@eslint/js': 9.20.0
+      '@eslint/js': 9.22.0
       '@remix-run/node': 2.15.3(typescript@5.7.3)
       '@remix-run/testing': 2.15.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.7.3)
       '@testing-library/jest-dom': 6.6.3
@@ -8616,6 +8627,8 @@ snapshots:
   axe-core@3.5.6: {}
 
   axe-core@4.10.2: {}
+
+  axe-core@4.10.3: {}
 
   axobject-query@4.1.0: {}
 
@@ -13077,7 +13090,7 @@ snapshots:
   vitest-axe@0.1.0(vitest@3.0.6(@types/debug@4.1.12)(@types/node@20.5.0)(jiti@2.4.2)(jsdom@25.0.1)(yaml@2.7.0)):
     dependencies:
       aria-query: 5.3.2
-      axe-core: 4.10.2
+      axe-core: 4.10.3
       chalk: 5.4.1
       dom-accessibility-api: 0.5.16
       lodash-es: 4.17.21
