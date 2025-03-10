@@ -8,7 +8,6 @@
  */
 import { vitePlugin as remixVitePlugin } from '@remix-run/dev';
 import react from '@vitejs/plugin-react';
-import { get } from 'lodash-es';
 
 import { viteConfig } from './config.js';
 
@@ -18,7 +17,6 @@ export const viteWebConfig = {
     target: 'esnext',
   },
   plugins: [
-    ...get(viteConfig, ['plugins'], []),
     react(),
     remixVitePlugin({
       future: {
@@ -33,5 +31,6 @@ export const viteWebConfig = {
         v7_startTransition: true,
       },
     }),
+    ...viteConfig.plugins,
   ],
 };
