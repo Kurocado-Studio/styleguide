@@ -19,21 +19,35 @@ and clients.
 
 ## Getting Started
 
-To get started with the Kurocado Studio Styleguide, follow these steps:
+**By cloning the public templates:**
 
-1. Clone this repository.
-   ```bash
-   git clone https://github.com/Kurocado-Studio/styleguide.git
-   ```
-2. Install dependencies.
-   ```bash
-   pnpm install
-   ```
-3. Follow the [documentation](#) for detailed guidelines on using the style guide templates and
-   configurations.
+- [**Remix Template**](https://github.com/Kurocado-Studio/styleguide-remix-template)
+- [**NestJS Template**](https://github.com/Kurocado-Studio/styleguide-nests-template)
 
-## See Also
+**By Installing the style guide through NPM on your project:**
+
+```bash
+pnpm install @kurocado-studio/styleguide
+```
+
+Then, follow the [guides](https://kurocado.youtrack.cloud/articles/STY) for specific configurations
+
+## Templates
+
+- [**Remix Template**](https://github.com/Kurocado-Studio/styleguide-remix-template): Preconfigured
+  for Remix projects
+- [**NestJS Template**](https://github.com/Kurocado-Studio/styleguide-nests-template): Preconfigured
+  for NestJS backend APIs
+
+## Documentation
 
 - [Guides](https://kurocado.youtrack.cloud/articles/STY-A-4/Guides)
 - [CI/CD Workflows](https://kurocado.youtrack.cloud/articles/PLA-A-11/CI-CD-Workflows)
 - [Project Charter](https://kurocado.youtrack.cloud/articles/STY-A-1/Project-Charter)
+
+## Contributing
+
+Contributions are always welcome! See
+[contributing](https://kurocado.youtrack.cloud/articles/PLA-A-9/Contributing) for ways to get
+started & please adhere to our
+[code of conduct.](https://kurocado.youtrack.cloud/articles/PLA-A-10/Code-of-Conduct)
