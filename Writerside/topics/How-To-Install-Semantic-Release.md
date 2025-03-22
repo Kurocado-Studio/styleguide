@@ -1,65 +1,43 @@
-<!--
- * Made with ❤️ and adobo by Kurocado Studio
- * Copyright (c) 2024. All Rights Reserved.
- *
- * Learn more about Kurocado Studio: {@link https://www.kurocado.studio}
- *
- * Explore our open-source projects: {@link https://github.com/kurocado-studio}
--->
+# Semantic Release
 
-# How To Install Semantic Release
+**Prerequisites:**
 
-## Prerequisites
+The styleguide needs to be installed as a development dependency:
 
-[See Prerequisites](Guides.md)
-
-## Step 1 — Install Semantic Release
-
-```Bash
-pnpm install --save-dev semantic-release
+```bash
+  pnpm i -D @kurocado-studio/styleguide
 ```
 
-You’ll see output similar to:
+## Install Semantic Release
 
-```Bash
-+ semantic-release@<version>
-added 15 packages from 10 contributors and audited 30 packages in 5s
-found 0 vulnerabilities
+Next, install ESLint as a development dependency:
+
+```bash
+pnpm install --save-dev semantic-release@23.1.1
 ```
 
-## Step 2 — Create a Semantic Release Configuration File
+## Configure Semantic Release
 
-To use our Semantic Release configuration, add the following `.releaserc.js` file at the root of
-your project.
+- Create a `.releaserc.js` file
 
-### For Apps and Web-Based Projects
+**For apps that won't be published on NPM but for which you want to use semantic release.**
 
 ```javascript
-module.exports = require.resolve('@kurocado-studio/style-guide/release/app');
+export { semanticReleaseAppConfig as default } from '@kurocado-studio/styleguide';
 ```
 
-### For Packages That Will Be Released Publicly on NPM
+**For packages that will be published on NPM.**
 
 ```javascript
-module.exports = require.resolve('@kurocado-studio/style-guide/release/npm');
+export { semanticReleaseNpmConfig as default } from '@kurocado-studio/styleguide';
 ```
 
-## Step 3 — Configure Git Hooks
+## Add scripts
 
-To ensure that Semantic Release runs correctly during your CI/CD process, you should add a Git hook
-in your configuration.
-
-**Optional: you can add a prepublish or postversion hook with Husky:**
-
-```Bash
-npx husky add .husky/prepublish 'npx semantic-release'
-```
-
-## Step 4 — Run Semantic Release
-
-<note>The <a href="Release.md">Release Workflow</a> uses the following command in the CI/CD
-pipeline</note>
-
-```Bash
-npx semantic-release
+```json
+{
+  "scripts": {
+    "semantic-release": "semantic-release"
+  }
+}
 ```
