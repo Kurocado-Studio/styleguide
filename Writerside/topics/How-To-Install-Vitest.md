@@ -16,7 +16,7 @@
 ## Step 1 — Install Vitest
 
 ```Bash
-pnpm install --save-dev vitest @testing-library/react @testing-library/jest-dom @vitejs/plugin-react
+pnpm i -D vitest @testing-library/react @testing-library/jest-dom @vitejs/plugin-react
 ```
 
 ## Step 2 — Configure Vitest

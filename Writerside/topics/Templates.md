@@ -9,14 +9,19 @@
 
 # Templates
 
-## NestJS Template
+## **Deliverables**
 
-[](https://github.com/Kurocado-Studio/styleguide-nests-template)
+Refer to deliverables tracking: [STY-3](https://kurocado.youtrack.cloud/articles/STY-3)
 
-## NPM Template
+- **Remix Public Repository Template**
 
-[](https://github.com/Kurocado-Studio/styleguide-npm-template)
+  - GitHub:
+    [styleguide-remix-template](https://github.com/Kurocado-Studio/styleguide-remix-template)
+  - CodeSandbox:
+    [Remix Template Sandbox](https://codesandbox.io/p/sandbox/github/Kurocado-Studio/styleguide-remix-template)
 
-## Remix Template
-
-[](https://github.com/Kurocado-Studio/styleguide-remix-template)
+- **NestJS Public Repository Template**
+  - GitHub:
+    [styleguide-nests-template](https://github.com/Kurocado-Studio/styleguide-nests-template)
+  - CodeSandbox:
+    [NestJS Template Sandbox](https://codesandbox.io/p/sandbox/github/Kurocado-Studio/styleguide-nests-template)

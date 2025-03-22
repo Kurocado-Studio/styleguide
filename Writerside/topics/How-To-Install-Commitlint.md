@@ -1,72 +1,41 @@
-<!--
- * Made with ❤️ and adobo by Kurocado Studio
- * Copyright (c) 2024. All Rights Reserved.
- *
- * Learn more about Kurocado Studio: {@link https://www.kurocado.studio}
- *
- * Explore our open-source projects: {@link https://github.com/kurocado-studio}
--->
+# Commitlint
 
-# How To Install Commitlint
+**Prerequisites:**
 
-## Prerequisites
-
-[See Prerequisites](Guides.md)
-
-## Step 1 — Install Commitlint
-
-First, install Commitlint as a development dependency:
+The styleguide needs to be installed as a development dependency:
 
 ```bash
-pnpm install --save-dev @commitlint/{config-conventional,cli}
+  pnpm i -D @kurocado-studio/styleguide
 ```
 
-You’ll see output similar to:
+## Install Commitlint
 
 ```bash
-+ @commitlint/cli@<version>
-+ @commitlint/config-conventional@<version>
-added 10 packages from 5 contributors and audited 20 packages in 2s
-found 0 vulnerabilities
+pnpm i -D commitlint
 ```
 
-## Step 2 — Configure Commitlint
+## Configure Commitlint
 
 To use our Commitlint configuration, add the following `.commitlintrc.js` file at the root of your
 project.
 
 ```javascript
-module.exports = {
-  extends: ['@kurocado-studio/style-guide/commitlint'],
-};
+export { commitLintConfig as default } from '@kurocado-studio/styleguide';
 ```
 
 **[See commitlint configuration](https://github.com/Kurocado-Studio/styleguide/blob/main/src/commitlint/index.js)**
 
-## Step 3 — Add Commit Message Linting Scripts
+## Add **scripts**
 
 To simplify the linting process, add scripts to your `package.json`. Open `package.json` and add the
 following under the `"scripts"` section:
 
-<note>The <a href="Code-Quality.md">Code-Quality Workflow</a> uses the following commands in the
-CI/CD pipeline</note>
-
 ```json
-"scripts": {
-  "commitlint": "pnpm exec commitlint --edit",
+{
+  "scripts": {
+    "commitlint": "pnpm exec commitlint --edit .git/COMMIT_EDITMSG"
+  }
 }
 ```
 
-## Step 4 — Integrate Commitlint with Git Hooks
-
-To enforce commit message linting automatically, integrate Commitlint with Git hooks using
-[Husky](https://github.com/typicode/husky).
-
-```Bash
-npx husky add .husky/commit-msg 'npx --no-install commitlint --edit "$1"'
-```
-
-Verify Integration
-
-Now, when you make a commit, Commitlint will automatically check your commit message. If it doesn’t
-comply with the defined rules, you’ll see an error message:
+##
