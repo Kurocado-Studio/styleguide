@@ -10,8 +10,10 @@ export const commitLintConfig = {
   'body-max-line-length': [2, 'always', 200],
   extends: ['@commitlint/config-conventional'],
   'header-max-length': [2, 'always', 90],
-  // dependabot messages are sometimes too long
-  ignores: [(message) => /^bumps \[.+]\(.+\) from .+ to .+\.$/m.test(message)],
+  ignores: [
+    // dependabot messages are sometimes too long
+    (message) => message.startsWith('pnpm'),
+  ],
   rules: {
     'scope-empty': [2, 'never'],
     'scope-enum': [
