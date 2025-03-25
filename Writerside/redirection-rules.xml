@@ -101,4 +101,12 @@
         <description>Created after removal of "Code Quality Workflow" from Kurocado Studio Styleguide</description>
         <accepts>Code-Quality.html</accepts>
     </rule>
+    <rule id="647d71ac">
+        <description>Created after removal of "Templates" from Kurocado Studio Styleguide</description>
+        <accepts>Templates.html</accepts>
+    </rule>
+    <rule id="5463231d">
+        <description>Created after removal of "PRD" from Kurocado Studio Styleguide</description>
+        <accepts>PRD.html</accepts>
+    </rule>
 </rules>
