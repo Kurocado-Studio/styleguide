@@ -51,13 +51,6 @@ export const eslintBaseConfig = [
     },
   },
   {
-    ignores: [
-      '**/*.d.ts',
-      `vitest.config.ts`,
-      'vite.config.ts',
-      'dist/*',
-      'build/*',
-      'node_modules',
-    ],
+    ignores: ['**/*.d.ts', 'dist/*', 'build/*', 'node_modules'],
   },
 ];
