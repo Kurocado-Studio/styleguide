@@ -127,10 +127,10 @@ importers:
         version: 2.5.10(prettier@3.5.3)
       prettier-plugin-sort-imports:
         specifier: ^1.8.6
-        version: 1.8.6(typescript@5.8.2)
+        version: 1.8.7(typescript@5.8.2)
       prettier-plugin-tailwindcss:
         specifier: ^0.6.11
-        version: 0.6.11(@trivago/prettier-plugin-sort-imports@5.2.2(prettier@3.5.3))(prettier-plugin-sort-imports@1.8.6(typescript@5.8.2))(prettier@3.5.3)
+        version: 0.6.11(@trivago/prettier-plugin-sort-imports@5.2.2(prettier@3.5.3))(prettier-plugin-sort-imports@1.8.7(typescript@5.8.2))(prettier@3.5.3)
       semantic-release:
         specifier: ^23.0.2
         version: 23.1.1(typescript@5.8.2)
@@ -4972,8 +4972,8 @@ packages:
       prettier:
         optional: true
 
-  prettier-plugin-sort-imports@1.8.6:
-    resolution: {integrity: sha512-jOEzFCyvdDL8geCmr4DP/VBKULZ6OaDQHBEmHTuFHf4EzWyedmwnHg2KawNy5rnrQ6gnCqwrfgymMQZctzCE1Q==}
+  prettier-plugin-sort-imports@1.8.7:
+    resolution: {integrity: sha512-MG+3+bh+ZGtkxwcYiFsqU7XRVAK8wDjoKuaSS7UZA/UOxPP1h+et1/yJCZAammWydP26FIsXFtm7zenycKfk8w==}
     peerDependencies:
       typescript: '>4.0.0'
 
@@ -11898,17 +11898,17 @@ snapshots:
     optionalDependencies:
       prettier: 3.5.3
 
-  prettier-plugin-sort-imports@1.8.6(typescript@5.8.2):
+  prettier-plugin-sort-imports@1.8.7(typescript@5.8.2):
     dependencies:
       prettier: 3.5.3
       typescript: 5.8.2
 
-  prettier-plugin-tailwindcss@0.6.11(@trivago/prettier-plugin-sort-imports@5.2.2(prettier@3.5.3))(prettier-plugin-sort-imports@1.8.6(typescript@5.8.2))(prettier@3.5.3):
+  prettier-plugin-tailwindcss@0.6.11(@trivago/prettier-plugin-sort-imports@5.2.2(prettier@3.5.3))(prettier-plugin-sort-imports@1.8.7(typescript@5.8.2))(prettier@3.5.3):
     dependencies:
       prettier: 3.5.3
     optionalDependencies:
       '@trivago/prettier-plugin-sort-imports': 5.2.2(prettier@3.5.3)
-      prettier-plugin-sort-imports: 1.8.6(typescript@5.8.2)
+      prettier-plugin-sort-imports: 1.8.7(typescript@5.8.2)
 
   prettier@2.8.8: {}
 
