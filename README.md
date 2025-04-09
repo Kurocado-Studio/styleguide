@@ -8,14 +8,10 @@ internal and client-facing TypeScript projects. This repository provides the fou
 guidelines to maintain high code quality and developer efficiency for teams, external contributors,
 and clients.
 
-## Table of Contents
+## Documentation
 
-- [Project Overview](https://kurocado.youtrack.cloud/articles/STY-A-3/Overview)
-- [Use Cases](https://kurocado.youtrack.cloud/articles/STY-A-1/Project-Charter#use-cases)
-- [Success Criteria](https://kurocado.youtrack.cloud/articles/STY-A-1/Project-Charter#success-criteria)
-- [Contributing](https://kurocado.youtrack.cloud/articles/PLA-A-9/Contributing)
-- [Guides](https://kurocado.youtrack.cloud/articles/STY-A-4/Guides)
-- [License](LICENSE)
+For a complete overview of this project's objectives, features, and success criteria, see the
+[documentation](https://kurocado-studio.github.io/styleguide).
 
 ## Getting Started
 
@@ -30,20 +26,8 @@ and clients.
 pnpm install @kurocado-studio/styleguide
 ```
 
-Then, follow the [guides](https://kurocado.youtrack.cloud/articles/STY) for specific configurations
-
-## Templates
-
-- [**Remix Template**](https://github.com/Kurocado-Studio/styleguide-remix-template): Preconfigured
-  for Remix projects
-- [**NestJS Template**](https://github.com/Kurocado-Studio/styleguide-nests-template): Preconfigured
-  for NestJS backend APIs
-
-## Documentation
-
-- [Guides](https://kurocado.youtrack.cloud/articles/STY-A-4/Guides)
-- [CI/CD Workflows](https://kurocado.youtrack.cloud/articles/PLA-A-11/CI-CD-Workflows)
-- [Project Charter](https://kurocado.youtrack.cloud/articles/STY-A-1/Project-Charter)
+Then, follow the [guides](https://kurocado-studio.github.io/styleguide/guides.html) for specific
+configurations
 
 ## Contributing
 
