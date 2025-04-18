@@ -1,15 +1,30 @@
-/**
- * Made with ❤️ and adobo by Kurocado Studio
- * Copyright (c) 2024. All Rights Reserved.
- *
- * Learn more about Kurocado Studio: {@link https://www.kurocado.studio}
- *
- * Explore our open-source projects: {@link https://github.com/kurocado-studio}
- */
 import { semanticReleaseBaseConfig } from './base.js';
 
 export const semanticReleaseNpmConfig = {
   ...semanticReleaseBaseConfig,
+  branches: [
+    ...semanticReleaseBaseConfig.branches,
+    {
+      channel: 'alpha',
+      name: 'alpha',
+      prerelease: true,
+    },
+    {
+      channel: 'beta',
+      name: 'beta',
+      prerelease: true,
+    },
+    {
+      channel: 'canary',
+      name: 'canary',
+      prerelease: true,
+    },
+    {
+      channel: 'pre/rc',
+      name: 'pre/rc',
+      prerelease: 'rc',
+    },
+  ],
   plugins: [
     ...semanticReleaseBaseConfig.plugins,
     '@semantic-release/github',
