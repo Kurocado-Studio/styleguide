@@ -11,6 +11,7 @@ export { prettierConfig } from './prettier/index.js';
 
 export { semanticReleaseAppConfig } from './semantic-release/semanticRelease.app.js';
 export { semanticReleaseNpmConfig } from './semantic-release/semanticRelease.npm.js';
+export { semanticReleaseInternalConfig } from './semantic-release/semanticRelease.internal.js';
 
 export { viteNodeConfig } from './vite/vite.node.js';
 export { viteNpmConfig } from './vite/vite.npm.js';
