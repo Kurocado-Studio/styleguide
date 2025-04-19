@@ -16,12 +16,12 @@ export const semanticReleaseNpmConfig = {
     },
     {
       channel: 'canary',
-      name: 'canary',
+      name: 'develop',
       prerelease: true,
     },
     {
       channel: 'pre/rc',
-      name: 'pre/rc',
+      name: 'pre',
       prerelease: 'rc',
     },
   ],
@@ -30,4 +30,9 @@ export const semanticReleaseNpmConfig = {
     '@semantic-release/github',
     '@semantic-release/npm',
   ],
+};
+
+export const semanticReleaseNpmMonorepoConfig = {
+  ...semanticReleaseNpmConfig,
+  extends: 'semantic-release-monorepo',
 };
