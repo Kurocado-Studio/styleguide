@@ -5,7 +5,7 @@ import { type Options, defineConfig } from 'tsup';
 const tsupOptions: Options = {
   clean: true,
   dts: true,
-  entry: ['./src/index.js'],
+  entry: ['./src/prettier.config.js'],
   format: ['esm'],
   sourcemap: true,
   splitting: true,

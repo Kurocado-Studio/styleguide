@@ -24,7 +24,7 @@ Open `prettier.config.js` in your code editor and add the following configuratio
 export { prettierConfig as default } from '@kurocado-studio/styleguide';
 ```
 
-[See all prettier options](https://github.com/Kurocado-Studio/styleguide/tree/main/src/prettier/index.js)
+[See all prettier options](https://github.com/Kurocado-Studio/styleguide/tree/main/src/prettier/prettier.js)
 
 ## Add scripts
 

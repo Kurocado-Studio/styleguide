@@ -35,3 +35,11 @@ Contributions are always welcome! See
 [contributing](https://kurocado.youtrack.cloud/articles/PLA-A-9/Contributing) for ways to get
 started & please adhere to our
 [code of conduct.](https://kurocado.youtrack.cloud/articles/PLA-A-10/Code-of-Conduct)
+
+## Inspiration & Acknowledgements
+
+The **Kurocado Studio Styleguide** draws inspiration from the excellent [Vercel Style Guide] – their
+approach to shared linting, formatting, and TypeScript conventions helped shape our own philosophy
+and file-layout.
+
+[Vercel Style Guide]: https://github.com/vercel/style-guide

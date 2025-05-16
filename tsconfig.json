@@ -1,5 +1,5 @@
 {
-  "extends": ["./src/tsconfig/tsconfig.node.json"],
+  "extends": ["./src/domain/tsconfig/tsconfig.node.json"],
   "compilerOptions": {
     "declaration": true,
     "skipLibCheck": true,
@@ -7,8 +7,13 @@
     "esModuleInterop": true,
     "outDir": "./dist",
     "resolveJsonModule": true,
+    "moduleResolution": "bundler",
     "rootDir": ".",
     "types": ["eslint-plugin-tsdoc", "node"]
   },
-  "exclude": ["prettier.config.js", "node_modules", "dist", "eslint.config.js"]
+  "include": ["src"],
+  "exclude": [
+    "prettier.config.js", "node_modules", "dist",
+    "eslint.config"
+  ]
 }
