@@ -11,7 +11,7 @@ and clients.
 ## Documentation
 
 For a complete overview of this project's objectives, features, and success criteria, see the
-[documentation](https://kurocado-studio.github.io/styleguide).
+[documentation](https://kurocado-studio.github.io/platform/styleguide.html).
 
 ## Getting Started
 
