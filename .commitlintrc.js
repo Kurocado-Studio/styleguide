@@ -1,1 +1,1 @@
-export { commitLintConfig as default } from './src/commitlint/index.js';
+export { commitlint as default } from './src/infrastructure/commitlint/commitlint.js';

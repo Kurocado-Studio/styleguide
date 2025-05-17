@@ -16,14 +16,14 @@ pnpm i -D commitlint
 
 ## Configure Commitlint
 
-To use our Commitlint configuration, add the following `.commitlintrc.js` file at the root of your
+To use our Commitlint configuration, add the following `.commitlintrc.cjs` file at the root of your
 project.
 
 ```javascript
-export { commitLintConfig as default } from '@kurocado-studio/styleguide';
+export { commitlint as default } from '@kurocado-studio/styleguide';
 ```
 
-**[See commitlint configuration](https://github.com/Kurocado-Studio/styleguide/blob/main/src/commitlint/index.js)**
+**[See commitlint configuration](https://github.com/Kurocado-Studio/styleguide/blob/main/src/commitlint/prettier.js)**
 
 ## Add **scripts**
 

@@ -18,7 +18,7 @@ pnpm install --save-dev semantic-release@23.1.1
 
 ## Configure Semantic Release
 
-- Create a `.releaserc.js` file
+- Create a `.releaserc.cjs` file
 
 **For apps that won't be published on NPM but for which you want to use semantic release.**
 
