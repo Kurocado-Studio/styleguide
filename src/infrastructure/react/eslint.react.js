@@ -2,15 +2,15 @@ import reactPlugin from 'eslint-plugin-react';
 import hooksPlugin from 'eslint-plugin-react-hooks';
 import { get } from 'lodash-es';
 
-import { defineTypescriptEslintConfig } from '../typescript/defineTypescriptEslintConfig';
-import { makeRootPathJoiner } from '../../domain/eslint/utils/makeRootPathJoiner';
-import { reactEslintConfig } from './eslint';
+import { defineConfig } from '../eslint/index.js';
+import { makeRootPathJoiner } from '../../domain/eslint/utils/make-root-path-joiner.js';
+import { reactEslintConfig } from './eslint/index.js';
 
 export const defineReactEslintConfig = (repoRoot = process.cwd()) => {
   const joinRoot = makeRootPathJoiner(repoRoot);
 
   return [
-    ...defineTypescriptEslintConfig(repoRoot),
+    ...defineConfig(repoRoot),
     {
       files: joinRoot('**/*.tsx'),
       languageOptions: { parserOptions: { ecmaFeatures: { jsx: true } } },

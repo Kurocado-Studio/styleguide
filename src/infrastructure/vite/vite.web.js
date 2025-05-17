@@ -1,11 +1,10 @@
 import { vitePlugin as remixVitePlugin } from '@remix-run/dev';
 import react from '@vitejs/plugin-react';
 
-import { viteConfig } from './config';
-import type { UserConfig } from 'vite';
+import { viteConfig } from './config.js';
 import { get } from 'lodash-es';
 
-export const viteWebConfig: UserConfig = {
+export const viteWebConfig = {
   ...viteConfig,
   build: {
     target: 'esnext',

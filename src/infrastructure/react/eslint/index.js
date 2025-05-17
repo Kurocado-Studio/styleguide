@@ -1,4 +1,4 @@
-import { jsxA11yConfig } from './jsxA11y';
+import { jsxA11yConfig } from './jsx.a11y.js';
 
 export const reactEslintConfig = {
   rules: {

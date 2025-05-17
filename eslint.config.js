@@ -1,7 +1,7 @@
-import { eslintNodeConfig } from './src';
+import { defineConfig } from './src/index.js';
 
 export default [
-  ...eslintNodeConfig,
+  ...defineConfig(),
   {
     files: ['src/**'],
     rules: {

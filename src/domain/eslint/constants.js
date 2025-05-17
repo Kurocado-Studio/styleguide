@@ -1,5 +1,5 @@
 export const TS_EXTENSIONS_PREFIX = '{ts,tsx}';
-export const TEST_TAGS = ['test', 'spec'] as const;
+export const TEST_TAGS = ['test', 'spec'];
 export const ECMA_YEAR = 2021;
 
 export const TS_FILES = [`**/*.${TS_EXTENSIONS_PREFIX}`];

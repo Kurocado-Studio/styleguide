@@ -21,7 +21,7 @@ pnpm i -D eslint
 
 ### Browser Configuration
 
-Create a `eslint.config.ts` file with the following content for browser-based projects:
+Create a `eslint.config.cjs` file with the following content for browser-based projects:
 
 ```javascript
 import { defineESLintConfig, eslintReactConfig } from '@kurocado-studio/styleguide';
@@ -31,7 +31,7 @@ export default defineESLintConfig(eslintReactConfig);
 
 ### Node.js Configuration
 
-Create a `eslint.config.mjs` file with the following content for node-based projects:
+Create a `eslint.config.cjs` file with the following content for node-based projects:
 
 ```javascript
 import { defineESLintConfig, eslintNodeConfig } from '@kurocado-studio/styleguide';

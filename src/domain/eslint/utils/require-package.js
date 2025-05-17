@@ -1,6 +1,7 @@
 import { get } from 'lodash-es';
 
-import pkgJson from '../../../../package.json';
+import packageJson from '../../../../package.json';
+import path from 'node:path';
 
 const log = (message = '') => process.stderr.write(`${message}\n`);
 
@@ -16,10 +17,10 @@ function readPackageManager() {
  * @param configName - string configName
  * @param packageName - string packageName
  */
-module.exports = (configName: string, packageName: string) => {
+export const requirePackage = (configName, packageName) => {
   try {
-    require.resolve(packageName);
-  } catch (e) {
+    path.resolve(packageName);
+  } catch (error) {
     const packageManager = readPackageManager();
     const command = packageManager === 'yarn' ? 'add' : 'install';
 
@@ -30,10 +31,8 @@ module.exports = (configName: string, packageName: string) => {
     log('To install it, run:');
     log(
       //@ts-expect-error string interpolation
-      `- ${packageManager} ${command} ${packageName}@${pkgJson.peerDependencies[packageName]}`,
+      `- ${packageManager} ${command} ${packageName}@${packageJson.peerDependencies[packageName]}`,
     );
-    log(get(e, ['message'], 'error'));
-
-    process.exit(1);
+    log(get(error, ['message'], 'error'));
   }
 };

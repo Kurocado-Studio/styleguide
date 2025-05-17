@@ -1,4 +1,4 @@
-import { importConfig } from './import.js';
+import { importConfig } from './import';
 
 export const typescriptEslintConfig = {
   rules: {

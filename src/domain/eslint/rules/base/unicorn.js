@@ -15,7 +15,7 @@ export const unicornConfig = {
           'error',
           {
             case: 'pascalCase',
-            ignore: ['\\.spec\\.tsx', '\\.test\\.tsx'],
+            ignore: [String.raw`\.spec\.tsx`, String.raw`\.test\.tsx`],
           },
         ],
       },

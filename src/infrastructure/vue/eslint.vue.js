@@ -4,23 +4,23 @@ import vueParser from 'vue-eslint-parser';
 import tsParser from '@typescript-eslint/parser';
 import { get } from 'lodash-es';
 
-import { defineTypescriptEslintConfig } from '../typescript/defineTypescriptEslintConfig.js';
-import { makeRootPathJoiner } from '../../domain/eslint/utils/makeRootPathJoiner.js';
+import { defineConfig } from '../eslint/index.js';
+import { makeRootPathJoiner } from '../../domain/eslint/utils/make-root-path-joiner.js';
 
 export const defineVueEslintConfig = (repoRoot = process.cwd()) => {
   const joinRoot = makeRootPathJoiner(repoRoot);
 
   return [
-    ...defineTypescriptEslintConfig(repoRoot),
+    ...defineConfig(repoRoot),
     {
       files: joinRoot('**/*.vue'),
       languageOptions: {
         parser: vueParser,
         parserOptions: {
-          parser: tsParser,
           ecmaVersion: 2021,
-          sourceType: 'module',
           extraFileExtensions: ['.vue'],
+          parser: tsParser,
+          sourceType: 'module',
         },
       },
       plugins: { vue: vuePlugin },

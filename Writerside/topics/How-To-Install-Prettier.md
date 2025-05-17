@@ -18,7 +18,7 @@ pnpm i -D prettier
 
 ## Configure Prettier
 
-Open `prettier.config.js` in your code editor and add the following configuration:
+Open `prettier.config.cjs` in your code editor and add the following configuration:
 
 ```javascript
 export { prettierConfig as default } from '@kurocado-studio/styleguide';

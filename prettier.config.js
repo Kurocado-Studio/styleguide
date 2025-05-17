@@ -6,58 +6,58 @@ export default {
   bracketSpacing: true,
   endOfLine: 'lf',
   importOrder: [
-  '<THIRD_PARTY_MODULES>',
-  '^~/(.*)$',
-  '^@/(.*)$',
-  '^app/(.*)$',
-  '^src/(.*)$',
-  '^[../]',
-  '^./',
-],
+    '<THIRD_PARTY_MODULES>',
+    '^~/(.*)$',
+    '^@/(.*)$',
+    '^app/(.*)$',
+    '^src/(.*)$',
+    '^[../]',
+    '^./',
+  ],
   importOrderParserPlugins: ['jsx', 'typescript', 'decorators-legacy'],
   importOrderSeparation: true,
   importOrderSortSpecifiers: true,
   jsxSingleQuote: true,
   overrides: [
-  {
-    files: ['*.ts'],
-    options: {
-      parser: 'typescript',
+    {
+      files: ['*.ts'],
+      options: {
+        parser: 'typescript',
+      },
     },
-  },
-  {
-    files: ['*.tsx'],
-    options: {
-      parser: 'typescript',
+    {
+      files: ['*.tsx'],
+      options: {
+        parser: 'typescript',
+      },
     },
-  },
-  {
-    files: ['*.js'],
-    options: {
-      parser: 'babel',
+    {
+      files: ['*.js'],
+      options: {
+        parser: 'babel',
+      },
     },
-  },
-  {
-    files: ['*.jsx'],
-    options: {
-      parser: 'babel',
+    {
+      files: ['*.jsx'],
+      options: {
+        parser: 'babel',
+      },
     },
-  },
-  {
-    files: ['*.json'],
-    options: {
-      parser: 'json',
+    {
+      files: ['*.json'],
+      options: {
+        parser: 'json',
+      },
     },
-  },
-  {
-    files: ['*.md'],
-    options: {
-      parser: 'markdown',
-      printWidth: 100,
-      proseWrap: 'always',
+    {
+      files: ['*.md'],
+      options: {
+        parser: 'markdown',
+        printWidth: 100,
+        proseWrap: 'always',
+      },
     },
-  },
-],
+  ],
   plugins: [prettierPluginPackagejson, prettierPluginPackagejson, options],
   printWidth: 80,
   semi: true,
@@ -65,4 +65,4 @@ export default {
   tabWidth: 2,
   trailingComma: 'all',
   useTabs: false,
-}
+};

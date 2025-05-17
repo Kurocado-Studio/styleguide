@@ -1,6 +1,6 @@
 /**
  * These are enabled by `import/recommended`, but are better handled by
- * TypeScript and typescript-eslint.
+ * TypeScript and eslint-eslint.
  */
 export const importConfig = {
   rules: {

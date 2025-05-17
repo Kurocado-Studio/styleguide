@@ -1,10 +1,10 @@
-export const commitLintConfig= {
+export const commitlint = {
   'body-max-line-length': [2, 'always', 200],
   extends: ['@commitlint/config-conventional'],
   'header-max-length': [2, 'always', 90],
   ignores: [
     // dependabot messages are sometimes too long
-    (message: string) => message.startsWith('pnpm'),
+    (message) => message.startsWith('pnpm'),
   ],
   rules: {
     'scope-empty': [2, 'never'],
@@ -48,7 +48,7 @@ export const commitLintConfig= {
 export const commitLintReferenceRequiredConfig = {
   extends: ['@commitlint/config-conventional'],
   rules: {
-    ...commitLintConfig.rules,
+    ...commitlint.rules,
     'references-empty': [2, 'never'],
   },
 };

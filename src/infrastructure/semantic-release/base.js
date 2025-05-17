@@ -1,4 +1,4 @@
-export const semanticReleaseBaseConfig= {
+export const semanticReleaseBaseConfig = {
   branches: ['main'],
   plugins: [
     '@semantic-release/commit-analyzer',

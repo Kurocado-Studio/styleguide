@@ -1,7 +1,7 @@
-import { bestPractice } from './bestPractice.js';
+import { bestPractice } from './best-practice.js';
 import { es6Config } from './es6.js';
 import { importConfig } from './import.js';
-import { possibleErrorsConfig } from './possibleErrors.js';
+import { possibleErrorsConfig } from './possible-errors.js';
 import { stylisticConfig } from './stylistic.js';
 import { unicornConfig } from './unicorn.js';
 import { variablesConfig } from './variables.js';

@@ -1,4 +1,4 @@
-import { semanticReleaseBaseConfig } from './base';
+import { semanticReleaseBaseConfig } from './base.js';
 
 export const semanticReleaseNpmConfig = {
   ...semanticReleaseBaseConfig,
