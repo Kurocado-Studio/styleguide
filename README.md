@@ -26,7 +26,7 @@ For a complete overview of this project's objectives, features, and success crit
 pnpm install @kurocado-studio/styleguide
 ```
 
-Then, follow the [guides](https://kurocado-studio.github.io/styleguide/guides.html) for specific
+Then, follow the [guides](https://kurocado-studio.github.io/platform/styleguide.html) for specific
 configurations
 
 ## Contributing
