@@ -109,4 +109,8 @@
         <description>Created after removal of "PRD" from Kurocado Studio Styleguide</description>
         <accepts>PRD.html</accepts>
     </rule>
+    <rule id="2027b14c">
+        <description>Created after removal of "Overview" from Styleguide</description>
+        <accepts>starter-topic.html</accepts>
+    </rule>
 </rules>
