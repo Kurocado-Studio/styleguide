@@ -4,9 +4,8 @@
 
 <instance-profile id="dcs"
                  name="Styleguide"
-                 start-page="starter-topic.md">
-    <toc-element topic="starter-topic.md"/>
-    <toc-element topic="Guides.md">
+                 start-page="Guides.md">
+    <toc-element topic="Guides.md" accepts-web-file-names-ref="2027b14c">
         <toc-element topic="How-To-Install-Prettier.md"/>
         <toc-element topic="How-To-Install-ESLint.md"/>
         <toc-element topic="How-To-Install-Commitlint.md"/>

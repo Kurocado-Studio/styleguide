@@ -7,7 +7,7 @@
  * Explore our open-source projects: {@link https://github.com/kurocado-studio}
 -->
 
-# Guides
+# Engineering Style Guide
 
 ## Prerequisites
 
