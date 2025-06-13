@@ -1,37 +1,83 @@
-# Kurocado Studio Styleguide
+# Kurocado Studio Engineering Style Guide
 
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](https://kurocado.youtrack.cloud/articles/PRO-A-10/Contributing)
+| Platform   | URL                                                         |
+| ---------- | ----------------------------------------------------------- |
+| NPM        | <https://www.npmjs.com/package/@kurocado-studio/styleguide> |
+| Repository | <https://github.com/Kurocado-Studio/styleguide>             |
+| Releases   | <https://github.com/Kurocado-Studio/styleguide/releases>    |
 
-The Kurocado Studio Styleguide is a comprehensive set of standards, templates, and automation tools
-designed to streamline development workflows, enhance onboarding, and ensure consistency across
-internal and client-facing TypeScript projects. This repository provides the foundational tools and
-guidelines to maintain high code quality and developer efficiency for teams, external contributors,
-and clients.
+**Standardize TypeScript projects with scalable, sharable, and forkable configurations.**
 
-## Documentation
+## Why This Exists
 
-For a complete overview of this project's objectives, features, and success criteria, see the
-[documentation](https://kurocado-studio.github.io/styleguide).
+It provides a single source of truth to hanfor formatting, linting, and commit conventions, enabling
+consistency across Kurocado projects, external contributor work, and client deliverables. It is
+designed to be forkable and extensible while remaining flexible enough for clients to fork, adapt,
+and publish their own versions under `@your-org/client-name-styleguide`.
 
 ## Getting Started
 
-**By cloning the public templates:**
-
-- [**Remix Template**](https://github.com/Kurocado-Studio/styleguide-remix-template)
-- [**NestJS Template**](https://github.com/Kurocado-Studio/styleguide-nests-template)
-
-**By Installing the style guide through NPM on your project:**
+### Install the style guide
 
 ```bash
-pnpm install @kurocado-studio/styleguide
+pnpm add @kurocado-studio/styleguide
 ```
 
-Then, follow the [guides](https://kurocado-studio.github.io/styleguide/guides.html) for specific
-configurations
+Then follow the [official setup guide](https://kurocado-studio.github.io/styleguide) to apply
+configurations.
 
-## Contributing
+### Enable CI/CD pipeline
 
-Contributions are always welcome! See
-[contributing](https://kurocado.youtrack.cloud/articles/PLA-A-9/Contributing) for ways to get
-started & please adhere to our
-[code of conduct.](https://kurocado.youtrack.cloud/articles/PLA-A-10/Code-of-Conduct)
+- [Kurocado Studio platform](https://github.com/Kurocado-Studio/platform)
+- [CI/CD Workflows](https://kurocado-studio.github.io/platform/ci-cd-workflows.html)
+
+```yaml
+# .github/workflows/lint.yml
+uses: kurocado-studio/platform/.github/workflows/lint.yml@main
+```
+
+## Use Cases
+
+1. **Internal Team Adoption** Used by Kurocado Studio developers to enforce consistent engineering
+   standards across all projects.
+
+2. **External Contributor Alignment** Freelancers and contractors follow the same rules without
+   extensive onboarding.
+
+3. **Client Collaboration** Clients may fork and publish a custom style guide to align with their
+   internal policies.
+
+4. **Rapid Prototyping** Spin up fully configured projects on CodeSandbox or similar environments
+   without manual setup.
+
+## Roadmap
+
+- DangerJS integration
+- JavaScript to TypeScript migration helpers
+- Vue 3 and Astro templates
+- Client-styleguide scaffolding CLI
+- Contributor documentation
+
+## Success Criteria
+
+- **Onboarding Speed** Projects start in under 5 minutes using templates.
+
+- **Reduction in Setup Overhead** Linting and formatting issues reduced by 25% through automation.
+
+- **Consistency in Deliverables** All shipped code aligns with shared expectations across
+  contributors and clients.
+
+- **Client Customization** Clients are able to fork and publish their own guides under
+  `@org/client-name-styleguide`.
+
+## Documentation
+
+Full setup instructions are available at:
+[https://kurocado-studio.github.io/styleguide](https://kurocado-studio.github.io/styleguide)
+
+## Acknowledgements
+
+The Kurocado Studio Style Guide was inspired by the [Vercel Style Guide], particularly their
+thoughtful approach to linting, formatting, and consistency in fullstack projects.
+
+[Vercel Style Guide]: https://github.com/vercel/style-guide

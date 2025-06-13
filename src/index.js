@@ -1,29 +1,10 @@
-export {
-  commitLintConfig,
-  commitLintReferenceRequiredConfig,
-} from './commitlint/index.js';
-
-export { eslintBaseConfig } from './eslint/eslint.base.js';
-export { eslintNodeConfig } from './eslint/eslint.node.js';
-export { eslintReactConfig } from './eslint/eslint.react.js';
-
-export { prettierConfig } from './prettier/index.js';
-
-export {
-  semanticReleaseAppConfig,
-  semanticReleaseAppMonorepoConfig,
-} from './semantic-release/semanticRelease.app.js';
-export {
-  semanticReleaseNpmConfig,
-  semanticReleaseNpmMonorepoConfig,
-} from './semantic-release/semanticRelease.npm.js';
-export {
-  semanticReleaseInternalConfig,
-  semanticReleaseInternalMonorepoConfig,
-} from './semantic-release/semanticRelease.internal.js';
-
-export { viteNodeConfig } from './vite/vite.node.js';
-export { viteNpmConfig } from './vite/vite.npm.js';
-export { viteWebConfig } from './vite/vite.web.js';
+export * from './infrastructure/commitlint/index.js';
+export * from './infrastructure/eslint/index.js';
+export * from './infrastructure/node/index.js';
+export * from './infrastructure/prettier/prettier.config.js';
+export * from './infrastructure/react/index.js';
+export * from './infrastructure/semantic-release/index.js';
+export * from './infrastructure/vite/index.js';
+export * from './infrastructure/vue/index.js';
 
 export { defineConfig as defineESLintConfig } from 'eslint-define-config';
